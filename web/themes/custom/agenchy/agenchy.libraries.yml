@@ -1,0 +1,46 @@
+agenchy-lib:
+  version: VERSION
+  css:
+    theme:
+      css/lib/bootstrap.min.css: {}
+      css/lib/animate.min.css: {}
+      css/lib/font-awesome.min.css: {}
+      css/lib/gloryicon.css: {}
+      css/lib/gap-icons.css: {}
+      css/lib/owl.carousel.css: {}
+      css/lib/prettyPhoto.css: {}
+      css/lib/menu.css: {}
+      css/lib/timeline.css: {}
+      revolution/css/settings.css: {}
+      revolution/css/layers.css: {}
+      revolution/css/navigation.css: {}
+      css/theme.css: {}
+      css/theme-responsive.css: {}
+      css/skins/default.css: {}
+      css/custom.css: {}
+      css/update.css: {}
+  js:
+    js/lib/modernizr.js: {}
+    js/lib/bootstrap.min.js: {}
+    js/lib/bootstrapValidator.min.js: {}
+    js/lib/jquery.appear.min.js: {}
+    js/lib/jquery.easing.min.js: {}
+    js/lib/owl.carousel.min.js: {}
+    js/lib/countdown.js: {}
+    js/lib/counter.js: {}
+    js/lib/charts.js: {}
+    js/lib/isotope.pkgd.min.js: {}
+    js/lib/jquery.easypiechart.min.js: {}
+    js/lib/jquery.mb.YTPlayer.min.js: {}
+    js/lib/jquery.prettyPhoto.js: {}
+    js/lib/jquery.stellar.min.js: {}
+    js/lib/menu.js: {}
+    js/lib/theme-panel.js: {}
+    revolution/js/jquery.themepunch.tools.min.js: {}
+    revolution/js/jquery.themepunch.revolution.min.js: {}
+    js/lib/theme-rs.js: {}
+    js/theme.js: {}
+    js/custom.js: {}
+    js/update.js: {}
+  dependencies:
+    - core/jquery

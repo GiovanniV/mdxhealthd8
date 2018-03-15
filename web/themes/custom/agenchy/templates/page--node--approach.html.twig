@@ -1,0 +1,125 @@
+{% set bg_img_url = file_url(node.field_image_approach.entity.uri.value) %}
+{% set website = node.field_wedsite.0.value %}
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+{% set header_style = node.field_header_style.0.value %}
+{% if header_style == '' %}
+  {% set header_style = 'style1' %}
+{% endif %}
+{% set page_header = node.field_page_header.0.value %}
+{% if page_header == '' %}
+  {% set page_header = 'none' %}
+{% endif %}
+
+<!-- Header Begins -->
+{% if header_style == 'style2' %}
+	{% include theme_path ~ "/templates/header/header-2.html.twig" %}
+{% elseif header_style == 'style3' %}
+	{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+{% elseif header_style == 'style4' %}
+	{% include theme_path ~ "/templates/header/header-4.html.twig" %}
+{% elseif header_style == 'style5' %}
+	{% include theme_path ~ "/templates/header/header-5.html.twig" %}
+{% elseif header_style == 'style7' %}
+	{% include theme_path ~ "/templates/header/header-7.html.twig" %}
+{% elseif header_style == 'style8' %}
+	{% include theme_path ~ "/templates/header/header-8.html.twig" %}
+{% elseif header_style == 'style9' %}
+	{% include theme_path ~ "/templates/header/header-9.html.twig" %}
+{% elseif header_style == 'style10' %}
+	{% include theme_path ~ "/templates/header/header-10.html.twig" %}
+{% elseif header_style == 'style1'%}
+	{% include theme_path ~ "/templates/header/header-1.html.twig" %}
+{% endif %}
+<!-- Header Ends -->
+
+<!-- Page Header -->
+{% if page_header == 'default' %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
+{% elseif page_header == 'dark' %}
+	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
+{% elseif page_header == 'small' %}
+	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
+{% elseif page_header == 'center' %}
+	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
+{% elseif page_header == 'button' %}
+	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
+{% elseif page_header == 'contact' %}
+	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
+{% elseif page_header == 'video' %}
+	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
+{% elseif page_header == 'image' %}
+	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
+{% elseif page_header == 'color' %}
+	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
+{% else %}
+{% endif %}
+<!-- Page Header -->
+
+<!-- Model Window -->
+{% if page.model_window %}
+	{{ page.model_window }}
+{% endif %}
+<!-- Model Window -->		
+{% if header_style == 'style6' %}
+	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
+{% endif %}
+
+<!-- Page Main -->
+<div role="main" class="main">
+	<!-- Section -->
+	<section class="typo-dark">
+		<div class="container">
+			<!-- Row -->
+			<div class="row">	
+				<!-- Column -->
+				<div class="col-sm-12">
+					<!-- Content Box -->
+					{{ page.content_full_bar }}
+					<div class="img-box-wrap">
+						<div class="img-box-banner">
+					    	<div class="img-box">
+					    		<img width="500" height="338" alt="{{ title }}" class="img-responsive" src="{{ bg_img_url }}">
+					    	</div>
+					    	<!-- Image Box Links -->
+					    	{% if website %}
+						        <ul class="link-set">
+						        	<li class="agenchy-single-website"><a href="{{ website }}"><i class="icon icon-WorldGlobe"></i>View Website</a></li> 
+						        </ul><!-- Image Box Links -->
+					    	{% endif %}
+					    </div><!-- Image Box Banner -->
+					    <div class="img-box-details">
+					    	<h4 class="title">{{ title }}</h4>
+					        {{ page.content }}
+					    </div><!-- Image Box Details -->
+					</div><!-- Content Box -->
+				</div><!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->
+	</section><!-- Section -->
+</div><!-- Page Main -->
+<!-- Footer -->
+{% set footer_style = node.field_footer_style.0.value %}
+{% if footer_style == '' %}
+  {% set footer_style = 'default' %}
+{% endif %}
+{% if footer_style == 'style2' %}
+	{% include theme_path ~ "/templates/footer/footer-2.html.twig" %}
+{% elseif footer_style == 'style3' %}
+	{% include theme_path ~ "/templates/footer/footer-3.html.twig" %}
+{% elseif footer_style == 'style4' %}
+	{% include theme_path ~ "/templates/footer/footer-4.html.twig" %}
+{% elseif footer_style == 'style5' %}
+	{% include theme_path ~ "/templates/footer/footer-5.html.twig" %}
+{% elseif footer_style == 'style6' %}
+	{% include theme_path ~ "/templates/footer/footer-6.html.twig" %}
+{% elseif footer_style == 'style7' %}
+	{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
+{% elseif footer_style == 'style8' %}
+	{% include theme_path ~ "/templates/footer/footer-8.html.twig" %}
+{% else %}
+	{% include theme_path ~ "/templates/footer/footer-1.html.twig" %}
+{% endif %}
+<!-- Footer -->

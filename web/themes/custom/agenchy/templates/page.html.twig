@@ -1,0 +1,284 @@
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+{% if node.field_header_style.0.value %}
+    {% set header_style = node.field_header_style.0.value%}
+{% else %}
+    {% set header_style = header_style %}
+{% endif %}
+{% if node.field_page_header.0.value %}
+    {% set page_header = node.field_page_header.0.value%}
+{% else %}
+    {% set page_header = page_headers_style %}
+{% endif %}
+{% set page_sidebar = node.field_page_sidebar.0.value %}
+{% if page_sidebar == '' %}
+	{% set page_sidebar = 'none' %}
+{% endif %}
+<!-- Header Begins -->
+{% if header_style == 'style2' %}
+	{% include theme_path ~ "/templates/header/header-2.html.twig" %}
+{% elseif header_style == 'style3' %}
+	{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+{% elseif header_style == 'style4' %}
+	{% include theme_path ~ "/templates/header/header-4.html.twig" %}
+{% elseif header_style == 'style5' %}
+	{% include theme_path ~ "/templates/header/header-5.html.twig" %}
+{% elseif header_style == 'style7' %}
+	{% include theme_path ~ "/templates/header/header-7.html.twig" %}
+{% elseif header_style == 'style8' %}
+	{% include theme_path ~ "/templates/header/header-8.html.twig" %}
+{% elseif header_style == 'style9' %}
+	{% include theme_path ~ "/templates/header/header-9.html.twig" %}
+{% elseif header_style == 'style10' %}
+	{% include theme_path ~ "/templates/header/header-10.html.twig" %}
+{% elseif header_style == 'style1'%}
+	{% include theme_path ~ "/templates/header/header-1.html.twig" %}
+{% endif %}
+<!-- Header Ends -->
+
+<!-- Page Header -->
+{% if page_header == 'default' %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
+{% elseif page_header == 'dark' %}
+	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
+{% elseif page_header == 'small' %}
+	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
+{% elseif page_header == 'center' %}
+	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
+{% elseif page_header == 'button' %}
+	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
+{% elseif page_header == 'contact' %}
+	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
+{% elseif page_header == 'video' %}
+	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
+{% elseif page_header == 'image' %}
+	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
+{% elseif page_header == 'color' %}
+	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
+{% else %}
+{% endif %}
+{% if page.slider %}
+	{{ page.slider }}
+{% endif %}		
+<!-- Page Header -->
+<!-- Model Window -->
+{{ page.model_window }}
+<!-- Model Window -->		
+{% if header_style == 'style6' %}
+	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
+{% endif %}	
+<!-- Page Main -->
+<div role="main" class="main">
+	<!-- Section -->
+	{% if page_sidebar == 'left' %}
+		<!-- Section -->
+		<div class="page-default typo-dark bg-grey">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Sidebar -->
+					{% if page.sidebar_first %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_first }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+					<!-- Page Content -->
+					<div class="col-md-9">
+						<div class="row">
+							{{ page.content_full_bar }}
+							{{ page.content }}
+						</div>
+					</div><!-- Column -->
+				</div><!-- Row -->	
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	{% elseif page_sidebar == 'right' %}
+		<!-- Section -->
+		<div class="page-default typo-dark bg-grey">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Page Content -->
+					<div class="col-md-9">
+						<div class="row">
+							{{ page.content_full_bar }}
+							{{ page.content }}
+						</div>
+					</div><!-- Column -->
+					
+					<!-- Sidebar -->
+					{% if page.sidebar_second %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_second }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+				</div><!-- Row -->	
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	{% elseif page_sidebar == 'both' %}
+		<!-- Section -->
+		<div class="page-default typo-dark bg-grey">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Sidebar -->
+					{% if page.sidebar_first %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_first }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+					
+					<!-- Page Content -->
+					<div class="col-md-6">
+						<div class="row">
+							{{ page.content_full_bar }}
+							{{ page.content }}
+						</div>
+					</div><!-- Column -->
+					
+					<!-- Sidebar -->
+					{% if page.sidebar_second %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_second }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+				</div><!-- Row -->	
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	{% elseif page_sidebar == 'both_left' %}
+		<!-- Section -->
+		<div class="page-default typo-dark bg-grey">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Sidebar -->
+					{% if page.sidebar_first %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_first }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+					<!-- Sidebar -->
+					{% if page.sidebar_second %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_second }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+					<!-- Page Content -->
+					<div class="col-md-6">
+						<!-- Event row  -->
+						<div class="row">
+							{{ page.content_full_bar }}
+							{{ page.content }}
+						</div><!-- row -->
+					</div><!-- Column -->
+				</div><!-- Row -->	
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	{% elseif page_sidebar == 'both_right' %}
+		<!-- Section -->
+		<div class="page-default typo-dark bg-grey">
+			<!-- Container -->
+			<div class="container">
+				<div class="row">
+					<!-- Page Content -->
+					<div class="col-md-6">
+						<!-- Event row  -->
+						<div class="row">
+							{{ page.content_full_bar }}
+							{{ page.content }}
+						</div><!-- row -->
+					</div><!-- Column -->
+					<!-- Sidebar -->
+					{% if page.sidebar_first %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_first }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+					<!-- Sidebar -->
+					{% if page.sidebar_second %}
+					<div class="col-md-3">
+						<!-- aside -->
+						<aside class="sidebar">
+							{{ page.sidebar_second }}
+						</aside><!-- aside -->	
+					</div><!-- Column -->
+					{% endif %}
+				</div><!-- Row -->	
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	{% else %}
+		{{ page.content_full_bar }}
+		{{ page.content }}
+	{% endif %}
+	{% if page.section %}
+		{{ page.section }}
+	{% endif %}
+	{% if page.site_map_column_1 or page.site_map_column_2 or page.site_map_column_3 %}
+        <!-- Section -->
+		<div class="page-default bg-grey">
+			<div class="container">
+				
+				<!-- Row -->
+				<div class="row">
+					<div class="col-sm-4">
+						{{ page.site_map_column_1 }}
+					</div>
+					<div class="col-sm-4">
+						{{ page.site_map_column_2 }}
+					</div>
+					<div class="col-sm-4">
+						{{ page.site_map_column_3 }}
+					</div>
+				</div><!-- Row -->
+			</div><!-- Container -->
+		</div><!-- Page Default -->	
+    {% endif %}
+</div><!-- Page Main -->
+
+<!-- Footer -->
+{% if node.field_footer_style.0.value %}
+    {% set footer_style = node.field_footer_style.0.value%}
+{% else %}
+    {% set footer_style = footer_style %}
+{% endif %}
+{% if footer_style == 'style2' %}
+	{% include theme_path ~ "/templates/footer/footer-2.html.twig" %}
+{% elseif footer_style == 'style3' %}
+	{% include theme_path ~ "/templates/footer/footer-3.html.twig" %}
+{% elseif footer_style == 'style4' %}
+	{% include theme_path ~ "/templates/footer/footer-4.html.twig" %}
+{% elseif footer_style == 'style5' %}
+	{% include theme_path ~ "/templates/footer/footer-5.html.twig" %}
+{% elseif footer_style == 'style6' %}
+	{% include theme_path ~ "/templates/footer/footer-6.html.twig" %}
+{% elseif footer_style == 'style7' %}
+	{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
+{% elseif footer_style == 'style8' %}
+	{% include theme_path ~ "/templates/footer/footer-8.html.twig" %}
+{% else %}
+	{% include theme_path ~ "/templates/footer/footer-1.html.twig" %}
+{% endif %}
+<!-- Footer -->

@@ -1,0 +1,23 @@
+<!-- Theme Panel Switcher -->
+<div id="theme-panel" class="theme-panel close-theme-panel">
+	<!-- Panel Button -->
+	<a class="panel-button"><i class="fa uni-gear fa-spin"></i></a>
+	<!-- Panel Content -->
+	<div class="panel-content">
+    	
+	
+		<!-- Options Content -->
+		<div class="config panel-btns config-layout">
+			<h5 class="title">Layout</h5>
+			<ul class="config-options">
+				<li><a id="layout-config-boxed" href="#">Boxed</a></li>
+				<li><a id="layout-config-wide" href="#">Wide</a></li>
+			</ul><!-- Options Config -->
+		</div><!-- Options Content -->
+		
+		<!-- Options Content -->
+		{% if page.switcher %}
+        	{{ page.switcher }}
+    	{% endif %}<!-- Options Content -->
+	</div><!-- Panel Content -->	
+</div><!-- End Theme Panel Switcher -->

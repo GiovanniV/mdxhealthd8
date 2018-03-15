@@ -1,0 +1,140 @@
+{% set user_name = node.getRevisionAuthor().name.value %}
+{% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% if cases_layout == 'grid' %}
+	<!-- Column -->
+	<div class="col-sm-4">
+		<!-- Case Wrapper -->
+		<div class="case-wrapper">
+			<!-- Case Banner Image -->
+			<div class="case-banner-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_case_image.0.entity.uri.value, 'image_500x338') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+				<span class="cat">{{ content.field_categories_cases }}</span>
+			</div><!-- Case Banner Image -->
+			<!-- Case Detail -->
+			<div class="case-detail-wrap">
+				<!-- Case Member Detail -->
+				<div class="team-wrap">
+					{{ author_picture }}
+					<h5>{% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</h5>
+				</div><!-- Case Member Detail -->
+				<!-- Case Content -->
+				<div class="case-content">
+					<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+					<a href="{{ url }}" class="btn">Know more</a>
+				</div><!-- Case Content -->
+			</div><!-- Case Detail -->
+		</div><!-- Case Wrapper -->
+	</div><!-- Column -->
+{% elseif cases_layout == 'list' %}
+	<!-- List -->
+	<li class="col-sm-12">
+		<!-- Course Wrapper -->
+		<div class="row case-wrapper">
+			<!-- Course Banner Image -->
+			<div class="col-sm-5">
+				<div class="case-banner-wrap">
+					{% set imageoneURL = getUrlByImageStyle(node.field_case_image.0.entity.uri.value, 'image_500x338') %}
+					<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="500" height="220">
+					<span class="cat">{{ content.field_categories_cases }}</span>
+				</div><!-- Course Banner Image -->
+			</div><!-- Column -->	
+			<!-- Course Detail -->
+			<div class="col-sm-7">
+				<div class="case-detail-wrap">
+					<!-- Course Content -->
+					<div class="case-content">
+						<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+						<h5>{% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</h5>
+						<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+						<a href="{{ url }}" class="btn">Know more</a>
+					</div><!-- Course Content -->
+				</div><!-- Course Detail -->
+			</div><!-- Column -->	
+		</div><!-- Course Wrapper -->
+		<!-- Divider -->
+		<hr class="md">
+	</li><!-- List -->
+{% elseif cases_layout == '2_column' %}
+	<!-- Column -->
+	<div class="col-sm-6">
+		<!-- Course Wrapper -->
+		<div class="case-wrapper">
+			<!-- Course Banner Image -->
+			<div class="case-banner-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_case_image.0.entity.uri.value, 'image_500x338') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+				<span class="cat">{{ content.field_categories_cases }}</span>
+			</div><!-- Course Banner Image -->
+			<!-- Course Detail -->
+			<div class="case-detail-wrap">
+				<!-- Course Member Detail -->
+				<div class="team-wrap">
+					{{ author_picture }}
+					<h5>{% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</h5>
+				</div><!-- Course Member Detail -->
+				<!-- Course Content -->
+				<div class="case-content">
+					<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+					<a href="{{ url }}" class="btn">Know more</a>
+				</div><!-- Course Content -->
+			</div><!-- Course Detail -->
+		</div><!-- Course Wrapper -->
+	</div><!-- Column -->
+{% elseif cases_layout == '3_column' %}
+	<!-- Column -->
+	<div class="col-sm-4">
+		<!-- Case Wrapper -->
+		<div class="case-wrapper">
+			<!-- Case Banner Image -->
+			<div class="case-banner-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_case_image.0.entity.uri.value, 'image_500x338') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+				<span class="cat">{{ content.field_categories_cases }}</span>
+			</div><!-- Case Banner Image -->
+			<!-- Case Detail -->
+			<div class="case-detail-wrap">
+				<!-- Case Member Detail -->
+				<div class="team-wrap">
+					{{ author_picture }}
+					<h5>{% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</h5>
+				</div><!-- Case Member Detail -->
+				<!-- Case Content -->
+				<div class="case-content">
+					<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+					<a href="{{ url }}" class="btn">Know more</a>
+				</div><!-- Case Content -->
+			</div><!-- Case Detail -->
+		</div><!-- Case Wrapper -->
+	</div><!-- Column -->
+{% else %}
+	<!-- Column -->
+	<div class="col-md-3 col-sm-6">
+		<!-- Course Wrapper -->
+		<div class="case-wrapper">
+			<!-- Course Banner Image -->
+			<div class="case-banner-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_case_image.0.entity.uri.value, 'image_500x338') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+				<span class="cat">{{ content.field_categories_cases }}</span>
+			</div><!-- Course Banner Image -->
+			<!-- Course Detail -->
+			<div class="case-detail-wrap">
+				<!-- Course Member Detail -->
+				<div class="team-wrap">
+					{{ author_picture }}
+					<h5>{% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</h5>
+				</div><!-- Course Member Detail -->
+				<!-- Course Content -->
+				<div class="case-content">
+					<h5><a href="{{ url }}">{{ node.getTitle() }}</a></h5>
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+					<a href="{{ url }}" class="btn">Know more</a>
+				</div><!-- Course Content -->
+			</div><!-- Course Detail -->
+		</div><!-- Course Wrapper -->
+	</div><!-- Column -->
+{% endif %}

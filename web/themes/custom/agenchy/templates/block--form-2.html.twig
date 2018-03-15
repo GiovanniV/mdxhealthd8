@@ -1,0 +1,24 @@
+<section {{ attributes }}>
+	<!-- Section -->
+	<div class="typo-dark">
+		<!-- Container -->
+		<div class="container agenchy-form-carees">
+			<div class="row">
+				<div id="applynow" class="col-sm-12">
+					<div class="contact-info">
+						<div class="info-icon bg-color info-label label-lg">
+							{% if label %}
+							<span class="title">{{ label }}</span>
+							{% endif %}
+						</div>
+						{{ title_suffix }}
+						{% if content %}
+					      {{ content }}
+					    {% endif %}
+					</div><!-- Contact Info -->
+				</div><!-- Column -->
+				
+			</div><!-- Row -->
+		</div><!-- Container -->
+	</div><!-- Team List Section -->
+</div><!-- Page Default -->	

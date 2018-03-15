@@ -1,0 +1,150 @@
+{% if region == 'search' %}
+	<div {{ attributes }}>
+	  {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'breadcrumb' %}
+        <ol{{ attributes.addClass('breadcrumb') }}>
+        {{ title_prefix }}
+       
+        {{ title_suffix }}
+        {% if content %}
+            {{ content }}
+        {% endif %}
+    </ol>
+{% elseif region == 'top_section'%}
+	<section {{ attributes }}>
+	  	{{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</section>
+{% elseif region == 'footer_1_column_2' or region == 'footer_1_column_3' or region == 'footer_1_column_4' or region == 'footer_6_column_1' or region == 'footer_6_column_2' or region == 'footer_6_column_3' or region == 'footer_6_column_4' or region == 'footer_8_column_1' or region == 'footer_8_column_2' or region == 'footer_8_column_3' or region == 'footer_8_column_4' or region == 'footer_3_column_1' or region == 'footer_5_column_1' or region == 'footer_3_column_2' or region == 'footer_5_column_2' or region == 'footer_3_column_3' or region == 'footer_5_column_3' %}
+		<div {{ attributes.addClass('widget') }}>
+	 		{{ title_prefix }}
+	 		 {% if label %}
+            <h5 class="widget-title">{{ label }}<span></span></h5>
+            {% endif %}
+		    {{ title_suffix }}
+		    {% if content %}
+		      {{ content }}
+		    {% endif %}
+		</div>
+{% elseif region == 'footer_2_column_1' or region == 'footer_7_column_1' %}
+		<div {{ attributes.addClass('widget') }}>
+	 		{{ title_prefix }}
+	 		 {% if label %}
+            <h5 class="widget-title">{{ label }}</h5>
+            {% endif %}
+		    {{ title_suffix }}
+		    {% if content %}
+		      {{ content }}
+		    {% endif %}
+		</div>
+{% elseif region == 'footer_2_column_2' or region == 'footer_7_column_2' %}
+		<div {{ attributes.addClass('widget') }}>
+	 		{{ title_prefix }}
+	 		 {% if label %}
+            <h5>{{ label }}<span></span></h5>
+            {% endif %}
+		    {{ title_suffix }}
+		    {% if content %}
+		      {{ content }}
+		    {% endif %}
+		</div>
+{% elseif region == 'footer_4_column_1' or region == 'footer_4_column_2' or region == 'footer_4_column_3' or region == 'footer_4_column_4' %}
+	<div {{ attributes }}>
+ 		{{ title_prefix }}
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'header_social_bar' %}
+	<ul {{ attributes.addClass('agenchy-header-social') }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</ul>
+{% elseif region == 'footer_top_logo' or region == 'footer_bottom_logo' or region == 'footer_top_left_content' or region == 'footer_1_column_1' or region == 'header_top_2'%}
+	<div {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'header_top_1' or region == 'header_middle'%}
+	<ul {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</ul>
+{% elseif region == 'sidebar_first' or region == 'sidebar_second' %}
+	<div {{ attributes.addClass('widget') }}>
+		{{ title_prefix }}
+ 		{% if label %}
+        	<h5 class="widget-title">{{ label }}<span></span></h5>
+        {% endif %}
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'slider' %}
+  {% set classes = ['rev_slider_wrapper', 'agenchy-slider'] %}
+  <div {{ attributes.addClass(classes) }}>
+    {{ title_suffix }}
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% elseif region == 'blog_sidebar' or region == 'case_sidebar' or region == 'services_sidebar' or region == 'gallery_sidebar' or region == 'shop_sidebar' or region == 'team_sidebar' or region == 'about_sidebar' %}
+	<div {{ attributes.addClass('widget') }}>
+		{{ title_prefix }}
+ 		{% if label %}
+        	<h5 class="widget-title">{{ label }}<span></span></h5>
+        {% endif %}
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div><!-- Widget -->
+{% elseif region == 'section'%}
+	<section {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</section>
+{% elseif region == 'team_bottom_content'%}
+	<div {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'switcher'%}
+	<div {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% elseif region == 'from_contact' or region == 'left_form_contact' or region == 'right_form_contact'%}
+	<div {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</div>
+{% else %}
+  <div {{ attributes }}>
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+{% endif %}

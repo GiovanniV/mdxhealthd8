@@ -1,0 +1,165 @@
+{% set facebook = node.field_facebook.0.value %}
+{% set twitter = node.field_twitter.0.value %}
+{% set mail = node.field_mail.0.value %}
+{% set linkedin = node.field_linkedin.0.value %}
+{% set googleplus = node.field_googleplus.0.value %}
+{% set wordpress = node.field_wordpress.0.value %}
+{% set instagram = node.field_instagram.0.value %}
+{% set quote = node.field_quote.0.value %}
+{% set short_description = node.field_short_description.0.value %}
+{% set job = node.field_job.0.value %}
+{% set single_sidebar = node.field_team_sidebar.0.value %}
+{% if single_sidebar == '' %}
+  {% set single_sidebar = 'none' %}
+{% endif %}
+{% if single_sidebar != 'none' %}
+	<div class="row team-list">
+		<!-- Member Image Column -->
+		<div class="col-md-4">
+			{% if  node.field_avatar|length ==1 %}
+				{% set img_url = getUrlByImageStyle(node.field_avatar.entity.uri.value, 'image_400x500') %}
+				<img class="img-responsive" src="{{ img_url }}" alt="{{ title }}" width="400" height="500">
+			{% elseif node.field_avatar|length >1%}
+				<div class="owl-carousel dots-inline" 
+					data-animatein="" 
+					data-animateout="" 
+					data-items="1" data-margin="" 
+					data-loop="true" 
+					data-merge="true" 
+					data-nav="false" 
+					data-dots="true" 
+					data-stagepadding="" 
+					data-mobile="1" 
+					data-tablet="1" 
+					data-desktopsmall="1"  
+					data-desktop="1" 
+					data-autoplay="false" 
+					data-delay="3000" 
+					data-navigation="true">
+					{% for img in node.field_avatar %}
+	                {% set image_url = getUrlByImageStyle(img.entity.uri.value, 'image_400x500') %}
+	                    <div class="item"><img class="img-responsive" src="{{ image_url }}" alt="{{ title }}" width="400" height="500"></div>
+	                {% endfor %}
+				</div><!-- carousel -->
+			{% endif %}
+		</div><!-- Coloumn -->
+		<!-- Coloumn -->
+		<div class="col-md-8">
+			<div class="member-detail-wrap">
+				<h4 class="member-name">{{ title }}</h4>
+				{% if job %}
+					<span class="position">{{ job }}</span>
+				{% endif %}
+				<div class="share">
+					<h5>{{ 'Connect : '|t }}</h5>
+					<ul class="social-icons color round">
+						{% if facebook %}
+							<li class="facebook"><a title="Facebook" target="_blank" href="{{ facebook }}">Facebook</a></li>
+						{% endif %}
+						{% if twitter %}
+							<li class="twitter"><a title="Twitter" target="_blank" href="{{ twitter }}">Twitter</a></li>
+						{% endif %}
+						{% if linkedin %}
+							<li class="linkedin"><a title="Linkedin" target="_blank" href="{{ linkedin }}">Linkedin</a></li>
+						{% endif %}
+						{% if mail %}
+							<li class="mail"><a title="mail" target="_blank" href="{{ mail }}">mail</a></li>
+						{% endif %}
+						{% if googleplus %}
+							<li class="googleplus"><a title="googleplus" target="_blank" href="{{ googleplus }}">googleplus</a></li>
+						{% endif %}
+						{% if wordpress %}
+							<li class="wordpress"><a title="wordpress" target="_blank" href="{{ wordpress }}">wordpress</a></li>
+						{% endif %}
+						{% if instagram %}
+							<li class="instagram"><a title="instagram" target="_blank" href="{{ instagram }}">instagram</a></li>
+						{% endif %}
+					</ul><!-- Blog Social Share -->
+				</div>
+				{% if quote %}
+					{{ quote|t }}
+				{% endif %}
+			</div><!-- Member Detail Wrapper -->
+		</div><!-- Member Detail Column -->
+		
+		<!-- Column -->
+		<div class="col-md-12 agenchy-single-team-sd">
+			{% if short_description %}
+	        	<p>{{ short_description }}</p>
+	        {% endif %}
+		</div><!-- Column -->
+	</div><!-- Row -->
+{% else %}
+	<div class="row team-list">
+		<!-- Member Image Column -->
+			<div class="col-md-4">
+				{% if  node.field_avatar|length ==1 %}
+				{% set img_url = getUrlByImageStyle(node.field_avatar.entity.uri.value, 'image_400x500') %}
+					<img class="img-responsive" src="{{ img_url }}" alt="{{ title }}" width="400" height="500">
+				{% elseif node.field_avatar|length >1%}
+				<div class="owl-carousel dots-inline" 
+					data-animatein="" 
+					data-animateout="" 
+					data-items="1" data-margin="" 
+					data-loop="true" 
+					data-merge="true" 
+					data-nav="false" 
+					data-dots="true" 
+					data-stagepadding="" 
+					data-mobile="1" 
+					data-tablet="1" 
+					data-desktopsmall="1"  
+					data-desktop="1" 
+					data-autoplay="false" 
+					data-delay="3000" 
+					data-navigation="true">
+					{% for img in node.field_avatar %}
+	                {% set image_url = getUrlByImageStyle(img.entity.uri.value, 'image_400x500') %}
+	                    <div class="item"><img class="img-responsive" src="{{ image_url }}" alt="{{ title }}" width="400" height="500"></div>
+	                {% endfor %}
+				</div><!-- carousel -->
+			{% endif %}
+		</div><!-- Coloumn -->
+		<!-- Coloumn -->
+		<div class="col-md-8">
+			<div class="member-detail-wrap">
+				<h4 class="member-name">{{ title }}</h4>
+				{% if job %}
+					<span class="position">{{ job }}</span>
+				{% endif %}
+				{% if short_description %}
+		        	<p>{{ short_description }}</p>
+		        {% endif %}			
+				<div class="share">
+					<h5>{{ 'Connect : '|t }}</h5>
+					<ul class="social-icons color round">
+						{% if facebook %}
+							<li class="facebook"><a title="Facebook" target="_blank" href="{{ facebook }}">Facebook</a></li>
+						{% endif %}
+						{% if twitter %}
+							<li class="twitter"><a title="Twitter" target="_blank" href="{{ twitter }}">Twitter</a></li>
+						{% endif %}
+						{% if linkedin %}
+							<li class="linkedin"><a title="Linkedin" target="_blank" href="{{ linkedin }}">Linkedin</a></li>
+						{% endif %}
+						{% if mail %}
+							<li class="mail"><a title="mail" target="_blank" href="{{ mail }}">mail</a></li>
+						{% endif %}
+						{% if googleplus %}
+							<li class="googleplus"><a title="googleplus" target="_blank" href="{{ googleplus }}">googleplus</a></li>
+						{% endif %}
+						{% if wordpress %}
+							<li class="wordpress"><a title="wordpress" target="_blank" href="{{ wordpress }}">wordpress</a></li>
+						{% endif %}
+						{% if instagram %}
+							<li class="instagram"><a title="instagram" target="_blank" href="{{ instagram }}">instagram</a></li>
+						{% endif %}
+					</ul><!-- Blog Social Share -->
+				</div>
+				{% if quote %}
+					{{ quote|t }}
+				{% endif %}
+			</div><!-- Member Detail Wrapper -->
+		</div><!-- Member Detail Column -->
+	</div><!-- Row -->
+{% endif %}

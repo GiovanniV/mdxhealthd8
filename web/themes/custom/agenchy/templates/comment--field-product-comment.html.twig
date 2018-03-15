@@ -1,0 +1,20 @@
+<div class="comment-item">
+	<div class="comment comment-agenchy-blog comment-agenchy-product-single">
+		{% if user_picture %}
+		<div class="img-thumbnail">
+			{{ user_picture }}
+		</div>
+		{% endif %}
+		<div class="comment-block">
+			<div class="comment-arrow"></div>
+			<span class="comment-by">
+				<strong>{{ author }}</strong>
+				<span class="pull-right">
+					<span>{{ content.links }}</span>
+				</span>
+			</span><!-- Comment By -->
+			<p>{{ content.comment_body }}</p>
+			<span class="date pull-right">{{ new_indicator_timestamp|date('F d, Y') ~ ' at ' ~ new_indicator_timestamp|date('h:i a') }}</span>
+		</div><!-- Comment Block -->
+	</div><!-- Comment -->
+</div>

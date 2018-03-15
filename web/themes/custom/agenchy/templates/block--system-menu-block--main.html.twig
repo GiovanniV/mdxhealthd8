@@ -1,0 +1,7 @@
+{% set classes = ['nav-main','mega-menu'] %}
+<nav {{ attributes.addClass(classes) }}>
+    {% block content %}
+    	{{ title_suffix }}
+        {{ content }}
+    {% endblock %}
+</nav>

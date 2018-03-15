@@ -1,0 +1,22 @@
+<header id="header" data-plugin-options='{"alwaysStickyEnabled": true}'>
+	<div class="container">
+		<div class="logo">
+            {{ page.header }}
+        </div>
+		{{ page.search }}
+		<nav>
+			{{ page.header_middle }}
+		</nav>
+		<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+			<i class="fa fa-bars"></i>
+		</button>
+	</div>
+	<div class="navbar-collapse nav-main-collapse collapse">
+		<div class="container mega-menu-wide-container">
+			{% if header_social_networks %}
+				{{ header_social_networks|t }}
+			{% endif %}
+			{{ page.main_menu }}
+		</div>
+	</div>
+</header>

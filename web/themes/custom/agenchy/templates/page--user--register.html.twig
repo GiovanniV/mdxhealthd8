@@ -1,0 +1,35 @@
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+<!-- Page Main -->
+<!-- Page Main -->
+<div class="main relative bg-img bg-cover overlay bg-color heavy" data-background="{{ other_page_header_bg }}"  data-stellar-background-ratio="0.5">
+	<!-- Section -->
+	<div class="page-default typo-dark">
+		<!-- Container -->
+		<div class="container">
+			<!-- Row -->
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 parent-has-overlay">
+					<ul class="template-box box-login">
+						<!-- Page Template Logo -->
+						<li class="logo-wrap  text-center">
+							{% if page.header %}
+                                {{page.header}}
+                            {% endif %}
+							<p class="slogan">{{'Create Account'|t}}</p>
+							{{ page.content_full_bar }}
+						</li><!-- Page Template Logo -->
+						<!-- Page Template Content -->
+						<li class="template-content text-left">
+							<div class="contact-form page-user-login">
+								{{ page.content }}
+							</div>	
+						</li><!-- Page Template Content -->
+					</ul>
+				</div><!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->	
+	</div><!-- Page Default -->
+</div><!-- Page Main -->

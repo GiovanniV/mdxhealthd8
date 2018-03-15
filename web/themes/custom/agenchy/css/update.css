@@ -1,0 +1,1100 @@
+#header ul.contextual-links li a{
+	color: #000 !important;
+}
+#header .agenchy-header-social ul.contextual-links li a{
+	display: inline !important;
+}
+.breadcrumb ul.contextual-links li a{
+	color: #000 !important;
+}
+ul.agenchy-primary-tabs li{
+	display: inline-block;
+    margin-bottom: 4px;
+}
+ul.agenchy-primary-tabs li a{
+	color: #000;
+	border-color: #000;
+	padding: 6px 10px 5px;
+    display: block;
+    border: 1px solid #000;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+ul.agenchy-primary-tabs li a:hover{
+	color: #2874f0;
+    background-color: #FDE428;
+    border-color: #FDE428;
+}
+ul.agenchy-primary-tabs li a.is-active{
+    color: #2874f0;
+    background-color: #FDE428;
+    border-color: #FDE428;
+}
+ul.agenchy-primary-tabs{
+	margin-top: 10px;
+}
+.agenchy-block-contact-top-header{
+    float: left;
+    margin: 0;
+}
+.agenchy-block-search form{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.agenchy-block-search form{
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+.agenchy-block-search form input[type = search]{
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    width: 170px;
+    font-size: 0.9em;
+    padding: 6px 12px;
+    height: 34px;
+    margin: 0;
+    -webkit-transition: all 350ms ease-in 350ms;
+    -moz-transition: all 350ms ease-in 350ms;
+    transition: all 350ms ease-in 350ms;
+}
+.agenchy-block-search form input[type = search]:focus{
+    width: 220px;
+    border-color: #CCC;
+}
+.agenchy-block-search form input[type = submit]{
+    border: 0;
+    background: #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    z-index: 3;
+    padding: 0 17px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 13px;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -ms-box-shadow: none;
+    -o-box-shadow: none;
+    border-radius: 0 2px 2px 0;
+    -ms-border-radius: 0 2px 2px 0;
+    -o-border-radius: 0 2px 2px 0;
+    -webkit-transition: all 350ms ease-in 350ms;
+    -moz-transition: all 350ms ease-in 350ms;
+    transition: all 350ms ease-in 350ms;
+}
+.agenchy-block-search form input[type = submit]:focus{
+    font-size: 12px;
+    padding: 0 13px;
+    height: 26px;
+    line-height: 26px;
+    right: 4px;
+    top: 4px;
+    -webkit-transition: all 350ms ease-in 350ms;
+       -moz-transition: all 350ms ease-in 350ms;
+            transition: all 350ms ease-in 350ms;
+}
+.agenchy-block-search form i{
+    position: absolute!important;
+    right: 4px;
+    z-index: 4;
+    color: #fff;
+    top: 10px !important;
+    font-size: 13px;
+}
+.agenchy-block-subscribe form input[type = submit]{
+    margin-top: 10px;
+}
+
+.agenchy-block-subscribe form input[type = submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+}
+.agenchy-block-search-sidebar form input[type = search]{
+    position: relative;
+    padding-right: 59px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.agenchy-block-search-sidebar form input[type = submit]{
+    background-color: #2874f0;
+    border: 1px solid transparent;
+    border-color: #2874f0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    color: #fff;
+    padding: 10px 26px;
+    font-weight: 600;
+    font-size: 14px;
+    position: absolute;
+    height: 50px;
+    line-height: 30px;
+    top: 74px;
+    right: 0;
+    padding-left: 16px;
+    padding-right: 28px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.agenchy-block-search-sidebar form input[type = submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    transition: all 250ms ease-in-out 0s;
+    color: #2874f0;
+
+}
+.agenchy-block-search-sidebar form i{
+    position: absolute;
+    right: 15px;
+    top: 91px;
+    z-index: 1;
+    color: #fff;
+}
+.agenchy-block-contact-model form textarea{
+    height: 150px;
+}
+.comment-agenchy-blog ul.links.inline{
+    display: flex;
+    float: right;
+}
+.comment-agenchy-blog ul.links.inline li{
+    padding: 10px 0 0 10px;
+}
+.comment-agenchy-blog ul.links.inline li.comment-reply{
+    position: relative;
+    padding: 10px 0 0 20px;
+}
+.comment-agenchy-blog ul.links.inline i{
+    position: absolute;
+    color: #2874f0;
+    right: 42px;
+    top: 12px;
+}
+ul.agenchy-add-to-cart-2-column li form input[type=submit]{
+    background-color: #2874f0;
+    color: #fff;
+    padding: 10px 26px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+ul.agenchy-add-to-cart-2-column li form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+ul.agenchy-add-to-cart-2-column li form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+ul.agenchy-add-to-cart-3-column li form input[type=submit]{
+    background-color: #2874f0;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+ul.agenchy-add-to-cart-3-column li form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+ul.agenchy-add-to-cart-3-column li form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+ul.agenchy-add-to-cart-4-column li form input[type=submit]{
+    background-color: #2874f0;
+    color: #fff;
+    padding: 6px 10px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 10px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+ul.agenchy-add-to-cart-4-column li form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+ul.agenchy-add-to-cart-4-column li form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+div.comments {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+div.comments .comment-item {
+    clear: both;
+    padding: 10px 0 0 115px;
+}
+div.comments .comment-item .comment {
+    margin-bottom: 30px;
+}
+div.comments .comment-item .img-thumbnail {
+    margin-left: -115px;
+    position: absolute;
+}
+div.comments .comment-item img {
+    height: 80px;
+    width: 80px;
+}
+.comment-agenchy-product-single{ 
+    border: 1px solid #999;
+}
+.comment-agenchy-product-single .comment-arrow{
+    border-right: 15px solid #999!important;
+}
+div.comments .comment-block {
+    background: #fff;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 20px 20px 30px;
+    position: relative;
+}
+
+div.comments .comment-arrow {
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #fff;
+    border-top: 15px solid transparent;
+    height: 0;
+    left: -15px;
+    position: absolute;
+    top: 28px;
+    width: 0;
+}
+div.comments .comment-block .comment-by {
+    display: block;
+    font-size: 1em;
+    line-height: 21px;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+div.comments .comment-block p {
+    margin: 0;
+}
+div.comments .comment-block .date {
+    color: #999;
+    font-size: 0.9em;
+}
+div.comments .comment-block{
+    background: #fff;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    padding: 40px 40px 40px;
+    position: relative;
+}
+.indented{
+    margin-left: 113px;
+}
+.agenchy-page-comment form input[type=text]{
+    border: 1px solid #ccc;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    padding-left: 15px;
+    width: 100%;
+}
+.agenchy-page-comment form input[type=text]:focus{
+    outline: 0;
+}
+.agenchy-page-comment form input[type=date]{
+    margin-bottom: 10px;
+}
+.agenchy-page-comment form input[type=submit]{
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    color: #fff;
+    padding: 10px 26px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #2874f0;
+    display: inline-block;
+    margin-bottom: 0;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+}
+.agenchy-page-comment form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    transition: all 250ms ease-in-out 0s;
+}
+.agenchy-page-comment form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+.agenchy-categories-cases .panel-heading .panel-title a{
+    background: #fff;
+    color: #171717;
+    margin-bottom: 0;
+}
+.agenchy-categories-cases .panel-heading .panel-title a:hover{
+    background-color: #2874f0;
+    color: #FDE428;
+}
+.review-box li.agenchy-shop-price{
+    margin-left: 0;
+}
+.agenchy-shop-add-to-cart input[type=submit]{
+    text-decoration: underline;
+    color: #2874f0;
+    background-color: transparent;
+    border: 0;
+}
+.agenchy-shop-add-to-cart input[type=submit]:hover{
+    text-decoration: none;
+}
+.agenchy-shop-add-to-cart input[type=submit]:focus{
+    text-decoration: none;
+    outline: none;
+}
+.agenchy-shop-single-name{
+    margin: 0;
+}
+.agenchy-shop-single-author{
+    margin-left: 0!important;
+    margin-bottom: 5px;
+    color: #2874f0;
+}
+.agenchy-page-cart-form form table thead tr th{
+    padding: 18px 11px;
+}
+.agenchy-page-cart-form form table thead tr th.image{
+    width: 7%;
+}
+.agenchy-page-cart-form  #uc-cart-view-form th.desc{
+    width: 55%;
+}
+.agenchy-page-cart-form form table thead tr th.qty{
+    width: 15%;
+}
+.agenchy-page-cart-form #uc-cart-view-form td {
+    border-top: 1px solid #e1e1e1;
+    padding: 12px 10px;
+}
+.agenchy-page-cart-form #uc-cart-view-form td input[type=submit]{
+    padding: 6px 15px;
+}
+.agenchy-page-cart-form #uc-cart-view-form td input[type=number]{
+    height: 3em;
+    padding-left: 23px;
+}
+.agenchy-page-cart-form #uc-cart-view-form .form-actions input[type=submit]{
+    margin-top: 10px;
+}
+.agenchy-page-checkout-form form details summary{
+    padding: 20px 30px;
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    position: relative;
+    background: #f1f1f1;
+    border-left-color: #2874f0;
+    color: #333;
+    background: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 0;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.24);
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.24);
+}
+.agenchy-page-checkout-form form details summary:hover{
+    background-color: #2874f0;
+    -webkit-transition: all 500ms ease-in-out 0s;
+    -moz-transition: all 500ms ease-in-out 0s;
+    -ms-transition: all 500ms ease-in-out 0s;
+    -o-transition: all 500ms ease-in-out 0s;
+    transition: all 500ms ease-in-out 0s;
+}
+.agenchy-page-checkout-form form details summary a{
+    color: #333;
+}
+.agenchy-page-checkout-form form details summary:hover > a{
+    color: white;
+}
+.agenchy-page-checkout-form form details summary:focus{
+    outline: 0;
+}
+
+.agenchy-page-checkout-form form details table{
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    background: #fff;
+}
+.agenchy-page-checkout-form form table thead tr th{
+    padding: 18px 11px;
+}
+.agenchy-page-checkout-form  form table thead th.products{
+    width: 55%;
+}
+.agenchy-page-checkout-form form table thead tr th.qty{
+    width: 15%;
+}
+.agenchy-page-checkout-form form table tbody tr td{
+    border-top: 1px solid #e1e1e1;
+    padding: 12px 10px;
+}
+.agenchy-page-checkout-form form table tfoot tr td{
+    border-top: 1px solid #e1e1e1;
+    padding: 12px 10px;
+}
+.agenchy-page-checkout-form .uc-store-address-field .form-item label {
+    float: none;
+    text-align: left;
+}
+.agenchy-page-checkout-form form input[type=text]{
+   display: block;
+    width: auto;
+    height: 50px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.agenchy-page-checkout-form form input[type=text]:focus{
+    border-color: #2874f0;
+    outline: 0;
+}
+.agenchy-page-review-form .order-review-table{
+    width: 100%;
+}
+.agenchy-page-review-form .cart-review {
+    width: 100%;
+    margin: 0;
+    text-align: left;
+}
+.agenchy-page-review-form table.cart-review thead tr th.qty{
+    width: 20%;
+    text-align: center;
+}
+.agenchy-page-review-form table.cart-review thead tr th{
+    padding: 18px 11px;
+}
+.agenchy-page-review-form table tbody tr td{
+    border-top: 1px solid #e1e1e1;
+    padding: 12px 10px;
+}
+.agenchy-page-review-form .form-actions input[type=submit]{
+   background-color: #2874f0;
+    color: #fff;
+    padding: 8px 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.agenchy-page-review-form .form-actions input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+.agenchy-page-review-form .form-actions input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+.agenchy-single-team-sd{
+    padding-top: 40px;
+}
+.agenchy-list-team-item .static{
+    float: right !important;
+}
+.team-v1-3-column-2-center{
+    text-align: center;
+}
+.team-v1-3-column-2-right{
+    text-align: right;
+}
+.team-v2-3-column-2-center{
+    text-align: center;
+}
+.team-v2-3-column-2-right{
+    text-align: right;
+}
+.team-v1-3-column-bg-white .member-detail-wrap{
+    background-color: #fff;
+}
+.team-v1-3-column-bg-color .member-detail-wrap{
+    background-color: #2874f0 !important;
+}
+.team-v1-3-column-bg-color .member-detail-wrap span{
+    color: #fff;
+}
+.team-v1-3-column-bg-color .member-detail-wrap a{
+    color: #fff;
+}
+.team-v1-3-column-bg-color .member-detail-wrap a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v1-3-column-bg-color .member-detail-wrap a:focus{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v1-3-column-bg-dark .member-detail-wrap{
+    background-color: #252525;
+}
+.team-v1-3-column-bg-dark .member-detail-wrap span{
+    color: #fff;
+}
+.team-v1-3-column-bg-dark .member-detail-wrap a{
+    color: #fff;
+}
+.team-v1-3-column-bg-dark .member-detail-wrap a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v1-3-column-bg-dark .member-detail-wrap a:focus{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v2-3-column-bg-white .member-detail-wrap{
+    background-color: #fff;
+}
+.team-v2-3-column-bg-color .member-detail-wrap{
+    background-color: #2874f0 !important;
+}
+.team-v2-3-column-bg-color .member-detail-wrap span{
+    color: #fff;
+}
+.team-v2-3-column-bg-color .member-detail-wrap a{
+    color: #fff;
+}
+.team-v2-3-column-bg-color .member-detail-wrap a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v2-3-column-bg-color .member-detail-wrap a:focus{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v2-3-column-bg-dark .member-detail-wrap{
+    background-color: #252525;
+}
+.team-v2-3-column-bg-dark .member-detail-wrap span{
+    color: #fff;
+}
+.team-v2-3-column-bg-dark .member-detail-wrap a{
+    color: #fff;
+}
+.team-v2-3-column-bg-dark .member-detail-wrap a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+.team-v2-3-column-bg-dark .member-detail-wrap a:focus{
+    color: #fff;
+    text-decoration: underline;
+}
+.agenchy-single-testimonial-image img{
+    height: 100px;
+    width: 100px;
+}
+.agenchy-color-column-color blockquote{
+    background-color: #2874f0;
+}
+.agenchy-color-column-color .quote-wrap{
+    color: #fff;
+}
+.agenchy-color-column-dark blockquote{
+    background-color: #252525 !important;
+}
+.agenchy-color-column-dark .quote-wrap{
+    color: #fff;
+}
+.agenchy-form-get-quote form div textarea{
+    border: 1px solid transparent;
+    font-size: 14px;
+    color: #555;
+    height: 130px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    padding: 6px 12px;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+.agenchy-form-get-quote form div textarea:focus{
+    border-color: #2874f0;
+    outline: 0;
+}
+.agenchy-form-carees form div textarea{
+    border: 1px solid transparent;
+    font-size: 14px;
+    height: 130px;
+    color: #555;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    padding: 6px 12px;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+.agenchy-form-carees form div textarea:focus{
+    border-color: #2874f0;
+    outline: 0;
+}
+.page-acievements-single img{
+    margin: auto;
+}
+.page-acievements-single{
+    text-align: center;
+
+}
+.page-clients-single img{
+    margin: auto;
+}
+.page-clients-single{
+    text-align: center;
+}
+.agenchy-single-website{
+    min-width: 100% !important;
+}
+.agenchy-single-company-logo{
+    background: #fff none repeat scroll 0 0;
+    display: table;
+    padding: 26px;
+    width: 100%;
+    border: 1px solid transparent;
+    border-bottom-color: #e1e1e1;
+    color: #2874f0;
+}
+.page-user-login form label{
+    float: left;
+}
+.page-user-login form input[type=text]{
+    border: 1px solid transparent;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    transition: all 250ms ease-in-out 0s;
+    margin-bottom: 25px;
+}
+.page-user-login form input[type=text]:focus{
+    border-color: #2874f0;
+    box-shadow: 0;
+    outline: 0;
+
+}
+.page-user-login form input[type=password]{
+    border: 1px solid transparent;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    transition: all 250ms ease-in-out 0s;
+    margin-bottom: 25px;
+}
+.page-user-login form input[type=password]:focus{
+    border-color: #2874f0;
+    box-shadow: 0;
+    outline: 0;
+
+}
+.page-user-login form .description{
+    display: none;
+}
+.page-user-login form input[type=email]{
+    border: 1px solid transparent;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    transition: all 250ms ease-in-out 0s;
+    margin-bottom: 25px;
+}
+.page-user-login form input[type=email]:focus{
+    border-color: #2874f0;
+    box-shadow: 0;
+    outline: 0;
+
+}
+.page-user-login form input[type=file]{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+.big-text{
+    text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.24);
+}
+.agenchy-btn-button a{
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.38);
+    text-shadow: none;
+    line-height: 1.3333333;
+}
+.page-user-login form details summary{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.page-user-login form .description{
+    display: none;
+}
+.page-user-login form input[type=submit]{
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    color: #fff;
+    padding: 10px 26px;
+    font-weight: 600;
+    background-color: #2874f0;
+    font-size: 14px;
+    display: inline-block;
+    transition: all 250ms ease-in-out 0s;
+}
+.page-user-login form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+
+}
+.page-user-login form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+.agenchy-search-page form summary{
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+}
+.agenchy-search-page label{
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 13px;
+    color: #444;
+}
+.agenchy-search-page form input[type=search]{
+    border: 1px solid transparent;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    width: auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    transition: all 250ms ease-in-out 0s;
+    margin-top: 10px;
+}
+.agenchy-search-page form input[type=search]:focus{
+    border-color: #2874f0;
+    box-shadow: 0;
+    outline: 0;
+
+}
+.agenchy-search-page form legend span.fieldset-legend{
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 16px;
+    color: #000;
+}
+.agenchy-search-page fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+.agenchy-search-page fieldset legend{
+    text-transform: uppercase;
+    width: auto;
+    border-bottom: 0px;
+}
+.agenchy-search-page ol > li {
+    border-bottom: 1px solid #cccccc;
+    margin-bottom: 10px;
+}
+.agenchy-search-page form input[type=submit]{
+   background-color: #2874f0;
+    color: #fff;
+    padding: 15px 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.agenchy-search-page form input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+.agenchy-search-page form input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+.agenchy-search-page form .action input[type=submit]{
+   background-color: #2874f0;
+    color: #fff;
+    padding: 15px 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 13px;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.agenchy-search-page form .action input[type=submit]:hover{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    -webkit-transition: all 250ms ease-in-out 0s;
+    -moz-transition: all 250ms ease-in-out 0s;
+    -ms-transition: all 250ms ease-in-out 0s;
+    -o-transition: all 250ms ease-in-out 0s;
+    transition: all 250ms ease-in-out 0s
+}
+.agenchy-search-page form .action input[type=submit]:focus{
+    background: #ffe11b none repeat scroll 0 0;
+    border-color: #ffe11b;
+    color: #2874f0;
+    outline: 0;
+}
+.agenchy-search-page form input[type=text]{
+    border: 1px solid transparent;
+    height: 50px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    display: block;
+    width: auto;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    transition: all 250ms ease-in-out 0s;
+    margin-bottom: 25px;
+}
+.agenchy-search-page form input[type=text]:focus{
+    border-color: #2874f0;
+    box-shadow: 0;
+    outline: 0;
+
+}
+@media (max-width: 767px){
+    .agenchy-btn-button a{
+     display: none;
+    }
+}
+@media (max-width: 640px){
+    div.comments .comment-item .img-thumbnail {
+        display: none;
+    }
+    div.comments .comment-item {
+        clear: both;
+        padding: 0;
+    }
+    .indented{
+        margin-left: 50px;
+    }
+    .comment-agenchy-product-single .comment-arrow{
+        display: none;
+    }
+    
+}

@@ -1,0 +1,65 @@
+{% set bg_img_url = file_url(node.field_header_background.entity.uri.value) %}
+{% set layout_page_404 = node.field_layout_page_404.0.value %}
+{% if layout_page_404 == '' %}
+	{% set layout_page_404 = 'style1' %}
+{% endif %}
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+{% if layout_page_404 == 'style1' %}		
+	<!-- Page Main -->
+	<div class="main relative full-screen bg-img bg-cover overlay bg-color heavy" data-background="{{ bg_img_url }}"  data-stellar-background-ratio="0.5">
+		<!-- Section -->
+		<div class="page-default typo-dark">
+			<!-- Container -->
+			<div class="container">
+				<!-- Row -->
+				<div class="row">
+					<div class="col-md-offset-2 col-md-8">
+						<ul class="template-box box-404 parent-has-overlay">
+							<!-- Page Template Logo -->
+							<li class="logo-wrap">
+								{{ page.header }}
+								<p class="slogan">{{ node.field_slogan_page_404.0.value }}</p>
+							</li><!-- Page Template Logo -->
+							<!-- Page Template Content -->
+							<li class="template-content text-center">				
+								<h1>{{ title }}</h1>
+								{{ page.content_full_bar }}
+								{{ page.content }}
+							</li><!-- Page Template Content -->
+						</ul>
+					</div><!-- Column -->
+				</div><!-- Row -->
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	</div><!-- Page Main -->
+{% else %}
+	<!-- Page Main -->
+	<div class="main relative">
+		<!-- Section -->
+		<div class="page-default typo-dark pad-tb-none">
+			<!-- Container -->
+			<div class="container-fluid">
+				<!-- Row -->
+				<div class="row">
+					<div class="col-md-6 col-eq-height pad-none full-screen">
+						<ul class="template-box vmiddle box-404 type-2 parent-has-overlay shadow-none">
+							<!-- Page Template Content -->
+							<li class="template-content text-center">
+								<h1>{{ title }}</h1>
+								{{ page.content_full_bar }}
+								{{ page.content }}
+							</li><!-- Page Template Content -->
+						</ul>
+					</div><!-- Column -->
+	                
+	                <div class="col-md-6 col-eq-height bg-img bg-cover" data-background="{{ bg_img_url }}"  data-stellar-background-ratio="0.5">
+	                </div>
+	                
+				</div><!-- Row -->
+			</div><!-- Container -->	
+		</div><!-- Page Default -->
+	</div><!-- Page Main -->
+{% endif %}

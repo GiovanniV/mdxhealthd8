@@ -1,0 +1,40 @@
+{% import _self as menus %}
+{{ menus.menu_links(items, attributes, 0) }}
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+        {% set classes_nav = ['nav','nav-pills', 'nav-main'] %}
+      <ul {{ attributes.addClass(classes_nav) }} id="mainMenu">
+    {% else %}
+      <ul class="dropdown-menu">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set classes = [
+          menu_level == 0 ? 'dropdown',
+          menu_level == 1 and item.is_expanded ? 'dropdown-submenu',
+          item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'menu-item--active_trail',
+        ]
+      %}
+
+        <li{{ item.attributes.addClass(classes) }}>
+          {% if item.is_expanded %}
+              {% if menu_level < 1 %}
+                <a href="{{ item.url }}" class="dropdown-toggle">{{ item.title|t }} <i class="fa fa-caret-down"></i></a>
+              {% else %}
+                <a href="{{ item.url }}">{{ item.title|t }}</a>
+              {% endif %}
+          {% else %}
+            <a href="{{ item.url }}">{{ item.title|t }}</a>
+            {% endif %}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+        </li>
+
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
