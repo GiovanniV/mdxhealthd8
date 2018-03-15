@@ -1,0 +1,227 @@
+<?php
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_cronapi().
+ */
+function mdx_press_release_cron() {
+  $press_release_vocabulary_id = 'my_tag';
+  
+  // Load Vocabulary
+  $vocabulary = Vocabulary::load($press_release_vocabulary_id);
+  $vocabulary_id = $vocabulary->id();
+  
+  if(!empty($vocabulary_id)) {
+    $vocabulary->delete(); // Delete if Vocabulary exist
+  }
+  
+  $press_release_vocabulary = [
+    'vid' => $press_release_vocabulary_id,
+    'description' => 'My Tags',
+    'name' => 'My Tag',
+  ];
+  
+  Vocabulary::create($press_release_vocabulary)->save();
+}
+
+/**
+ * Implements hook_cronapi().
+ */
+function mdx_press_release_cronapi() {
+  $items = array();
+
+  $items['example_my_cron_job_1'] = array(
+    'title' => t('This is my cron job #1'),
+    'file' => 'mdx_press_release.jobs.inc',
+    'file path' => drupal_get_path('module', 'mdx_press_release') . '/cron',
+    'callback' => 'mdx_press_release_cron_job_callback',
+    'callback arguments' => array('cronjob1'),
+    'enabled' => FALSE,
+    'tags' => array('example'),
+    'settings' => array(
+      'example_plugin' => array(
+        'example_setting' => 'example_value',
+      ),
+    ),
+    'scheduler' => array(
+      'name' => 'crontab',
+      'crontab' => array(
+        'rules' => array('* * * * *'),
+      ),
+    ),
+    'launcher' => array(
+      'name' => 'serial',
+      'serial' => array(
+        'thread' => 'any',
+      ),
+    ),
+    'logger' => array(
+      'name' => 'cache',
+      'cache' => array(
+        'bin' => 'my_cache_bin',
+      ),
+    ),
+  );
+
+  return $items;
+}
+
+/**
+ * The callback for the cron job,
+ */
+function mdx_press_release_cron_job_callback($job) {
+  
+  
+
+  $categories_vocabulary = 'rajesh'; // Vocabulary machine name
+  $categories = ['test 1', 'test 2', 'test 3', 'test 4']; // List of test terms
+  foreach ($categories as $category) {
+    $term = Term::create(array(
+    'parent' => array(),
+    'name' => $category,
+    'vid' => $categories_vocabulary,
+    ))->save();
+  }
+}
+
+
+/**
+ * Implements hook_cron().
+ */
+function mdx_press_release_cron()
+{
+  $path = 'http://cws.huginonline.com/M/137314/pr_feed_all.xml';
+  $xmlData = simplexml_load_file($path);
+  $flastmod = getFlastmodeTimestamp($xmlData->head->flastmod['date']);
+
+  $press_releases = $xmlData->body->press_releases;
+
+  //get last saved flastmode timestamp
+  $config = \Drupal::config('mdx_press_release.settings');
+  $lastFlast = $config->get('mdx_press_flastmod');
+  
+  // pull data only if there are new press releases
+  if ($flastmod > $lastFlast) {
+  // Set new last flastmode value
+  $config = \Drupal::service('config.factory')->getEditable('mdx_press_release.settings');
+  $config->set('mdx_press_flastmod', $flastmod)->save();
+
+    foreach ($press_releases as $press) {
+      foreach ($press as $single_press) {
+        // check does node exist
+        $nodeId = getNodeIdByPressId($single_press['id']);
+        if ($nodeId == 0) {
+          // node doesn't exist
+          // load single press data
+          $location = simplexml_load_file($single_press->location['href']);
+
+          // go thought all press release detail
+          foreach ($location as $detail_presses) {
+            foreach ($detail_presses as $detail_press) {
+              foreach ($detail_press as $data) {
+                // Ppopulate node with press data
+                $node = new stdClass();
+                $node->type = "mdx_press_release";
+                node_object_prepare($node);
+                $node->title = $data->headline;
+                $node->language = LANGUAGE_NONE;
+                $node->uid = 20;
+                $node->body[$node->language][] = array(
+                  'value'   => $data->main,
+                  'summary' => '', //text_summary($bodytext)
+                  'format'  => 'full_html'
+                );
+
+                $node->press_release_id[$node->language][]['value'] = $data['id'];
+
+                $node->mdx_press_pdf[$node->language][] = array(
+                  'url'   => $data->files->file->location,
+                  'title' => $data->files->file->file_headline,
+                );
+
+                // English category has 2 items in array.
+                if ($data['language'] == 'fr') {
+                  $node->mdx_language_category[$node->language][] = array('tid' => getTerm($data->categories->category['id']));
+                } else {
+                  $node->mdx_language_category[$node->language][] = array('tid' => getTerm($data->categories->category[0]['id']));
+                }
+
+                $node->press_release_date[$node->language][] = array(
+                'value'       => date('Y-m-d H:i:s', strtotime(parseDate($data->published['date']))),
+                'timezone'    => variable_get('date_default_timezone'),
+                'timezone_db' => 'UTC',
+                'date_type'   => 'datetime',
+                );
+
+                $node->status = 1;
+                $node->promote = 0;
+                $node->comment = 0;
+                //$node->path = array('alias' => 'press-release/' . 'test');
+                $node->path['pathauto'] = TRUE;
+                $node->date = parseDate($data->published['date']);
+                $node_save = node_submit($node);
+                node_save($node_save);
+              }
+            }
+          }
+
+        } else {
+          // node exist. For now just ignore him
+          // Here you update existing node
+          // node_load($nodeId);
+          continue;
+        }
+      }
+    }
+  }
+
+}
+
+function getNodeIdByPressId($id) {
+  $query = \Drupal::entityQuery('node');
+  $query->condition('status', 1);
+  $query->condition('type', 'mdx_press_release');
+  $query->condition('press_release_id.value', $id, '=');
+  $ids = $query->execute();
+  
+  $sql = 'SELECT entity_id FROM {field_data_press_release_id} pr WHERE pr.press_release_id_value = :value';
+  $result = db_query($sql, array(':value' => $id));
+
+  if ($result->rowCount() == 1) {
+    foreach ($result as $row) {
+      return $row->entity_id;
+    }
+  } else {
+    return 0;
+  }
+}
+
+function getTerm($termId) {
+  if ($termId == 5) {
+    $term = taxonomy_get_term_by_name('English');
+  } elseif ($termId == 75) {
+    $term = taxonomy_get_term_by_name('French');
+  }
+
+  if (!empty($term)) {
+    $first_term = array_shift($term);
+    return $first_term->tid;
+  }
+}
+
+function prepareUrl($title) {
+  $url = str_replace(' ', '-', $title);
+  return $url;
+}
+
+function getFlastmodeTimestamp($date) {
+  return strtotime(parseDate($date));
+}
+
+function parseDate($date) {
+  $r = explode(' ', $date);
+  return $r[0];
+}
+
+?>
