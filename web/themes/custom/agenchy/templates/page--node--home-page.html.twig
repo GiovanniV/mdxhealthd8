@@ -65,11 +65,34 @@
 {% if header_style == 'style6' %}
 	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
 {% endif %}
+
+<div role="main" class="main"> 
+    <div class="container">
+      <section>
+
+        {% if page.left_content %}
+        <div class="col-sm-6">
+        {{ page.left_content }}
+        </div><!-- Left Content -->
+        {% endif %}
+
+        {% if page.right_content %}
+        <div class="col-sm-6">
+        {{ page.right_content }}
+        </div><!-- Right Content -->
+        {% endif %}
+      
+      </section>
+    </div>
+</div>
+
 <div role="main" class="main">
 	{{ page.content_full_bar }}
 	{% if page.section %}
 		{{ page.section }}
 	{% endif %}
+
+  
 	{{ page.content }}
 
 </div><!-- Page Main -->

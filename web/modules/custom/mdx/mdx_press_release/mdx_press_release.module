@@ -1,28 +1,16 @@
 <?php
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
+use \Drupal\node\Entity\Node;
+use \Drupal\file\Entity\File;
 
 /**
  * Implements hook_cronapi().
  */
-function mdx_press_release_cron() {
-  $press_release_vocabulary_id = 'my_tag';
-  
-  // Load Vocabulary
-  $vocabulary = Vocabulary::load($press_release_vocabulary_id);
-  $vocabulary_id = $vocabulary->id();
-  
-  if(!empty($vocabulary_id)) {
-    $vocabulary->delete(); // Delete if Vocabulary exist
-  }
-  
-  $press_release_vocabulary = [
-    'vid' => $press_release_vocabulary_id,
-    'description' => 'My Tags',
-    'name' => 'My Tag',
-  ];
-  
-  Vocabulary::create($press_release_vocabulary)->save();
+function mdx_press_release_cron__() {
+  //create_vocabulary_custom();
+  //create_custom_vocab_term();
+  //createNode();
 }
 
 /**
@@ -30,12 +18,20 @@ function mdx_press_release_cron() {
  */
 function mdx_press_release_cronapi() {
   $items = array();
-
+  
+  $items['create_vocabulary_custom'] = array(
+    'title' => t('Create Vocabulary Custom'),
+  );
+  
+  $items['create_custom_vocab_term'] = array(
+    'title' => t('create Custom Vocabulary Term'),
+  );
+  
   $items['example_my_cron_job_1'] = array(
     'title' => t('This is my cron job #1'),
-    'file' => 'mdx_press_release.jobs.inc',
-    'file path' => drupal_get_path('module', 'mdx_press_release') . '/cron',
-    'callback' => 'mdx_press_release_cron_job_callback',
+    'file' => 'example.jobs.inc',
+    'file path' => drupal_get_path('module', 'example') . '/cron',
+    'callback' => 'create_vocabulary_custom',
     'callback arguments' => array('cronjob1'),
     'enabled' => FALSE,
     'tags' => array('example'),
@@ -63,18 +59,34 @@ function mdx_press_release_cronapi() {
       ),
     ),
   );
-
+  
   return $items;
 }
 
 /**
  * The callback for the cron job,
  */
-function mdx_press_release_cron_job_callback($job) {
+function create_vocabulary_custom() {
+  $vocabulary_custom = [
+    'vid' => 'custom',
+    'description' => 'Custom Vocab',
+    'name' => 'Custom Vocab',
+  ];
   
+  $vocabulary_custom = [
+    'vid' => 'custom',
+    'description' => 'Custom Vocab',
+    'name' => 'Custom Vocab',
+  ];
   
+  Vocabulary::create($vocabulary_custom)->save();
+}
 
-  $categories_vocabulary = 'rajesh'; // Vocabulary machine name
+/**
+ * The callback for the cron job,
+ */
+function create_custom_vocab_term() {
+  $categories_vocabulary = 'custom'; // Vocabulary machine name
   $categories = ['test 1', 'test 2', 'test 3', 'test 4']; // List of test terms
   foreach ($categories as $category) {
     $term = Term::create(array(
@@ -89,8 +101,7 @@ function mdx_press_release_cron_job_callback($job) {
 /**
  * Implements hook_cron().
  */
-function mdx_press_release_cron()
-{
+function mdx_press_release_cron() {
   $path = 'http://cws.huginonline.com/M/137314/pr_feed_all.xml';
   $xmlData = simplexml_load_file($path);
   $flastmod = getFlastmodeTimestamp($xmlData->head->flastmod['date']);
@@ -100,9 +111,11 @@ function mdx_press_release_cron()
   //get last saved flastmode timestamp
   $config = \Drupal::config('mdx_press_release.settings');
   $lastFlast = $config->get('mdx_press_flastmod');
-  
+  $lastFlast = 0;
+
   // pull data only if there are new press releases
   if ($flastmod > $lastFlast) {
+     
   // Set new last flastmode value
   $config = \Drupal::service('config.factory')->getEditable('mdx_press_release.settings');
   $config->set('mdx_press_flastmod', $flastmod)->save();
@@ -121,47 +134,27 @@ function mdx_press_release_cron()
             foreach ($detail_presses as $detail_press) {
               foreach ($detail_press as $data) {
                 // Ppopulate node with press data
-                $node = new stdClass();
-                $node->type = "mdx_press_release";
-                node_object_prepare($node);
-                $node->title = $data->headline;
-                $node->language = LANGUAGE_NONE;
-                $node->uid = 20;
-                $node->body[$node->language][] = array(
-                  'value'   => $data->main,
-                  'summary' => '', //text_summary($bodytext)
-                  'format'  => 'full_html'
-                );
-
-                $node->press_release_id[$node->language][]['value'] = $data['id'];
-
-                $node->mdx_press_pdf[$node->language][] = array(
-                  'url'   => $data->files->file->location,
-                  'title' => $data->files->file->file_headline,
-                );
-
-                // English category has 2 items in array.
-                if ($data['language'] == 'fr') {
-                  $node->mdx_language_category[$node->language][] = array('tid' => getTerm($data->categories->category['id']));
-                } else {
-                  $node->mdx_language_category[$node->language][] = array('tid' => getTerm($data->categories->category[0]['id']));
-                }
-
-                $node->press_release_date[$node->language][] = array(
-                'value'       => date('Y-m-d H:i:s', strtotime(parseDate($data->published['date']))),
-                'timezone'    => variable_get('date_default_timezone'),
-                'timezone_db' => 'UTC',
-                'date_type'   => 'datetime',
-                );
-
+                $node = Node::create(['type' => 'mdx_press_release']);
+                //Set Node Title
+                $node->set('title', $data->headline);
+                //Set Node Body
+                $node->set('body', ['value' => $data->main, 'format' => 'full_html']);
+                // Set Press Release ID 
+                $node->set('field_press_release_id', $data['id']);
+                // Set Press Release PDF LInk 
+                $node->set('field_mdx_press_pdf', $data->files->file->location);
+                // Upload and Set PDF
+                $press_release_pdf = fileUpload(['url' => $data->files->file->location, 'title' => $data->files->file->file_headline]);
+                $node->set('field_field_press_release_pdf', $press_release_pdf);
+                
+                $node->set('field_mdx_language_category', 37);
+                $node->set('field_press_release_date', [date('Y-m-d H:i:s', strtotime(parseDate($data->published['date'])))]);
+                $node->set('uid', 1);
                 $node->status = 1;
-                $node->promote = 0;
-                $node->comment = 0;
-                //$node->path = array('alias' => 'press-release/' . 'test');
-                $node->path['pathauto'] = TRUE;
+                $node->enforceIsNew();
                 $node->date = parseDate($data->published['date']);
-                $node_save = node_submit($node);
-                node_save($node_save);
+                $node->save();
+                drupal_set_message( "Node with nid " . $node->id() . " saved!\n");
               }
             }
           }
@@ -180,21 +173,12 @@ function mdx_press_release_cron()
 
 function getNodeIdByPressId($id) {
   $query = \Drupal::entityQuery('node');
-  $query->condition('status', 1);
   $query->condition('type', 'mdx_press_release');
-  $query->condition('press_release_id.value', $id, '=');
-  $ids = $query->execute();
-  
-  $sql = 'SELECT entity_id FROM {field_data_press_release_id} pr WHERE pr.press_release_id_value = :value';
-  $result = db_query($sql, array(':value' => $id));
+  $query->condition('field_press_release_id', $id);
+  $results = $query->execute();
 
-  if ($result->rowCount() == 1) {
-    foreach ($result as $row) {
-      return $row->entity_id;
-    }
-  } else {
-    return 0;
-  }
+  return 0;
+
 }
 
 function getTerm($termId) {
@@ -224,4 +208,50 @@ function parseDate($date) {
   return $r[0];
 }
 
+function fileUpload($data) {
+  $pdf_url = $data['url'];             
+  $file_content = file_get_contents($pdf_url);
+  $directory = 'public://PressReleasePDF/';
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
+  $pdf = file_save_data($file_content, $directory . basename($pdf_url), FILE_EXISTS_REPLACE);
+  
+  return [
+    'target_id' => $pdf->id(),
+  ];
+}
+
+function createNode($nodeData = []) {  
+  // Create file object from remote URL.
+  $pdf_url = 'http://www.pdf995.com/samples/pdf.pdf';             
+  $file_content = file_get_contents($pdf_url);
+  $directory = 'public://PressReleasePDF/';
+  file_prepare_directory($directory, FILE_CREATE_DIRECTORY);
+  $pdf = file_save_data($file_content, $directory . basename($pdf_url), FILE_EXISTS_REPLACE);
+
+  //Body can now be an array with a value and a format.
+  //If body field exists.
+  $body = [
+  'value' => 'YOUR_BODY_TEXT', 
+  'format' => 'basic_html',
+  ];
+  
+  $press_release_pdf = [
+    'target_id' => $pdf->id(),
+  ];
+  
+  $node = Node::create(['type' => 'mdx_press_release']);
+  $node->set('title', 'YOUR_TITLE');
+
+  $node->set('body', $body);
+  $node->set('field_field_press_release_pdf', $press_release_pdf);
+  $node->set('field_mdx_press_pdf', $file_url);
+  $node->set('field_press_release_id', 12345);
+  $node->set('field_press_release_date', [ '2017-07-22']);
+  $node->set('field_mdx_language_category', 37);
+  $node->set('uid', 1);
+  $node->status = 1;
+  $node->enforceIsNew();
+  $node->save();
+  drupal_set_message( "Node with nid " . $node->id() . " saved!\n");
+}
 ?>

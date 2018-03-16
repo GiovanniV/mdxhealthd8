@@ -24,14 +24,14 @@ ul.agenchy-primary-tabs li a{
     -o-border-radius: 2px;
 }
 ul.agenchy-primary-tabs li a:hover{
-	color: #2874f0;
-    background-color: #FDE428;
-    border-color: #FDE428;
+	color: #332a86;
+    background-color: #eb7e2a;
+    border-color: #eb7e2a;
 }
 ul.agenchy-primary-tabs li a.is-active{
-    color: #2874f0;
-    background-color: #FDE428;
-    border-color: #FDE428;
+    color: #332a86;
+    background-color: #eb7e2a;
+    border-color: #eb7e2a;
 }
 ul.agenchy-primary-tabs{
 	margin-top: 10px;
@@ -117,8 +117,8 @@ ul.agenchy-primary-tabs{
 }
 
 .agenchy-block-subscribe form input[type = submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
 }
 .agenchy-block-search-sidebar form input[type = search]{
     position: relative;
@@ -132,9 +132,9 @@ ul.agenchy-primary-tabs{
     border-bottom-left-radius: 0;
 }
 .agenchy-block-search-sidebar form input[type = submit]{
-    background-color: #2874f0;
+    background-color: #332a86;
     border: 1px solid transparent;
-    border-color: #2874f0;
+    border-color: #332a86;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-radius: 4px;
@@ -157,10 +157,10 @@ ul.agenchy-primary-tabs{
     border-bottom-left-radius: 0;
 }
 .agenchy-block-search-sidebar form input[type = submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
     transition: all 250ms ease-in-out 0s;
-    color: #2874f0;
+    color: #332a86;
 
 }
 .agenchy-block-search-sidebar form i{
@@ -186,12 +186,12 @@ ul.agenchy-primary-tabs{
 }
 .comment-agenchy-blog ul.links.inline i{
     position: absolute;
-    color: #2874f0;
+    color: #332a86;
     right: 42px;
     top: 12px;
 }
 ul.agenchy-add-to-cart-2-column li form input[type=submit]{
-    background-color: #2874f0;
+    background-color: #332a86;
     color: #fff;
     padding: 10px 26px;
     font-weight: 600;
@@ -211,9 +211,9 @@ ul.agenchy-add-to-cart-2-column li form input[type=submit]{
     border-radius: 4px;
 }
 ul.agenchy-add-to-cart-2-column li form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -221,13 +221,13 @@ ul.agenchy-add-to-cart-2-column li form input[type=submit]:hover{
     transition: all 250ms ease-in-out 0s
 }
 ul.agenchy-add-to-cart-2-column li form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 ul.agenchy-add-to-cart-3-column li form input[type=submit]{
-    background-color: #2874f0;
+    background-color: #332a86;
     color: #fff;
     padding: 8px 12px;
     font-weight: 600;
@@ -247,9 +247,9 @@ ul.agenchy-add-to-cart-3-column li form input[type=submit]{
     border-radius: 4px;
 }
 ul.agenchy-add-to-cart-3-column li form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -257,13 +257,13 @@ ul.agenchy-add-to-cart-3-column li form input[type=submit]:hover{
     transition: all 250ms ease-in-out 0s
 }
 ul.agenchy-add-to-cart-3-column li form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 ul.agenchy-add-to-cart-4-column li form input[type=submit]{
-    background-color: #2874f0;
+    background-color: #332a86;
     color: #fff;
     padding: 6px 10px;
     font-weight: 600;
@@ -283,9 +283,9 @@ ul.agenchy-add-to-cart-4-column li form input[type=submit]{
     border-radius: 4px;
 }
 ul.agenchy-add-to-cart-4-column li form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -293,9 +293,9 @@ ul.agenchy-add-to-cart-4-column li form input[type=submit]:hover{
     transition: all 250ms ease-in-out 0s
 }
 ul.agenchy-add-to-cart-4-column li form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 div.comments {
@@ -399,7 +399,7 @@ div.comments .comment-block{
     padding: 10px 26px;
     font-weight: 600;
     font-size: 14px;
-    background-color: #2874f0;
+    background-color: #332a86;
     display: inline-block;
     margin-bottom: 0;
     line-height: 1.42857143;
@@ -413,15 +413,15 @@ div.comments .comment-block{
     border: 1px solid transparent;
 }
 .agenchy-page-comment form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     transition: all 250ms ease-in-out 0s;
 }
 .agenchy-page-comment form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 .agenchy-categories-cases .panel-heading .panel-title a{
@@ -430,15 +430,15 @@ div.comments .comment-block{
     margin-bottom: 0;
 }
 .agenchy-categories-cases .panel-heading .panel-title a:hover{
-    background-color: #2874f0;
-    color: #FDE428;
+    background-color: #332a86;
+    color: #eb7e2a;
 }
 .review-box li.agenchy-shop-price{
     margin-left: 0;
 }
 .agenchy-shop-add-to-cart input[type=submit]{
     text-decoration: underline;
-    color: #2874f0;
+    color: #332a86;
     background-color: transparent;
     border: 0;
 }
@@ -455,7 +455,7 @@ div.comments .comment-block{
 .agenchy-shop-single-author{
     margin-left: 0!important;
     margin-bottom: 5px;
-    color: #2874f0;
+    color: #332a86;
 }
 .agenchy-page-cart-form form table thead tr th{
     padding: 18px 11px;
@@ -490,7 +490,7 @@ div.comments .comment-block{
     font-weight: 600;
     position: relative;
     background: #f1f1f1;
-    border-left-color: #2874f0;
+    border-left-color: #332a86;
     color: #333;
     background: #fff;
     border: 1px solid #ddd;
@@ -500,7 +500,7 @@ div.comments .comment-block{
     box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.24);
 }
 .agenchy-page-checkout-form form details summary:hover{
-    background-color: #2874f0;
+    background-color: #332a86;
     -webkit-transition: all 500ms ease-in-out 0s;
     -moz-transition: all 500ms ease-in-out 0s;
     -ms-transition: all 500ms ease-in-out 0s;
@@ -562,7 +562,7 @@ div.comments .comment-block{
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .agenchy-page-checkout-form form input[type=text]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     outline: 0;
 }
 .agenchy-page-review-form .order-review-table{
@@ -585,7 +585,7 @@ div.comments .comment-block{
     padding: 12px 10px;
 }
 .agenchy-page-review-form .form-actions input[type=submit]{
-   background-color: #2874f0;
+   background-color: #332a86;
     color: #fff;
     padding: 8px 12px;
     font-weight: 600;
@@ -605,9 +605,9 @@ div.comments .comment-block{
     border-radius: 4px;
 }
 .agenchy-page-review-form .form-actions input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -615,9 +615,9 @@ div.comments .comment-block{
     transition: all 250ms ease-in-out 0s
 }
 .agenchy-page-review-form .form-actions input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 .agenchy-single-team-sd{
@@ -642,7 +642,7 @@ div.comments .comment-block{
     background-color: #fff;
 }
 .team-v1-3-column-bg-color .member-detail-wrap{
-    background-color: #2874f0 !important;
+    background-color: #332a86 !important;
 }
 .team-v1-3-column-bg-color .member-detail-wrap span{
     color: #fff;
@@ -679,7 +679,7 @@ div.comments .comment-block{
     background-color: #fff;
 }
 .team-v2-3-column-bg-color .member-detail-wrap{
-    background-color: #2874f0 !important;
+    background-color: #332a86 !important;
 }
 .team-v2-3-column-bg-color .member-detail-wrap span{
     color: #fff;
@@ -717,7 +717,7 @@ div.comments .comment-block{
     width: 100px;
 }
 .agenchy-color-column-color blockquote{
-    background-color: #2874f0;
+    background-color: #332a86;
 }
 .agenchy-color-column-color .quote-wrap{
     color: #fff;
@@ -741,7 +741,7 @@ div.comments .comment-block{
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
 .agenchy-form-get-quote form div textarea:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     outline: 0;
 }
 .agenchy-form-carees form div textarea{
@@ -757,7 +757,7 @@ div.comments .comment-block{
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
 .agenchy-form-carees form div textarea:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     outline: 0;
 }
 .page-acievements-single img{
@@ -783,7 +783,7 @@ div.comments .comment-block{
     width: 100%;
     border: 1px solid transparent;
     border-bottom-color: #e1e1e1;
-    color: #2874f0;
+    color: #332a86;
 }
 .page-user-login form label{
     float: left;
@@ -809,7 +809,7 @@ div.comments .comment-block{
     margin-bottom: 25px;
 }
 .page-user-login form input[type=text]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     box-shadow: 0;
     outline: 0;
 
@@ -835,7 +835,7 @@ div.comments .comment-block{
     margin-bottom: 25px;
 }
 .page-user-login form input[type=password]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     box-shadow: 0;
     outline: 0;
 
@@ -864,7 +864,7 @@ div.comments .comment-block{
     margin-bottom: 25px;
 }
 .page-user-login form input[type=email]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     box-shadow: 0;
     outline: 0;
 
@@ -904,21 +904,21 @@ div.comments .comment-block{
     color: #fff;
     padding: 10px 26px;
     font-weight: 600;
-    background-color: #2874f0;
+    background-color: #332a86;
     font-size: 14px;
     display: inline-block;
     transition: all 250ms ease-in-out 0s;
 }
 .page-user-login form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
 
 }
 .page-user-login form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 .agenchy-search-page form summary{
@@ -952,7 +952,7 @@ div.comments .comment-block{
     margin-top: 10px;
 }
 .agenchy-search-page form input[type=search]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     box-shadow: 0;
     outline: 0;
 
@@ -978,7 +978,7 @@ div.comments .comment-block{
     margin-bottom: 10px;
 }
 .agenchy-search-page form input[type=submit]{
-   background-color: #2874f0;
+   background-color: #332a86;
     color: #fff;
     padding: 15px 12px;
     font-weight: 600;
@@ -998,9 +998,9 @@ div.comments .comment-block{
     border-radius: 4px;
 }
 .agenchy-search-page form input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -1008,13 +1008,13 @@ div.comments .comment-block{
     transition: all 250ms ease-in-out 0s
 }
 .agenchy-search-page form input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 .agenchy-search-page form .action input[type=submit]{
-   background-color: #2874f0;
+   background-color: #332a86;
     color: #fff;
     padding: 15px 12px;
     font-weight: 600;
@@ -1036,9 +1036,9 @@ div.comments .comment-block{
     margin-bottom: 10px;
 }
 .agenchy-search-page form .action input[type=submit]:hover{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     -webkit-transition: all 250ms ease-in-out 0s;
     -moz-transition: all 250ms ease-in-out 0s;
     -ms-transition: all 250ms ease-in-out 0s;
@@ -1046,9 +1046,9 @@ div.comments .comment-block{
     transition: all 250ms ease-in-out 0s
 }
 .agenchy-search-page form .action input[type=submit]:focus{
-    background: #ffe11b none repeat scroll 0 0;
-    border-color: #ffe11b;
-    color: #2874f0;
+    background: #eb7e2a none repeat scroll 0 0;
+    border-color: #eb7e2a;
+    color: #332a86;
     outline: 0;
 }
 .agenchy-search-page form input[type=text]{
@@ -1072,7 +1072,7 @@ div.comments .comment-block{
     margin-bottom: 25px;
 }
 .agenchy-search-page form input[type=text]:focus{
-    border-color: #2874f0;
+    border-color: #332a86;
     box-shadow: 0;
     outline: 0;
 

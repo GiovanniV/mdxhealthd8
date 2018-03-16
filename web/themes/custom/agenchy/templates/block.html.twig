@@ -113,6 +113,20 @@
 	      {{ content }}
 	    {% endif %}
 	</div><!-- Widget -->
+{% elseif region == 'left_content'%}
+	<section {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</section>
+{% elseif region == 'right_content'%}
+	<section {{ attributes }}>
+	    {{ title_suffix }}
+	    {% if content %}
+	      {{ content }}
+	    {% endif %}
+	</section>
 {% elseif region == 'section'%}
 	<section {{ attributes }}>
 	    {{ title_suffix }}

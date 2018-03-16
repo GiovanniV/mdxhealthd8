@@ -1,0 +1,42 @@
+#footer .footer-search input.form-search {
+  background: #fff;
+  color: #969696;
+}
+#footer .footer-search form {
+  float: right;
+}
+#footer .footer-search .form-submit {
+  background: #f68933;
+}
+#footer .footer-search form input[type = search] {
+  width: 300px;
+  float: right;
+}
+.main section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+#header nav ul.nav-main li a {
+  color: #362269;
+}
+#header nav ul.nav-top li a, #header nav ul.nav-top li span {
+  color: #362269;
+}
+.mdx-orange {
+  color: #eb7e2a !important;
+} 
+.mdx-blue {
+  color: #362269 !important;
+} 
+
+.contextual-region.view .views-field-dropbutton {
+    display: none;
+    position: absolute;
+    right: 0;
+}
+.contextual-region.view:hover .views-field-dropbutton {
+    display: block;
+}
+#theme-panel {
+	display: none;
+}

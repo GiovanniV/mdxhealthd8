@@ -38,22 +38,15 @@
 	{% endif %}
 </div><!-- Page Main -->
 
-<!-- Footer -->
-{% if footer_style == 'style2' %}
-	{% include theme_path ~ "/templates/footer/footer-2.html.twig" %}
-{% elseif footer_style == 'style3' %}
-	{% include theme_path ~ "/templates/footer/footer-3.html.twig" %}
-{% elseif footer_style == 'style4' %}
-	{% include theme_path ~ "/templates/footer/footer-4.html.twig" %}
-{% elseif footer_style == 'style5' %}
-	{% include theme_path ~ "/templates/footer/footer-5.html.twig" %}
-{% elseif footer_style == 'style6' %}
-	{% include theme_path ~ "/templates/footer/footer-6.html.twig" %}
-{% elseif footer_style == 'style7' %}
-	{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
-{% elseif footer_style == 'style8' %}
-	{% include theme_path ~ "/templates/footer/footer-8.html.twig" %}
-{% else %}
-	{% include theme_path ~ "/templates/footer/footer-1.html.twig" %}
-{% endif %}
-<!-- Footer -->
+<div class="col-sm-6">
+	{% if page.left_content %}
+		{{ page.left_content }}
+	{% endif %}
+</div><!-- Left Content -->
+
+<div class="col-sm-6">
+	{% if page.right_content %}
+		{{ page.right_content }}
+	{% endif %}
+</div><!-- Right Content -->
+
