@@ -172,13 +172,17 @@ function mdx_press_release_cron() {
 }
 
 function getNodeIdByPressId($id) {
+  $id = (int) $id;
   $query = \Drupal::entityQuery('node');
+  $query->condition('status', 1);
   $query->condition('type', 'mdx_press_release');
-  $query->condition('field_press_release_id', $id);
+  $query->condition('field_press_release_id.value', 2170850);
   $results = $query->execute();
-
-  return 0;
-
+  
+  if(empty($results)) {
+    return 0;
+  }
+  return 1;
 }
 
 function getTerm($termId) {
