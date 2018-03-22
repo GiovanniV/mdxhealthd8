@@ -15,6 +15,7 @@
 .main section {
   margin-top: 15px;
   margin-bottom: 15px;
+  padding: 0px;
 }
 #header nav ul.nav-main li a {
   color: #362269;
