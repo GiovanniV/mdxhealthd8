@@ -13,8 +13,8 @@
   float: right;
 }
 .main section {
-  padding-top: 15px;
-  padding-bottom: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 #header nav ul.nav-main li a {
   color: #362269;
