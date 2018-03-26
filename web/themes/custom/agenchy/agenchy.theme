@@ -561,6 +561,26 @@ function agenchy_preprocess_page(&$variables) {
 	}		
 }
 function agenchy_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	if($form['#id']== 'views-exposed-form-press-release-page') {
+		$form['#attributes']['class'][] = 'col-sm-12 ptb-2';
+		
+		if(isset($form['language'])) {
+			$form['language']['#prefix'] = '<div class="col-sm-4">';
+			$form['language']['#attributes']['class'][] = 'form-control';
+			$form['language']['#suffix'] = '</div>';
+		}
+		
+		if(isset($form['year'])) {
+			$form['year']['#prefix'] = '<div class="col-sm-4">';
+			$form['year']['#attributes']['class'][] = 'form-control';
+			$form['year']['#suffix'] = '</div>';
+		}
+		
+		if(isset($form['actions']['submit'])) {
+			$form['actions']['#attributes']['class'][] = 'col-sm-4  pt-3';
+			$form['actions']['submit']['#attributes']['class'][] = 'btn';
+		}
+   }
   	if($form_id == 'search_block_form'){
 	  	//unset($form['search_block_form']['#title']); // remove label form
 	    //kint($form['#attributes']);
@@ -695,3 +715,5 @@ function agenchy_form_contact_message_form_alter(&$form, \Drupal\Core\Form\FormS
 	$form['actions']['submit']['#attributes']['value'] = t('Send Now');
 	unset($form['actions']['preview']);
 }
+
+

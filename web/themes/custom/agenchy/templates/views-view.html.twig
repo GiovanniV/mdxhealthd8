@@ -1,4 +1,43 @@
-{% if id == '_agenchy_section_content' %}
+{% if id == 'press_release' and display_id == 'block' %}
+	{%
+		set classes = [
+			dom_id ? 'js-view-dom-id-' ~ dom_id,
+		]
+	%}
+	<div class="container">
+	<div class="row">
+	<div{{ attributes.addClass(classes) }}>
+		{{ title_prefix }}
+		{{ title }}
+		{{ title_suffix }}
+
+		{% if header %}
+			<header>
+				{{ header }}
+			</header>
+		{% endif %}
+
+		{{ exposed }}
+		{{ attachment_before }}
+
+		{{ rows }}
+		{{ empty }}
+		{{ pager }}
+
+		{{ attachment_after }}
+		{{ more }}
+
+		{% if footer %}
+			<footer>
+				{{ footer }}
+			</footer>
+		{% endif %}
+
+		{{ feed_icons }}
+	</div>
+	</div>
+	</div>
+{% elseif id == '_agenchy_section_content' %}
 	{% if display_id == 'block_section_content_latest_post' %}
 			<ul class="thumbnail-widget">
 				{{ rows }}
@@ -1091,6 +1130,7 @@
 		</ul><!-- Options Config -->
 	{% endif %}
 {% elseif id == 'blog'%}
+{% set blog_layout = 'list' %}
 	{% if blog_layout == 'grid' or blog_layout == '3_column' %}
 		<div {{ attributes }}>
 			{{ title_prefix }}
@@ -1131,17 +1171,41 @@
 			</div><!-- Row -->
 		</div>
 	{% elseif blog_layout == 'list' %}
-		<div {{ attributes }}>
-			{{ title_prefix }}
-			{{ title }}
-			{{ title_suffix }}
-			{{ header }}
-		  	{{ rows }}
-		  	{{ attachment_after }}
-		  	{{ empty }}
-		  	{{ footer }}
-		  	{{ pager }}
-		</div>
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ exposed }}
+  {{ attachment_before }}
+
+  {{ rows }}
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>
+
 	{% elseif blog_layout == '2_column' %}
 		<div {{ attributes }}>
 			{{ title_prefix }}
@@ -1583,10 +1647,39 @@
 	    </div>
 	{% endif %}
 {% else %}
-	{{ header }}
-  	{{ rows }}
-  	{{ attachment_after }}
-  	{{ empty }}
-  	{{ footer }}
-  	{{ pager }}
+	{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ exposed }}
+  {{ attachment_before }}
+
+  {{ rows }}
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>
+
 {% endif %}

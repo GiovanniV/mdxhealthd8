@@ -147,7 +147,13 @@ function mdx_press_release_cron() {
                 $press_release_pdf = fileUpload(['url' => $data->files->file->location, 'title' => $data->files->file->file_headline]);
                 $node->set('field_field_press_release_pdf', $press_release_pdf);
                 
-                $node->set('field_mdx_language_category', 37);
+								if ($data['language'] == 'fr') {
+									$node->set('field_mdx_language_category', 37);
+								} 
+								else {
+									$node->set('field_mdx_language_category', 38);
+								}
+								
                 $node->set('field_press_release_date', [date('Y-m-d H:i:s', strtotime(parseDate($data->published['date'])))]);
                 $node->set('uid', 1);
                 $node->status = 1;
