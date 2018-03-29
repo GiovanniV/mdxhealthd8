@@ -154,7 +154,7 @@ function mdx_press_release_cron() {
 									$node->set('field_mdx_language_category', 38);
 								}
 								
-                $node->set('field_press_release_date', [date('Y-m-d H:i:s', strtotime(parseDate($data->published['date'])))]);
+                $node->set('field_press_release_date', [date('m/d/Y H:i:s', strtotime(parseDate($data->published['date'])))]);
                 $node->set('uid', 1);
                 $node->status = 1;
                 $node->enforceIsNew();
