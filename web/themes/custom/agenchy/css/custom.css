@@ -89,3 +89,15 @@
 .pb-3 {
 	padding-bottom: 30px;
 }
+.pl-0 {
+  padding-left: 0px;
+}
+.blog-meta li {
+  color: #332a86;
+}
+.blog-meta li i {
+  color: #fff;
+}
+.sidebar .widget.box {
+  padding: 0;
+}

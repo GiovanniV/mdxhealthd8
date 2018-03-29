@@ -1,250 +1,53 @@
-<!-- Theme Panel Switcher -->
-{% if disable_switch =='on' %}
-    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
-{% endif %}<!-- End Theme Panel Switcher -->
-{% if node.field_header_style.0.value %}
-    {% set header_style = node.field_header_style.0.value%}
-{% else %}
-    {% set header_style = header_style %}
-{% endif %}
-{% if node.field_page_header.0.value %}
-    {% set page_header = node.field_page_header.0.value%}
-{% else %}
-    {% set page_header = page_headers_style %}
-{% endif %}
-{% set page_sidebar = node.field_page_sidebar.0.value %}
-{% if page_sidebar == '' %}
-	{% set page_sidebar = 'none' %}
-{% endif %}
+
 <!-- Header Begins -->
 {% include theme_path ~ "/templates/header/header-3.html.twig" %}
 <!-- Header Ends -->
 
 <!-- Page Header -->
-{% if page_header == 'default' %}
-	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
-{% elseif page_header == 'dark' %}
+{% if page_headers_style == 'dark' %}
 	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
-{% elseif page_header == 'small' %}
+{% elseif page_headers_style == 'small' %}
 	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
-{% elseif page_header == 'center' %}
+{% elseif page_headers_style == 'center' %}
 	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
-{% elseif page_header == 'button' %}
+{% elseif page_headers_style == 'button' %}
 	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
-{% elseif page_header == 'contact' %}
+{% elseif page_headers_style == 'contact' %}
 	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
-{% elseif page_header == 'video' %}
+{% elseif page_headers_style == 'video' %}
 	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
-{% elseif page_header == 'image' %}
+{% elseif page_headers_style == 'image' %}
 	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
-{% elseif page_header == 'color' %}
+{% elseif page_headers_style == 'color' %}
 	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
 {% else %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
 {% endif %}
-{% if page.slider %}
-	{{ page.slider }}
-{% endif %}		
 <!-- Page Header -->
-<!-- Model Window -->
-{{ page.model_window }}
-<!-- Model Window -->		
-{% if header_style == 'style6' %}
-	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
-{% endif %}	
-<!-- Page Main -->
+
+
 <div role="main" class="main">
-	<!-- Section -->
-	{% if page_sidebar == 'left' %}
-		<!-- Section -->
-		<div class="page-default typo-dark bg-grey">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Sidebar -->
-					{% if page.sidebar_first %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_first }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-					<!-- Page Content -->
-					<div class="col-md-9">
-						<div class="row">
-							{{ page.content_full_bar }}
-							{{ page.content }}
-						</div>
-					</div><!-- Column -->
-				</div><!-- Row -->	
-			</div><!-- Container -->	
-		</div><!-- Page Default -->
-	{% elseif page_sidebar == 'right' %}
-		<!-- Section -->
-		<div class="page-default typo-dark bg-grey">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Page Content -->
-					<div class="col-md-9">
-						<div class="row">
-							{{ page.content_full_bar }}
-							{{ page.content }}
-						</div>
-					</div><!-- Column -->
-					
-					<!-- Sidebar -->
-					{% if page.sidebar_second %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_second }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-				</div><!-- Row -->	
-			</div><!-- Container -->	
-		</div><!-- Page Default -->
-	{% elseif page_sidebar == 'both' %}
-		<!-- Section -->
-		<div class="page-default typo-dark bg-grey">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Sidebar -->
-					{% if page.sidebar_first %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_first }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-					
-					<!-- Page Content -->
-					<div class="col-md-6">
-						<div class="row">
-							{{ page.content_full_bar }}
-							{{ page.content }}
-						</div>
-					</div><!-- Column -->
-					
-					<!-- Sidebar -->
-					{% if page.sidebar_second %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_second }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-				</div><!-- Row -->	
-			</div><!-- Container -->	
-		</div><!-- Page Default -->
-	{% elseif page_sidebar == 'both_left' %}
-		<!-- Section -->
-		<div class="page-default typo-dark bg-grey">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Sidebar -->
-					{% if page.sidebar_first %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_first }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-					<!-- Sidebar -->
-					{% if page.sidebar_second %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_second }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-					<!-- Page Content -->
-					<div class="col-md-6">
-						<!-- Event row  -->
-						<div class="row">
-							{{ page.content_full_bar }}
-							{{ page.content }}
-						</div><!-- row -->
-					</div><!-- Column -->
-				</div><!-- Row -->	
-			</div><!-- Container -->	
-		</div><!-- Page Default -->
-	{% elseif page_sidebar == 'both_right' %}
-		<!-- Section -->
-		<div class="page-default typo-dark bg-grey">
-			<!-- Container -->
-			<div class="container">
-				<div class="row">
-					<!-- Page Content -->
-					<div class="col-md-6">
-						<!-- Event row  -->
-						<div class="row">
-							{{ page.content_full_bar }}
-							{{ page.content }}
-						</div><!-- row -->
-					</div><!-- Column -->
-					<!-- Sidebar -->
-					{% if page.sidebar_first %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_first }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-					<!-- Sidebar -->
-					{% if page.sidebar_second %}
-					<div class="col-md-3">
-						<!-- aside -->
-						<aside class="sidebar">
-							{{ page.sidebar_second }}
-						</aside><!-- aside -->	
-					</div><!-- Column -->
-					{% endif %}
-				</div><!-- Row -->	
-			</div><!-- Container -->	
-		</div><!-- Page Default -->
-	{% else %}
-		{{ page.content_full_bar }}
-		{{ page.content }}
-	{% endif %}
-	{% if page.section %}
-		{{ page.section }}
-	{% endif %}
-	{% if page.site_map_column_1 or page.site_map_column_2 or page.site_map_column_3 %}
-        <!-- Section -->
-		<div class="page-default bg-grey">
-			<div class="container">
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-4">
-						{{ page.site_map_column_1 }}
-					</div>
-					<div class="col-sm-4">
-						{{ page.site_map_column_2 }}
-					</div>
-					<div class="col-sm-4">
-						{{ page.site_map_column_3 }}
-					</div>
-				</div><!-- Row -->
-			</div><!-- Container -->
-		</div><!-- Page Default -->	
-    {% endif %}
+	<div class="page-default bg-grey typo-dark">
+		<!-- Container -->
+		<div class="container">
+			<div class="row">
+				{% if page.blog_sidebar %}
+				<div class="col-md-3">
+					<aside class="sidebar">
+					{{ page.blog_sidebar }}
+					</aside>
+				</div>
+				{% endif %}
+				<div class="col-md-9">
+					<ul class="row">
+					{{ page.content }}
+					</ul><!-- Row -->
+				</div><!-- Column -->
+			</div>
+		</div>
+	</div><!-- Page Default -->
 </div><!-- Page Main -->
 
 <!-- Footer -->
-{% if node.field_footer_style.0.value %}
-    {% set footer_style = node.field_footer_style.0.value%}
-{% else %}
-    {% set footer_style = footer_style %}
-{% endif %}
 {% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
 <!-- Footer -->
