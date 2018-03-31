@@ -1,0 +1,93 @@
+{% if services_layout == 'grid' %}
+	<!-- service Column -->
+	<div class="col-sm-4">
+		<!-- service Wrapper -->
+		<div class="service-wrap">
+			<div class="service-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_service_image.0.entity.uri.value, 'image_400x270') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+			</div><!-- service Image Wrapper -->
+			<!-- service Detail Wrapper -->
+			<div class="service-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,300) ~ '...' : node.body.summary }}</p>
+				<a href="{{ url }}" class="btn">Read More</a>
+			</div><!-- service Detail Wrapper -->
+		</div><!-- service Wrap  -->
+	</div><!-- Column -->
+{% elseif services_layout == 'list' %}
+	<!-- Service Column -->
+	<li class="col-xs-12 service-list-wrap">
+		<!-- Service Wrapper -->
+		<div class="row">
+			<!-- Service Image Wrapper -->
+			<div class="col-sm-5">
+				<div class="service-img-wrap">
+					{% set imageoneURL = getUrlByImageStyle(node.field_service_image.0.entity.uri.value, 'image_400x270') %}
+					<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+				</div>
+			</div><!-- Service Image Wrapper -->
+			<!-- Service Detail Wrapper -->
+			<div class="col-sm-7">
+				<div class="service-details">
+					<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,300) ~ '...' : node.body.summary }}</p>
+					<a href="{{ url }}" class="btn">Read more</a>
+				</div><!-- Service details -->
+			</div><!-- Service column -->
+		</div><!-- Service detail Wrapper -->
+		<!-- Divider -->
+		<hr class="md"/>
+	</li><!-- Column -->
+{% elseif services_layout == '2_column' %}
+	<!-- Service Column -->
+	<div class="col-sm-6">
+		<!-- Service Wrapper -->
+		<div class="service-wrap">
+			<div class="service-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_service_image.0.entity.uri.value, 'image_400x270') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+			</div><!-- Service Image Wrapper -->
+			<!-- service Detail Wrapper -->
+			<div class="service-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,300) ~ '...' : node.body.summary }}</p>
+				<a href="{{ url }}" class="btn">Read More</a>
+			</div><!-- service Detail Wrapper -->
+		</div><!-- service Wrap  -->
+	</div><!-- Column -->
+{% elseif services_layout == '3_column' %}
+	<!-- service Column -->
+	<div class="col-sm-4">
+		<!-- service Wrapper -->
+		<div class="service-wrap">
+			<div class="service-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_service_image.0.entity.uri.value, 'image_400x270') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+			</div><!-- service Image Wrapper -->
+			<!-- service Detail Wrapper -->
+			<div class="service-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,300) ~ '...' : node.body.summary }}</p>
+				<a href="{{ url }}" class="btn">Read More</a>
+			</div><!-- service Detail Wrapper -->
+		</div><!-- service Wrap  -->
+	</div><!-- Column -->
+{% else %}
+	<!-- Service Column -->
+	<div class="col-sm-6 col-md-3">
+		<!-- Service Wrapper -->
+		<div class="service-wrap">
+			<div class="service-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_service_image.0.entity.uri.value, 'image_400x270') %}
+				<img alt="{{ node.getTitle() }}" class="img-responsive" src="{{ imageoneURL }}" width="600" height="220">
+			</div><!-- Service Image Wrapper -->
+			<!-- service Detail Wrapper -->
+			<div class="service-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,300) ~ '...' : node.body.summary }}</p>
+				<a href="{{ url }}" class="btn">Read More</a>
+			</div><!-- service Detail Wrapper -->
+		</div><!-- service Wrap  -->
+	</div><!-- Column -->
+{% endif %}

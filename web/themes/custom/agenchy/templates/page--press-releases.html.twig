@@ -1,0 +1,53 @@
+
+<!-- Header Begins -->
+{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+<!-- Header Ends -->
+
+<!-- Page Header -->
+{% if page_headers_style == 'dark' %}
+	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
+{% elseif page_headers_style == 'small' %}
+	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
+{% elseif page_headers_style == 'center' %}
+	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
+{% elseif page_headers_style == 'button' %}
+	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
+{% elseif page_headers_style == 'contact' %}
+	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
+{% elseif page_headers_style == 'video' %}
+	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
+{% elseif page_headers_style == 'image' %}
+	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
+{% elseif page_headers_style == 'color' %}
+	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
+{% else %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
+{% endif %}
+<!-- Page Header -->
+
+
+<div role="main" class="main">
+	<div class="page-default bg-grey typo-dark">
+		<!-- Container -->
+		<div class="container">
+			<div class="row">
+				{% if page.blog_sidebar %}
+				<div class="col-md-3">
+					<aside class="sidebar">
+					{{ page.blog_sidebar }}
+					</aside>
+				</div>
+				{% endif %}
+				<div class="col-md-9">
+					<ul class="row">
+					{{ page.content }}
+					</ul><!-- Row -->
+				</div><!-- Column -->
+			</div>
+		</div>
+	</div><!-- Page Default -->
+</div><!-- Page Main -->
+
+<!-- Footer -->
+{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
+<!-- Footer -->

@@ -1,0 +1,4 @@
+mdx subscription:
+  title: 'MDx Subscription'
+  description: 'MDx Subscription'
+  restrict access: true

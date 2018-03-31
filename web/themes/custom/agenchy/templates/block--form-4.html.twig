@@ -1,0 +1,23 @@
+<!-- Section -->
+<section{{ attributes }}>
+	<div class="container agenchy-form-get-quote">
+		<div class="row">
+			<!-- Column -->
+			<div class="col-md-12">
+				<!-- Title -->
+				<div class="title-container sm text-left">
+					<div class="title-wrap">
+						{% if label %}
+						<h3 class="title">{{ label }}</h3>
+						<span class="separator line-separator"></span>
+						{% endif %}
+					</div>
+				</div><!-- Title -->
+				{{ title_suffix }}
+			    {% if content %}
+			      {{ content }}
+			    {% endif %}
+			</div><!-- Column -->
+		</div><!-- Row -->
+	</div><!-- Container -->
+</section><!-- Section -->

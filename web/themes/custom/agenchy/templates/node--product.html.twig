@@ -1,0 +1,106 @@
+<div class="row">
+	<!-- Member Image Column -->
+	<div class="col-md-5">
+		{% if node.uc_product_image|length ==1%}
+			{% set img_url = file_url(node.uc_product_image.0.entity.uri.value) %}
+			<div class="item"><img class="img-responsive" src="{{ img_url }}" alt="{{ title }}" width="600" height="500"></div>
+		{% elseif node.uc_product_image|length >1%}
+			<div class="owl-carousel dots-inline" 
+				data-animatein="" 
+				data-animateout="" 
+				data-items="1" data-margin="" 
+				data-loop="true" 
+				data-merge="true" 
+				data-nav="false" 
+				data-dots="true" 
+				data-stagepadding="" 
+				data-mobile="1" 
+				data-tablet="1" 
+				data-desktopsmall="1"  
+				data-desktop="1" 
+				data-autoplay="false" 
+				data-delay="3000" 
+				data-navigation="true">
+				{% for img in node.uc_product_image %}
+                {% set image_url = file_url(img.entity.uri.value) %}
+                    <div class="item"><img class="img-responsive" src="{{ image_url }}" alt="{{ title }}" width="600" height="500"></div>
+                {% endfor %}
+			</div><!-- carousel -->
+		{% endif %}
+	</div><!-- Coloumn -->
+	<!-- Coloumn -->
+	<div class="col-md-7">
+		<div class="shop-detail-wrap">
+			<h4 class="product-name agenchy-shop-single-name">{{ title }}</h4>
+			<div class="author agenchy-shop-single-author"><span class="">{{'By'|t}} {{content.field_book_author}}</span></div>
+			<ul class="review-box">
+				<li class="agenchy-shop-price">{{'Price:'|t}} {{ content.price }}</li>
+				<li class="readers agenchy-shop-add-to-cart">{{ content.add_to_cart }}</li>
+			</ul>
+			<div class="share">
+				<h5>{{ 'Share :'|t }}</h5>
+				<ul class="social-icons color round">
+					<li class="facebook"><a title="Facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u={{ pageURL }}&t={{ title }}">{{ 'Facebook'|t }}</a></li>
+					<li class="twitter"><a href="http://twitter.com/share?url={{ pageURL }}&amp;text={{ title }}" target="_blank" title="Twitter">{{ 'Twitter'|t }}</a></li>
+					<li class="linkedin"><a href="https://www.linkedin.com/cws/share?url={{ pageURL }}" target="_blank" title="Linkedin">{{ 'Linkedin'|t }}</a></li>
+					<li class="googleplus"><a href="https://plus.google.com/share?url={{ pageURL }}" target="_blank" title="googleplus">{{ 'googleplus'|t }}</a></li>
+					<li class="pinterest"><a href="http://pinterest.com/pin/create/link/?url={{ pageURL }}" target="_blank" title="pinterest">{{ 'pinterest'|t }}</a></li>
+				</ul><!-- Blog Social Share -->
+			</div>
+			<p class="margin-top-30">{{ content.field_short_description }}</p>
+		</div><!-- Member Detail Wrapper -->
+	</div><!-- Member Detail Column -->
+</div><!-- Row -->
+
+<!-- Product Features -->
+<div class="row margin-top-60">
+	<div class="col-sm-12">
+		<!-- Tab -->
+		<div class="tab"> 
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">{{'Description'|t}}</a></li>
+				<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">{{'Aditional Information'|t}}</a></li>
+				<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Reviews ({{ node.field_product_comment.comment_count }})</a></li>
+			</ul>
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="home">
+					{{ content.field_description }}
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="profile">
+					{{ content.field_aditional_information }}
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="messages">
+					{{ content.field_product_comment }}
+				</div>
+			</div><!-- Tab Content -->
+		</div><!-- Tab -->
+		
+		
+		<!-- Related Products -->
+		{% if is_related_pd == 1 %}
+			<div class="margin-top-50">
+	            <h4 class="title-simple">{{'You might also Read :'|t}} </h4>
+	                <div class="owl-carousel" 
+	                data-animatein="zoomIn" 
+	                data-animateout="slideOutDown" 
+	                data-margin="30" 
+	                data-stagepadding="" 
+	                data-loop="true" 
+	                data-merge="true" 
+	                data-nav="true"
+	                data-dots="false" 
+	                data-items="1"  data-mobile="1" data-tablet="2" data-desktopsmall="2"  data-desktop="3" 
+	                data-autoplay="true" 
+	                data-delay="3000" 
+	                data-navigation="true">
+	                
+	                {% for related_product in related_products %}
+			          	{{ related_product|t }}
+			        {% endfor %}
+	            </div><!-- Owl -->
+	        </div><!-- Related Post -->
+        {% endif %}
+	</div><!-- Product Features -->
+</div><!-- Row -->

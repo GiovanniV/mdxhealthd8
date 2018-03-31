@@ -1,0 +1,168 @@
+
+{% set user_name = node.getRevisionAuthor().name.value %}
+{% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% set comment_c = node.field_blog_comments.comment_count %}
+{% if blog_layout == 'grid' %}
+	<!-- Item Begins -->
+	<div class="col-sm-4">
+		<!-- Blog Grid Wrapper -->
+		<div class="blog-wrap">
+			<!-- Blog Image Wrapper -->
+			<div class="blog-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_blog_image.0.entity.uri.value, 'image_370x220') %}
+				<img width="600" height="220" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+				<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+			</div><!-- Blog Wraper -->
+			<!-- Blog Detail Wrapper -->
+			<div class="blog-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<ul class="blog-meta">
+					<li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+					<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+					<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+				</ul><!-- Blog Meta -->
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+				<a class="btn" href="{{ url }}">Read More</a>
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% elseif blog_layout == 'list' %}
+	<!-- Blog Column -->
+	<li class="col-xs-12 blog-list-wrap">
+		<!-- Blog Wrapper -->
+		<div class="row blog-wrap">
+			<div class="col-sm-5">
+				<div class="blog-img-wrap">
+					{% set  imageoneURL = file_url(node.field_blog_image.0.entity.uri.value) %}
+					<img width="600" height="220" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+					<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+				</div><!-- Blog Image  Wrapper -->
+			</div><!-- Blog Wrapper -->
+			<!-- Blog Detail Wrapper -->
+			<div class="col-sm-7">
+				<div class="blog-details">
+					<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+					<ul class="blog-meta">
+						<li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+						<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+						<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+					</ul><!-- Blog Meta -->
+					<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+					<a class="btn" href="{{ url }}">Read More</a>
+				</div><!-- Blog Detail Wrapper -->
+			</div><!-- Blog Detail Column -->
+		</div><!-- Blog Wrapper -->
+		<!-- Divider -->
+		<hr class="md">
+	</li><!-- Column -->
+{% elseif blog_layout == 'large' %}
+	<!-- Blog Column -->
+	<li class="col-xs-12 blog-large-wrap">
+		<div class="blog-wrap">
+			<div class="blog-img-wrap">
+				{% set imageoneURL = file_url(node.field_blog_image.0.entity.uri.value) %}
+				<img width="1920" height="700" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+				<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+			</div>
+			<!-- Blog Detail Wrapper -->
+			<div class="blog-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<ul class="blog-meta">
+					<li><i class="fa fa-user"></i> {% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</li>
+					<li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+					<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+					<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+					<li><i class="fa fa-folder"></i> {{ content.field_category }}</li>
+				</ul><!-- Blog Meta Details -->
+				
+				<!-- Blog Description -->
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+				<a class="btn" href="{{ url }}">Read More</a>
+				<!-- Blog Share Post -->
+				<div class="share">
+					<h5>{{ 'Share Post :'|t }}</h5>
+					<ul class="social-icons">
+						<li class="facebook"><a href="http://www.facebook.com/sharer.php?u={{ pageURL }}" target="_blank" title="Facebook">{{ 'Facebook'|t }}</a></li>
+						<li class="twitter"><a href="http://twitter.com/share?url={{ pageURL }}&amp;text={{ title }}" target="_blank" title="Twitter">{{ 'Twitter'|t }}</a></li>
+						<li class="linkedin"><a href="http://twitter.com/share?url={{ pageURL }}" target="_blank" title="Linkedin">{{ 'Linkedin'|t }}</a></li>
+						<li class="googleplus"><a href="https://plus.google.com/share?url={{ pageURL }}" target="_blank" title="googleplus">{{ 'googleplus'|t }}</a></li>
+						<li class="pinterest"><a href="https://plus.google.com/share?url={{ pageURL }}" target="_blank" title="pinterest">{{ 'pinterest'|t }}</a></li>
+					</ul>
+				</div><!-- Blog Share Post -->
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+		<!-- Divider -->
+		<hr class="lg">
+	</li><!-- Column -->
+{% elseif blog_layout == '2_column' %}
+	<!-- Item Begins -->
+	<div class="col-sm-6">
+		<!-- Blog Grid Wrapper -->
+		<div class="blog-wrap">
+			<!-- Blog Image Wrapper -->
+			<div class="blog-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_blog_image.0.entity.uri.value, 'image_600x350') %}
+				<img width="600" height="220" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+				<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+			</div><!-- Blog Wraper -->
+			<!-- Blog Detail Wrapper -->
+			<div class="blog-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<ul class="blog-meta">
+					<li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+					<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+					<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+				</ul><!-- Blog Meta -->
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+				<a class="btn" href="{{ url }}">Read More</a>
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% elseif blog_layout == '3_column' %}
+	<!-- Item Begins -->
+	<div class="col-sm-4">
+		<!-- Blog Grid Wrapper -->
+		<div class="blog-wrap">
+			<!-- Blog Image Wrapper -->
+			<div class="blog-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_blog_image.0.entity.uri.value, 'image_370x220') %}
+				<img width="600" height="220" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+				<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+			</div><!-- Blog Wraper -->
+			<!-- Blog Detail Wrapper -->
+			<div class="blog-details">
+				<h4><a href="{{ url }}">{{ node.getTitle() }}</a></h4>
+				<ul class="blog-meta">
+					<li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+					<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+					<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+				</ul><!-- Blog Meta -->
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+				<a class="btn" href="{{ url }}">Read More</a>
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% else %}
+	<!-- Item Begins -->
+	<div class="col-md-3 col-sm-6">
+		<!-- Blog Grid Wrapper -->
+		<div class="blog-wrap">
+			<!-- Blog Image Wrapper -->
+			<div class="blog-img-wrap">
+				{% set imageoneURL = getUrlByImageStyle(node.field_blog_image.0.entity.uri.value, 'image_370x220') %}
+				<img width="600" height="220" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+				<h6 class="post-type">&nbsp;<i class="fa fa-image"></i>&nbsp;</h6>
+			</div><!-- Blog Wraper -->
+			<!-- Blog Detail Wrapper -->
+			<div class="blog-details">
+				<h5><a href="{{ url }}">{{ node.getTitle() }}</a></h5>
+				<ul class="blog-meta">
+					<li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+					<li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+				</ul><!-- Blog Meta -->
+				<p>{{ node.body.summary|length > 300 ? node.body.summary|slice(0,150) ~ '...' : node.body.summary }}</p>
+				<a class="btn" href="{{ url }}">Read More</a>
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% endif %}

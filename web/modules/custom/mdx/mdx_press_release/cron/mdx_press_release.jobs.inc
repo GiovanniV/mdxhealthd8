@@ -1,0 +1,14 @@
+name: MDx Press Release
+description: MDx Press Release
+package: MDx
+
+type: module
+
+dependencies:
+  - drupal:mdx
+  
+# Information added by Drupal.org packaging script on 01-02-2018
+version: '8.x-1.22'
+core: '8.x'
+project: 'mdx'
+datestamp: 1514888588

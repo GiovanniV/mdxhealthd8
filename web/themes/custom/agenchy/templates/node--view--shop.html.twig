@@ -1,0 +1,71 @@
+{% set imageoneURL = file_url(node.uc_product_image.0.entity.uri.value) %}
+{% if shop_layout == '2_column' %}
+	<!-- Item Begins -->
+	<div class="col-sm-6">
+		<!-- Shop Grid Wrapper -->
+		<div class="shop-wrap">
+			<!-- Shop Image Wrapper -->
+			<div class="shop-img-wrap">
+				<img width="500" height="500" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+			</div><!-- Shop Wraper -->
+			<!-- Shop Detail Wrapper -->
+			<div class="product-details">
+				<div class="shop-title-wrap">
+					<h6 class="product-cat">{{ content.field_product_tags }}</h6>
+					<h5 class="product-name"><a href="{{ url }}">{{ node.getTitle() }}</a></h5>
+				</div><!-- Shop Detail Wrapper -->
+				<div class="shop-btns">
+					<ul class="shop-meta agenchy-add-to-cart-2-column">
+						<li>{{ content.add_to_cart }}</li>
+					</ul><!-- Blog Meta -->
+				</div><!-- Shop btns -->
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% elseif shop_layout == '3_column' %}
+	<!-- Item Begins -->
+	<div class="col-sm-4">
+		<!-- Shop Grid Wrapper -->
+		<div class="shop-wrap">
+			<!-- Shop Image Wrapper -->
+			<div class="shop-img-wrap">
+				<img width="500" height="500" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+			</div><!-- Shop Wraper -->
+			<!-- Shop Detail Wrapper -->
+			<div class="product-details">
+				<div class="shop-title-wrap">
+					<h6 class="product-cat">{{ content.field_product_tags }}</h6>
+					<h5 class="product-name"><a href="{{ url }}">{{ node.getTitle() }}</a></h5>
+				</div><!-- Shop Detail Wrapper -->
+				<div class="shop-btns">
+					<ul class="shop-meta agenchy-add-to-cart-3-column">
+						<li>{{ content.add_to_cart }}</li>
+					</ul><!-- Blog Meta -->
+				</div><!-- Shop btns -->
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% else %}
+	<!-- Item Begins -->
+	<div class="col-sm-6 col-md-3">
+		<!-- Shop Grid Wrapper -->
+		<div class="shop-wrap">
+			<!-- Shop Image Wrapper -->
+			<div class="shop-img-wrap">
+				<img width="500" height="500" src="{{ imageoneURL }}" class="img-responsive" alt="{{ node.getTitle() }}">
+			</div><!-- Shop Wraper -->
+			<!-- Shop Detail Wrapper -->
+			<div class="product-details">
+				<div class="shop-title-wrap">
+					<h6 class="product-cat">{{ content.field_product_tags }}</h6>
+					<h5 class="product-name"><a href="{{ url }}">{{ node.getTitle() }}</a></h5>
+				</div><!-- Shop Detail Wrapper -->
+				<div class="shop-btns">
+					<ul class="shop-meta agenchy-add-to-cart-4-column">
+						<li>{{ content.add_to_cart }}</li>
+					</ul><!-- Blog Meta -->
+				</div><!-- Shop btns -->
+			</div><!-- Blog Detail Wrapper -->
+		</div><!-- Blog Wrapper -->
+	</div><!-- Column -->
+{% endif %}

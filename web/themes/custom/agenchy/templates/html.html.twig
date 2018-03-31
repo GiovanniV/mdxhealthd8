@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html{{ html_attributes.addClass( layout_class ) }} style="background-image: url({{ bg_image }});'">
+	<head>
+		<!-- Basic -->
+		<head-placeholder token="{{ placeholder_token|raw }}">
+	    <title>{{ head_title|safe_join(' | ') }}</title>
+	    <css-placeholder token="{{ placeholder_token|raw }}">
+	    <js-placeholder token="{{ placeholder_token|raw }}">
+	    {% if general_setting_tracking_code != '' %}
+	      {{ general_setting_tracking_code|t }}
+	    {% endif %}
+	    {% if custom_css != '' %}
+	      <style type="text/css" media="all">
+	        {{ custom_css|t }}
+	      </style>
+	    {% endif %}
+	</head>
+<body{{ attributes }}>
+	<div id="agenchy-theme-path" class="hidden" data-agenchy-theme-path="{{ base_path ~ theme_path }}"></div>
+	<a href="#main-content" class="visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+  	</a>
+		<!-- Page Loader -->
+		<div id="pageloader">
+			<div class="loader-inner">
+				<img src="{{ base_path~theme_path }}/images/default/preloader.gif" alt="Pre Loader" height="100" width="100">
+			</div>
+		</div><!-- Page Loader -->
+
+		<a href="#0" class="cd-top">Top</a>
+		{{ page_top }}
+		{{ page }}
+		{{ page_bottom }}
+	<js-bottom-placeholder token="{{ placeholder_token|raw }}">	
+
+</body>
+</html>

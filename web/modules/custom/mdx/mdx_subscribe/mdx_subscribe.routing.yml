@@ -1,0 +1,7 @@
+mdx_subscribe.nasdaq_subscription:
+  path: '/subscribe'
+  defaults:
+    _form:  '\Drupal\mdx_subscribe\Form\MdxSubscription'
+    _title: 'Mdx Subscription'
+  requirements:
+    _permission: 'mdx subscription'

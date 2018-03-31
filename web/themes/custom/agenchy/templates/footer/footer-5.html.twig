@@ -1,0 +1,52 @@
+<!-- Footer -->
+<footer id="footer" class="footer-5 transparent parallax-bg overlay heavy bg-img bg-cover" data-background="{{footer_image_bg }}"  data-stellar-background-ratio="0.5">
+	<!-- Main Footer -->
+	<div class="main-footer widgets-dark typo-light parent-has-overlay">
+		<div class="container">
+			<!-- Footer top -->
+			<div class="footer-top">
+				<div class="row">
+					{{ page.footer_top_logo }}
+					
+					<!-- Footer top left Content -->
+					{{ page.footer_top_left_content }}
+					<!-- Count -->
+				</div><!-- Footer top row -->
+			</div><!-- Footer top -->
+			
+			<div class="row">
+				<!-- Widget Column -->
+				<div class="col-md-3">
+					{{ page.footer_5_column_1 }}
+				</div><!-- Column -->
+				
+				<!-- Widget Column -->
+				<div class="col-md-4">
+					{{ page.footer_5_column_2 }}
+				</div><!-- Column -->
+				
+				<!-- Widget Column -->
+				<div class="col-md-5">
+					{{ page.footer_5_column_3 }}
+				</div><!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->		
+	</div><!-- Main Footer -->
+	
+	<!-- Footer Copyright -->
+	<div class="footer-copyright typo-light parent-has-overlay">
+		<div class="container">
+			<div class="row">
+				<!-- Copy Right Content -->
+				{% if copyright_text %}
+					{{ copyright_text|t }}
+				{% endif %}<!-- Copy Right Content -->
+				<!-- Copy Right Content -->
+				<div class="col-md-6">
+					{{ page.menu_footer }}<!-- Nav -->
+				</div><!-- Copy Right Content -->
+			</div><!-- Footer Copyright -->
+		</div><!-- Footer Copyright container -->
+	</div><!-- Footer Copyright -->
+</footer>
+<!-- Footer -->

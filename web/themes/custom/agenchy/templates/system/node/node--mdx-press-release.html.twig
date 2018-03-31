@@ -1,0 +1,29 @@
+{% set user_name = node.getRevisionAuthor().name.value %}
+{% set full_name = node.getRevisionAuthor().field_full_name.value %}
+{% set comment_c = node.field_blog_comments.comment_count %}
+<div class="col-xs-12 blog-single">
+  <div class="blog-single-wrap">
+    <!-- Blog Detail Wrapper -->
+    <div class="blog-single-details">
+      <h4><a href="{{ url }}">{{ title }}</a></h4>
+      <ul class="blog-meta">
+        <li><i class="fa fa-user"></i> {% if full_name %}{{ full_name }}{% else %}{{ user_name }}{% endif %}</li>
+        <li><i class="fa fa-calendar-o"></i>{{ node.created.value|date('M d') }}</li>
+        <li><i class="fa fa-comments"></i> {{ comment_c }}</li>
+        <li><i class="fa fa-eye"></i> {{ getNodeViewCount(node.nid.value) }}</li>
+        <li><i class="fa fa-folder"></i> {{ content.field_category }}</li>
+      </ul>
+      <!-- Blog Meta -->
+      <!-- Blog Description -->
+      {{ content.body }}
+    </div>
+    <!-- Blog Detail Wrapper -->
+  </div>
+  <!-- Blog Wrapper -->
+  
+  <!-- Post Comments -->
+  {{ content.field_blog_comments }}
+  <!-- Post Comments -->
+  
+  <!-- Post Comment Form -->
+</div>

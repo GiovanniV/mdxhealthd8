@@ -1,0 +1,26 @@
+<!-- Page Main -->
+<!-- Header Begins -->
+{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+<!-- Header Ends -->
+{% if page.slider %}
+	{{ page.slider }}
+{% endif %}
+<!-- Model Window -->
+{% if page.model_window %}
+	{{ page.model_window }}
+{% endif %}
+<!-- Model Window -->
+
+<div class="col-sm-12">
+	<div class="col-sm-6">
+		{% if page.left_content %}
+			{{ page.left_content }}
+		{% endif %}
+	</div><!-- Left Content -->
+
+	<div class="col-sm-6">
+		{% if page.right_content %}
+			{{ page.right_content }}
+		{% endif %}
+	</div><!-- Right Content -->
+</div>

@@ -1,0 +1,719 @@
+<?php
+global $base_url;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\UrlHelper;
+function agenchy_css_alter(&$css) {
+	$theme_path = drupal_get_path('theme', 'agenchy');
+	// Add googlefonts.
+	$googlefonts = 'https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700|Playfair+Display:400,900italic,900,700italic,700,400italic';
+
+	//google font
+	$css[$googlefonts] = array(
+	'data' => $googlefonts,
+	'type' => 'external',
+	'every_page' => TRUE,
+	'media' => 'all',
+	'preprocess' => FALSE,
+	'group' => CSS_AGGREGATE_THEME,
+	'browsers' => array('IE' => TRUE, '!IE' => TRUE),
+	'weight' => -1,
+	);
+}
+
+function agenchy_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+	if ($node = \Drupal::routeMatch()->getParameter('node')) {
+		$suggestions[] = 'page__node__' . $node->getType();
+	}
+}
+function agenchy_preprocess_block(&$variables) {
+	$blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'contact_form', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]); 
+	$arr_block = array();
+	foreach($blocks_name as $k => $v){
+		$block = \Drupal\block\Entity\Block::load($k);
+		$arr_block[$k] = (\Drupal::entityManager()->getViewBuilder('block')->view($block));
+	}
+	if(isset($arr_block) && !empty($arr_block)){
+		$variables['region_contact_form'] = $arr_block;
+	}	
+
+	//get region in block.html.twig
+	//if config as block base
+	//kint($variables['elements']['#id'])
+	global $base_url;
+	switch ($variables['base_plugin_id']) {
+	    case 'system_branding_block':
+	      $variables['site_logo'] = '';
+	      if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+	        $variables['site_logo'] = str_replace('.svg', '.png', $variables['content']['site_logo']['#uri']);
+	      }
+	    break;
+
+  	}
+	
+	if(isset($variables['elements']['#id']) && !empty($variables['elements']['#id'])){
+		$block_id = $variables['elements']['#id'];
+	  	$block = \Drupal\block\Entity\Block::load($block_id);
+	  	if($block->getRegion()){
+	  		$region = $block->getRegion();
+	  		$variables['region'] = $region;
+	  	}
+	//config as context module
+	}else{
+		$variables['region'] = $variables['elements']['#configuration']['region'];
+	}
+}
+function agenchy_preprocess(&$variables){
+	if (\Drupal::routeMatch()->getRouteName() == 'entity.taxonomy_term.canonical') {
+	  	$term_id = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+	  	$term = taxonomy_term_load($term_id);
+	  	//$term_name = $term_object->get('name')->value;
+	  	$vname = $term->vid->getValue()[0]['target_id'];
+	  	if($vname == 'blog_categories'){
+	  		$variables['vcname'] = $vname;
+	  	}elseif($vname == 'cases_category'){
+	  		$variables['vcname'] = $vname;
+		}else{
+			$variables['vcname'] = $vname;
+		}
+		$variables['current_term'] = $term;
+		
+	}
+	if(\Drupal::routeMatch()->getParameter('node')){
+ 		$node = \Drupal::routeMatch()->getParameter('node');
+ 		
+ 		//kint($node->changed->value);
+ 		//$variables['totalcount'] = statistics_get($node->nid->getValue()[0]['value'])['totalcount'];
+		$ntype = $node->getType();
+		/********************blog post**********************/
+	  	if($ntype == 'blog_post'){
+	  		//related posts start
+	  		//kint($node->field_category);
+			$tids = array();
+			$cate = $node->field_category->entity->name->value;
+			//kint($node->field_category->entity->name->value);
+			$storage = \Drupal::entityManager()->getStorage('node');
+		    $nids = $storage->getQuery()
+		        ->condition('type', 'blog_post')
+		        ->condition('status', 1)
+		        ->condition('nid', $node->nid->value, '!=')
+		        ->condition('field_category.entity.name.value', $cate, '=')
+		        ->range(0,4)
+		        ->execute();
+		        //print_r($nids);
+			//$random_pds = array_rand($nids,);
+			//print_r($nids);
+		    //$variables['related_products'] = $storage->loadMultiple($random_pds);
+		    $related_posts = '';
+		    foreach(entity_load_multiple('node',$nids) as $k => $n){
+		    	//kint($v->price);
+		    	$path_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$n->nid->value);
+				$node_url = base_path().ltrim($path_alias,'/');
+				$fid = $n->field_blog_image->getValue()[0]['target_id'];
+				$uri = file_load($fid)->uri->value;
+				$url_ori = file_create_url($uri);	
+	
+			  	$style = ImageStyle::load('image370x220');
+
+			  	//$uri = $style->buildUri($original_image_uri);
+			  	$url = $style->buildUrl($uri);
+  
+				//kint($n->nid->value);
+		    	//print(file_create_url(file_load($aaa)->uri->value));
+		    	/////////////////////////////////////////////////////////
+				//$node_url = url('node/'.$v->nid->getValue()[0]['value']);
+				//print $node_url;
+				//print($url);
+				$related_posts .= '<div class="item">
+									<!-- Related Wrapper -->
+									<div class="related-wrap">
+										<!-- Related Image Wrapper -->
+										<div class="img-wrap">
+											<img width="600" height="220" alt="'.$n->title->value.'" class="img-responsive" src="'.$url.'">
+										</div>
+										<!-- Related Content Wrapper -->
+										<div class="related-content">
+											<span>'.$cate.'</span>
+											<h5 class="title">'.$n->title->value.'</h5>
+											<a href="'.$node_url.'" title="Read More">Read More</a>
+										</div>
+										<!-- Related Content Wrapper -->
+									</div>
+									<!-- Related Wrapper -->
+								</div>';
+			}
+			$related_posts .= '';
+			$variables['is_exist_rp'] = $nids;
+			$variables['related_posts'] = $related_posts;
+			//related posts end
+			
+		}
+		/********************cases**********************/
+	  	if($ntype == 'cases'){
+	  		//related posts start
+	  		//kint($node->field_categories_cases);
+			$tids = array();
+			$cate_cases = $node->field_categories_cases->entity->name->value;
+			//kint($node->field_categories_cases->entity->name->value);
+			$storage = \Drupal::entityManager()->getStorage('node');
+		    $nids = $storage->getQuery()
+		        ->condition('type', 'cases')
+		        ->condition('status', 1)
+		        ->condition('nid', $node->nid->value, '!=')
+		        ->condition('field_categories_cases.entity.name.value', $cate_cases, '=')
+		        ->range(0,4)
+		        ->execute();
+		        //print_r($nids);
+			//$random_pds = array_rand($nids,);
+			//print_r($nids);
+		    //$variables['related_products'] = $storage->loadMultiple($random_pds);
+		    $related_posts_cases = '';
+		    foreach(entity_load_multiple('node',$nids) as $k => $n){
+		    	//kint($v->price);
+		    	$path_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$n->nid->value);
+				$node_url = base_path().ltrim($path_alias,'/');
+				$fid = $n->field_case_image->getValue()[0]['target_id'];
+				$uri = file_load($fid)->uri->value;
+				$url_ori = file_create_url($uri);	
+	
+			  	$style = ImageStyle::load('image370x220');
+
+			  	//$uri = $style->buildUri($original_image_uri);
+			  	$url = $style->buildUrl($uri);
+  
+				//kint($n->nid->value);
+		    	//print(file_create_url(file_load($aaa)->uri->value));
+		    	/////////////////////////////////////////////////////////
+				//$node_url = url('node/'.$v->nid->getValue()[0]['value']);
+				//print $node_url;
+				//print($url);
+				$related_posts_cases .= '<div class="item">
+											<!-- Related Wrapper -->
+											<div class="related-wrap">
+												<!-- Related Image Wrapper -->
+												<div class="img-wrap">
+													<img width="600" height="220" alt="'.$n->title->value.'" class="img-responsive" src="'.$url.'">
+												</div>
+												<!-- Related Content Wrapper -->
+												<div class="related-content">
+													<span>'.$cate_cases.'</span>
+													<h5 class="title">'.$n->title->value.'</h5>
+										            <a href="'.$node_url.'" title="Read More">Read more</a>
+												</div><!-- Related Content Wrapper -->
+											</div><!-- Related Wrapper -->
+										</div><!-- Item -->';
+			}
+			$related_posts_cases .= '';
+			$variables['is_exist_rp_cases'] = $nids;
+			$variables['related_posts_cases'] = $related_posts_cases;
+			//related posts end
+			
+		}
+		//get related product
+		if($ntype == 'product'){
+	  		$pd_fid = $node->uc_product_image->getValue()[0]['target_id'];
+			$imgone_uri = file_load($pd_fid)->uri->value;
+			$imgone_url = file_create_url($imgone_uri);
+			$variables['imgone_url'] = $imgone_url;
+			//kint($node->field_product_category->getValue());
+			$tids = array();
+			$cate_product = $node->field_product_category->entity->name->value;
+			foreach($node->field_product_category->getValue() as $k => $tarr){
+				$tids[$k] = $tarr['target_id'];
+			}
+			$storage = \Drupal::entityManager()->getStorage('node');
+		    $nids = $storage->getQuery()
+		        ->condition('type', 'product')
+		        ->condition('status', 1)
+		        ->condition('nid',$node->nid->value , '!=')
+		        ->condition('field_product_category.entity.tid', $tids, 'IN')
+		        ->range(0,3)
+		        ->execute();
+		        //print_r($nids);
+				$random_pds = $nids;
+			//print_r($nids);
+		    //$variables['related_products'] = $storage->loadMultiple($random_pds);
+		    $arr_products = array();
+		    if(count($random_pds)){
+			    $config = \Drupal::config('uc_store.settings');
+			    $sign_currency = $config->get('currency.symbol');
+			    $posi = $config->get('currency.symbol_after');
+			    foreach(entity_load_multiple('node',$random_pds) as $k => $v){
+			    	if($posi == 1){
+			    		//$uc_price = $v->price->getValue()[0]['value'].$sign_currency;
+			    		$uc_price = (float)$v->price->getValue()[0]['value'];
+			    		$uc_price_fm = number_format($uc_price,2).$sign_currency;
+			    	}else{
+			    		$uc_price = (float)$v->price->getValue()[0]['value'];
+			    		$uc_price_fm = $sign_currency.number_format($uc_price,2);
+			    	}
+			    	//kint($v->price);
+			    	$fid = $v->uc_product_image->getValue()[0]['target_id'];
+			    	//print(file_create_url(file_load($aaa)->uri->value));
+			    	/////////////////////////////////////////////////////////
+			    	$path_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$v->nid->getValue()[0]['value']);
+					$node_url = ltrim($path_alias,'/');
+					//$node_url = url('node/'.$v->nid->getValue()[0]['value']);
+					//print $node_url;
+					$uri = file_load($fid)->uri->value;
+					$url = file_create_url($uri);
+					//print($url);
+					$arr_products[$k] = '<div class="item">
+										    <!-- Related Wrapper -->
+										    <div class="related-wrap">
+										        <!-- Related Image Wrapper -->
+										        <div class="img-wrap">
+										            <img height="500" width="500" alt="'.$v->getTitle().'" class="img-responsive" src="'.$url.'">
+										        </div>
+										        <!-- Related Content Wrapper -->
+										        <div class="related-content">
+										            <span>'.$cate_product.'</span>
+										            <h5 class="title">'.$v->getTitle().'</h5>
+										            <a href="'.$node_url.'" title="Read More">Add to cart</a>
+										        </div><!-- Related Content Wrapper -->
+										    </div><!-- Related Wrapper -->
+										</div><!-- Item -->';		
+				}
+			}
+			if(count($random_pds)){
+				$variables['is_related_pd'] = 1;
+
+			}else{
+				$variables['is_related_pd'] = 0;
+			}
+			$variables['related_products'] = $arr_products;
+		}
+		//nav portfolio
+	}
+	if (isset($_GET['layout'])) {
+        $variables['blog_layout'] = $_GET['layout'];
+        $variables['cases_layout'] = $_GET['layout'];
+        $variables['services_layout'] = $_GET['layout'];
+        $variables['shop_layout'] = $_GET['layout'];
+    } else {
+        $variables['blog_layout'] = theme_get_setting('blog_layout', 'agenchy');
+        $variables['cases_layout'] = theme_get_setting('cases_layout', 'agenchy');
+        $variables['services_layout'] = theme_get_setting('services_layout', 'agenchy');
+        $variables['shop_layout'] = theme_get_setting('shop_layout', 'agenchy');
+
+    }
+    if (isset($_GET['sidebar'])) {
+        $variables['blog_sidebar'] = $_GET['sidebar'];
+        $variables['cases_sidebar'] = $_GET['sidebar'];
+        $variables['services_sidebar'] = $_GET['sidebar'];
+    } else {
+        $variables['blog_sidebar'] = theme_get_setting('blog_sidebar', 'agenchy');
+        $variables['cases_sidebar'] = theme_get_setting('cases_sidebar', 'agenchy');
+        $variables['services_sidebar'] = theme_get_setting('services_sidebar', 'agenchy');
+    }
+	if (\Drupal::routeMatch()->getParameter('node')) {
+		$node = \Drupal::routeMatch()->getParameter('node');
+
+		if($node->type->target_id == 'coming_soon'){
+			$str_date = $node->field_date_time->getValue()[0]['value'];
+			$arr_dt = explode('T', $str_date);
+			$date_cs = explode('-', $arr_dt[0]);
+
+			$yyyy = $date_cs[0];
+			$mm = $date_cs[1];
+			$dd = $date_cs[2];
+
+			$time_cs = $arr_dt[1];
+			$variables['cm_yyyy'] = $yyyy;
+			$variables['cm_mm'] = $mm;
+			$variables['cm_dd'] = $dd;
+			$variables['cm_time'] = $time_cs;
+		}
+	
+
+	}
+		
+}
+function agenchy_preprocess_node(&$variables) {
+	global $base_url;
+	$variables['theme_path'] = drupal_get_path('theme', 'agenchy');
+	$site_name = \Drupal::config('system.site')->get('name');
+	$variables['site_name'] = $site_name;	
+	$request = \Drupal::request();
+	if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+		$variables['title'] = \Drupal::service('title_resolver')->getTitle($request, $route);
+	}
+	$pageURL = 'http';	
+ 	if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'){
+ 		$pageURL .= "s";
+ 	}
+	$pageURL .= '://';
+ 	if($_SERVER['SERVER_PORT'] != '80'){
+  	$pageURL .= $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+ 	}else{
+  		$pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ 	}
+ 	$variables['pageURL'] = $pageURL;
+ 	if(\Drupal::routeMatch()->getParameter('node')){
+ 		$node = \Drupal::routeMatch()->getParameter('node');
+ 		
+ 		//kint($node->changed->value);
+ 		//$variables['totalcount'] = statistics_get($node->nid->getValue()[0]['value'])['totalcount'];
+		$ntype = $node->getType();
+		/********************blog post**********************/
+	  	if($ntype == 'blog_post'){
+	  		//related posts start
+	  		//kint($node->field_category);
+			$tids = array();
+			$cate = $node->field_category->entity->name->value;
+			//kint($node->field_category->entity->name->value);
+			$storage = \Drupal::entityManager()->getStorage('node');
+		    $nids = $storage->getQuery()
+		        ->condition('type', 'blog_post')
+		        ->condition('status', 1)
+		        ->condition('nid', $node->nid->value, '!=')
+		        ->condition('field_category.entity.name.value', $cate, '=')
+		        ->range(0,4)
+		        ->execute();
+		        //print_r($nids);
+			//$random_pds = array_rand($nids,);
+			//print_r($nids);
+		    //$variables['related_products'] = $storage->loadMultiple($random_pds);
+		    $related_posts = '';
+		    foreach(entity_load_multiple('node',$nids) as $k => $n){
+		    	//kint($v->price);
+		    	$path_alias = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$n->nid->value);
+				$node_url = base_path().ltrim($path_alias,'/');
+				$fid = $n->field_blog_image->getValue()[0]['target_id'];
+				$uri = file_load($fid)->uri->value;
+				$url_ori = file_create_url($uri);	
+	
+			  	$style = ImageStyle::load('image370x220');
+
+			  	//$uri = $style->buildUri($original_image_uri);
+			  	$url = $style->buildUrl($uri);
+  
+				//kint($n->nid->value);
+		    	//print(file_create_url(file_load($aaa)->uri->value));
+		    	/////////////////////////////////////////////////////////
+				//$node_url = url('node/'.$v->nid->getValue()[0]['value']);
+				//print $node_url;
+				//print($url);
+				$related_posts .= '<div class="item">
+									<!-- Related Wrapper -->
+									<div class="related-wrap">
+										<!-- Related Image Wrapper -->
+										<div class="img-wrap">
+											<img width="600" height="220" alt="'.$n->title->value.'" class="img-responsive" src="'.$url.'">
+										</div>
+										<!-- Related Content Wrapper -->
+										<div class="related-content">
+											<span>'.$cate.'</span>
+											<h5 class="title">'.$n->title->value.'</h5>
+											<a href="'.$node_url.'" title="Read More">Read More</a>
+										</div>
+										<!-- Related Content Wrapper -->
+									</div>
+									<!-- Related Wrapper -->
+								</div>';
+			}
+			$related_posts .= '';
+			$variables['is_exist_rp'] = $nids;
+			$variables['related_posts'] = $related_posts;
+			//related posts end
+			
+		}
+	}
+}
+function agenchy_preprocess_html(&$variables){
+	global $base_url;
+  	$theme = \Drupal::theme()->getActiveTheme()->getName();
+  	$variables['general_setting_tracking_code'] = theme_get_setting('general_setting_tracking_code', $theme);
+  	$variables['custom_css'] = theme_get_setting('custom_css', $theme);
+  	$variables['base_path'] = base_path();
+	$variables['theme_path'] = drupal_get_path('theme', $theme);
+	$site_name = \Drupal::config('system.site')->get('name');
+	$variables['site_name'] = $site_name;	
+	$variables['header_social_networks'] = theme_get_setting('header_social_networks', $theme);
+	$variables['copyright_text'] = theme_get_setting('copyright_text', $theme);
+	if(!empty(theme_get_setting('bg_image', 'agenchy'))){
+		$variables['bg_image'] = $base_url.theme_get_setting('bg_image', 'agenchy');
+	}else{
+		$variables['bg_image'] = '';
+	}
+	if ($node = \Drupal::routeMatch()->getParameter('node')) {
+        if (isset($node->field_page_layout) && !empty($node->field_page_layout->getValue()[0]['value']))
+            $layout_class = $node->field_page_layout->getValue()[0]['value'];
+        else
+            $layout_class = theme_get_setting('layout', 'agenchy');
+        if ($layout_class == '')
+            $layout_class = 'none';
+
+        $variables['layout_class'] = $layout_class;
+    } elseif (theme_get_setting('layout', 'agenchy') !='') {
+        $variables['layout_class'] = theme_get_setting('layout', 'agenchy');
+    } else {
+        $variables['layout_class']='none';
+    }
+  	//kint($variables['#attached']);
+}
+function agenchy_preprocess_page(&$variables) {
+
+	/*if (isset($variables['page']['content']['system_main']['default_message'])) {
+  		unset($variables['page']['content']['system_main']['default_message']);
+ 	} */
+	global $base_url;
+	$variables['theme_path'] = drupal_get_path('theme', 'agenchy');
+	$pageURL = 'http';	
+ 	if(!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on'){
+ 		$pageURL .= "s";
+ 	}
+	$pageURL .= '://';
+ 	if($_SERVER['SERVER_PORT'] != '80'){
+  	$pageURL .= $_SERVER['SERVER_NAME'].":".$_SERVER['SERVER_PORT'].$_SERVER['REQUEST_URI'];
+ 	}else{
+  		$pageURL .= $_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+ 	}
+ 	$variables['pageURL'] = $pageURL;
+
+	$theme = \Drupal::theme()->getActiveTheme()->getName();
+	$variables['theme_path'] = drupal_get_path('theme', $theme);
+	$variables['header_social_networks'] = theme_get_setting('header_social_networks', $theme);
+	$variables['copyright_text'] = theme_get_setting('copyright_text', $theme);
+	//$variables['header_bg'] = theme_get_setting('header_bg', $theme);
+	//print '<script type="text/javascript">jQuery.extend(Drupal.settings, { "pathToTheme": "' .base_path() .drupal_get_path('theme', $theme). '" });</script>';
+	//get site name & slogan
+	$config = \Drupal::config('system.site');
+  	$variables['site_name'] = $config->get('name');
+	$request = \Drupal::request();
+	if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+		$variables['title'] = \Drupal::service('title_resolver')->getTitle($request, $route);
+	}
+	//logo_image
+	if(!empty(theme_get_setting('logo_image_header_bg', 'agenchy'))){
+		$variables['logo_image_header_bg'] = $base_url.theme_get_setting('logo_image_header_bg', 'agenchy');
+	}else{
+		$variables['logo_image_header_bg'] = '';
+	}
+	//background image header center
+	if(!empty(theme_get_setting('image_page_header_bg', 'agenchy'))){
+		$variables['image_page_header_bg'] = $base_url.theme_get_setting('image_page_header_bg', 'agenchy');
+	}else{
+		$variables['image_page_header_bg'] = '';
+	}
+	//footer_image
+	if(!empty(theme_get_setting('footer_image_bg', 'agenchy'))){
+		$variables['footer_image_bg'] = $base_url.theme_get_setting('footer_image_bg', 'agenchy');
+	}else{
+		$variables['footer_image_bg'] = '';
+	}
+	//header_social_networks
+	$header_social_networks = theme_get_setting('header_social_networks', 'agenchy');
+	if(isset($header_social_networks) && !empty($header_social_networks)){
+		$variables['header_social_networks'] = $header_social_networks;
+	}
+	//Switcher
+	$disable_switch = theme_get_setting('disable_switch', 'agenchy');
+	if(isset($disable_switch) && !empty($disable_switch)){
+		$variables['disable_switch'] = $disable_switch;
+	}
+	//header_style
+	$header_style = theme_get_setting('header_style', 'agenchy');
+	if(isset($header_style) && !empty($header_style)){
+		$variables['header_style'] = $header_style;
+	}else{
+		$variables['header_style'] = 'style1';
+	}
+	//footer_style
+	$footer_style = theme_get_setting('footer_style', 'agenchy');
+	if(isset($footer_style) && !empty($footer_style)){
+		$variables['footer_style'] = $footer_style;
+	}else{
+		$variables['footer_style'] = 'style1';
+	}
+	//page_header
+	$page_headers_style = theme_get_setting('page_headers_style', 'agenchy');
+	if(isset($page_headers_style) && !empty($page_headers_style)){
+		$variables['page_headers_style'] = $page_headers_style;
+	}else{
+		$variables['page_headers_style'] = 'default';
+	}
+	//field_header_bg_video
+	$field_header_bg_video = theme_get_setting('field_header_bg_video', 'agenchy');
+	if(isset($field_header_bg_video) && !empty($field_header_bg_video)){
+		$variables['field_header_bg_video'] = $field_header_bg_video;
+	}
+	//copyright_text
+	$copyright_text = theme_get_setting('copyright_text', 'agenchy');
+	if(isset($copyright_text) && !empty($copyright_text)){
+		$variables['copyright_text'] = $copyright_text;
+	}
+	//Button Page Header Contact
+	$button_page_header_contact = theme_get_setting('button_page_header_contact', 'agenchy');
+	if(isset($button_page_header_contact) && !empty($button_page_header_contact)){
+		$variables['button_page_header_contact'] = $button_page_header_contact;
+	}
+	//Button Page Header Button
+	$button_page_header_button = theme_get_setting('button_page_header_button', 'agenchy');
+	if(isset($button_page_header_button) && !empty($button_page_header_button)){
+		$variables['button_page_header_button'] = $button_page_header_button;
+	}
+	if(!empty(theme_get_setting('other_page_header_bg', 'agenchy'))){
+		$variables['other_page_header_bg'] = $base_url.theme_get_setting('other_page_header_bg', 'agenchy');
+	}else{
+		$variables['other_page_header_bg'] = '';
+	}		
+}
+function agenchy_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	if($form['#id']== 'views-exposed-form-press-release-page') {
+		$form['#attributes']['class'][] = 'col-sm-12 ptb-2';
+		
+		if(isset($form['language'])) {
+			$form['language']['#prefix'] = '<div class="col-sm-4">';
+			$form['language']['#attributes']['class'][] = 'form-control';
+			$form['language']['#suffix'] = '</div>';
+		}
+		
+		if(isset($form['year'])) {
+			$form['year']['#prefix'] = '<div class="col-sm-4">';
+			$form['year']['#attributes']['class'][] = 'form-control';
+			$form['year']['#suffix'] = '</div>';
+		}
+		
+		if(isset($form['actions']['submit'])) {
+			$form['actions']['#attributes']['class'][] = 'col-sm-4  pt-3';
+			$form['actions']['submit']['#attributes']['class'][] = 'btn';
+		}
+   }
+  	if($form_id == 'search_block_form'){
+	  	//unset($form['search_block_form']['#title']); // remove label form
+	    //kint($form['#attributes']);
+	    $form['actions']['submit']['#value'] = t(''); // Change the text on the submit button
+	    $form['keys']['#attributes']['placeholder'] = 'Search...';
+	    //print_r($form);
+	    $form['keys']['#attributes']['class'] = array('form-control');
+    }elseif(preg_match("/simplenews_subscriptions_block/", $form_id)){
+	    $form['#attributes']['class'] = array('input-group', 'subscribe-form', 'bv-form');
+	   	$form['actions']['subscribe']['#attributes']['class'] = array('btn');
+	   	$form['actions']['unsubscribe']['#attributes']['class'] = array('btn');
+	   	$form['actions']['update']['#attributes']['class'] = array('btn');
+	   	$form['mail']['widget'][0]['value']['#placeholder'] = t('Subscribe');
+	   	$form['mail']['widget'][0]['value']['#attributes']['placeholder'] = t('Subscribe');
+	   	$form['mail']['widget'][0]['value']['#attributes']['class'] = array('form-control');
+	   	unset($form['mail']['widget'][0]['value']['#description']);
+	   	unset($form['mail']['widget'][0]['value']['#title']);
+    }
+}
+function agenchy_preprocess_container(&$variables){
+	$variables['container_type'] = $variables['element']['#type'];
+}
+function agenchy_breadcrumb($variables){
+	$request = \Drupal::request();
+	if ($route = $request->attributes->get(\Symfony\Cmf\Component\Routing\RouteObjectInterface::ROUTE_OBJECT)) {
+		$current_title = \Drupal::service('title_resolver')->getTitle($request, $route);
+	}
+	$breadcrumb = $variables['breadcrumb'];
+
+  	$output = '';
+  	if (!empty($breadcrumb)) {
+    	foreach ($breadcrumb as $crumb) {
+    		if($crumb['url']){
+    			$output .= '<li><a href="'.$crumb['url'].'">'.$crumb['text'].'</a></li>';
+			
+			}else{
+				$output .= '<li>'.$crumb['text'].'</li>';
+			}
+    		
+    	}
+    	$output .= '<li class="active">'.render($current_title).'</li>';
+  	}
+  return $output;
+}
+function agenchy_form_uc_cart_view_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	//kint($form);
+	foreach($form['items'] as $k => $v){
+		if(is_numeric($k)){
+			$form['items'][$k]['remove']['#attributes']['class'] = array('btn');
+		}	
+	}
+	//$form['actions']['checkout']['#attributes']['class'] = array('');
+	//unset($form['items']['#footer']);
+	unset($form['actions']['continue_shopping']);
+	$form['actions']['update']['#attributes']['class'] = array('btn');
+	$form['actions']['checkout']['checkout']['#attributes']['class'] = array('btn');
+	//$form['actions']['checkout']['checkout']['#attributes']['id'] = t('cart-checkout-comets');
+}
+function agenchy_form_uc_cart_checkout_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	$form['#attributes']['id'] = t('page-checkout-comets');
+	$form['actions']['continue']['#attributes']['class'] =  array('btn', 'btn-primary');
+	$form['actions']['cancel']['#attributes']['class'] = array('btn', 'btn-secondary', 'btn-filled');
+}
+function agenchy_preprocess_maintenance_page(&$variables){
+	global $base_url;
+	$variables['logo'] = str_replace('.svg', '.png', $variables['logo']);
+	//maintenance page
+	if(!empty(theme_get_setting('maintenance_page_header_bg', 'agenchy'))){
+		$variables['maintenance_page_header_bg'] = $base_url.theme_get_setting('maintenance_page_header_bg', 'agenchy');
+	}else{
+		$variables['maintenance_page_header_bg'] = '';
+	}
+}
+function agenchy_form_comment_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	if($form['#theme'][0] != 'comment_form__node__product__field_product_comment'){
+		$form['#attributes']['class'] = array('col-sm-12','row');
+		$form['subject']['widget'][0]['value']['#attributes']['class'] = array('form-control', 'form-group');
+		$form['subject']['widget'][0]['value']['#attributes']['placeholder'] = t('Subject');
+		$form['author']['name']['#attributes']['class'] = array('form-control', 'form-group');
+		$form['author']['name']['#attributes']['placeholder'] = t('Name');
+		$form['field_email_comment']['widget'][0]['value']['#placeholder']= t('Email');
+		$form['field_email_comment']['widget'][0]['value']['#attributes']['class']= array('form-control', 'form-group');
+		$form['comment_body']['widget'][0]['#attributes']['class'] = array('form-control', 'form-group');
+		$form['comment_body']['widget'][0]['#attributes']['placeholder'] = t('Message');
+		unset($form['subject']['widget'][0]['value']['#title']);
+		unset($form['author']['name']['#title']);
+		unset($form['author']['name']['#title']);
+		unset($form['field_email_comment']['widget'][0]['value']['#title']);
+		unset($form['comment_body']['widget'][0]['#title']);
+		unset($form['comment_body']['widget'][0]['#format']);
+
+		$form['actions']['submit']['#attributes']['class'] = array('btn');
+		$form['actions']['submit']['#attributes']['value'] = t('Submit');
+
+		unset($form['actions']['preview']);
+		
+	}else{
+		//$form['#attributes']['class'] = array('comment-form');
+		$form['subject']['widget'][0]['value']['#attributes']['class'] = array('form-control', 'form-group');
+		$form['subject']['widget'][0]['value']['#attributes']['placeholder'] = t('Subject');
+		$form['author']['name']['#attributes']['class'] = array('form-control', 'form-group');
+		$form['field_email_comment']['widget'][0]['value']['#placeholder']= t('Email');
+		$form['field_email_comment']['widget'][0]['value']['#attributes']['class']= array('form-control', 'form-group');
+		$form['author']['name']['#attributes']['placeholder'] = t('Name');
+		$form['comment_body']['widget'][0]['#attributes']['class'] = array('form-control', 'form-group');
+		$form['comment_body']['widget'][0]['#attributes']['placeholder'] = t('Comment');
+		unset($form['subject']['widget'][0]['value']['#title']);
+		unset($form['author']['name']['#title']);
+		unset($form['field_email_comment']['widget'][0]['value']['#title']);
+		unset($form['comment_body']['widget'][0]['#title']);
+		unset($form['comment_body']['widget'][0]['#format']);
+		$form['actions']['submit']['#attributes']['class'] = array('btn', 'btn-theme');
+		$form['actions']['submit']['#attributes']['value'] = t('Submit Comment');
+		unset($form['actions']['preview']);
+	}
+}
+function agenchy_form_contact_message_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+	$form['subject']['widget'][0]['value']['#attributes']['class'] = array('form-control', 'form-group');
+	unset($form['subject']['widget'][0]['value']['#title']);
+	$form['subject']['widget'][0]['value']['#attributes']['placeholder'] = t('Subject');
+	$form['message']['widget'][0]['value']['#attributes']['class'] = array('form-control', 'form-group');
+	unset($form['message']['widget'][0]['value']['#title']);
+	$form['message']['widget'][0]['value']['#attributes']['placeholder'] = t('Message');
+	$form['message']['widget'][0]['value']['#attributes']['rows'] = t('2');
+	$form['mail']['#attributes']['class'] = array('form-control', 'form-group');
+	$form['mail']['#attributes']['placeholder'] = t('Email');
+	unset($form['mail']['#title']);
+	$form['name']['#attributes']['class'] = array('form-control', 'form-group');
+	$form['name']['#attributes']['placeholder'] = t('Full Name');
+	unset($form['name']['#title']);
+	$form['actions']['submit']['#attributes']['class'] = array('btn');
+	$form['actions']['submit']['#attributes']['value'] = t('Send Now');
+	unset($form['actions']['preview']);
+}
+
+

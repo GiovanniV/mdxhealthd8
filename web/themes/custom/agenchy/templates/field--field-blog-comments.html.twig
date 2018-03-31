@@ -1,0 +1,14 @@
+<div id="post-comment"  class="post-block post-comments clearfix">
+    <h4>{{'Comments :'|t}} </h4>
+    <!-- Comments -->
+    <div class="comments">
+     {{ comments }}
+    </div><!-- Comments Full -->
+</div><!-- Post Comments -->
+{% if comment_form %}
+<!-- Post Comment Form -->
+<h4>{{'Post a comment :'|t}} </h4>
+
+ {{ comment_form }}
+
+{% endif %}

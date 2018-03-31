@@ -1,0 +1,125 @@
+{% set bg_img_url = file_url(node.field_photo_speaker.entity.uri.value) %}
+{% set job = node.field_job.0.value %}
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+{% set header_style = node.field_header_style.0.value %}
+{% if header_style == '' %}
+  {% set header_style = 'style1' %}
+{% endif %}
+{% set page_header = node.field_page_header.0.value %}
+{% if page_header == '' %}
+  {% set page_header = 'none' %}
+{% endif %}
+
+<!-- Header Begins -->
+{% if header_style == 'style2' %}
+	{% include theme_path ~ "/templates/header/header-2.html.twig" %}
+{% elseif header_style == 'style3' %}
+	{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+{% elseif header_style == 'style4' %}
+	{% include theme_path ~ "/templates/header/header-4.html.twig" %}
+{% elseif header_style == 'style5' %}
+	{% include theme_path ~ "/templates/header/header-5.html.twig" %}
+{% elseif header_style == 'style7' %}
+	{% include theme_path ~ "/templates/header/header-7.html.twig" %}
+{% elseif header_style == 'style8' %}
+	{% include theme_path ~ "/templates/header/header-8.html.twig" %}
+{% elseif header_style == 'style9' %}
+	{% include theme_path ~ "/templates/header/header-9.html.twig" %}
+{% elseif header_style == 'style10' %}
+	{% include theme_path ~ "/templates/header/header-10.html.twig" %}
+{% elseif header_style == 'style1'%}
+	{% include theme_path ~ "/templates/header/header-1.html.twig" %}
+{% endif %}
+<!-- Header Ends -->
+
+<!-- Page Header -->
+{% if page_header == 'default' %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
+{% elseif page_header == 'dark' %}
+	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
+{% elseif page_header == 'small' %}
+	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
+{% elseif page_header == 'center' %}
+	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
+{% elseif page_header == 'button' %}
+	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
+{% elseif page_header == 'contact' %}
+	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
+{% elseif page_header == 'video' %}
+	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
+{% elseif page_header == 'image' %}
+	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
+{% elseif page_header == 'color' %}
+	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
+{% else %}
+{% endif %}
+<!-- Page Header -->
+
+<!-- Model Window -->
+{% if page.model_window %}
+	{{ page.model_window }}
+{% endif %}
+<!-- Model Window -->		
+{% if header_style == 'style6' %}
+	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
+{% endif %}
+
+<!-- Page Main -->
+<div role="main" class="main">
+	<div class="page-default bg-grey typo-dark quote-grids">
+		<!-- Container -->
+		<div class="container">
+			<div class="row">
+				
+				<!-- Blockquote Column -->
+				<div class="col-sm-12">
+					<!-- Blockquote Wrapper -->
+					{{ page.content_full_bar }}
+					<div class="quote-wrap">
+						<blockquote>		
+							{{ page.content }}
+						</blockquote>
+						<!-- Blockquote Author -->
+						<div class="quote-author agenchy-single-testimonial-image">
+							<img src="{{ bg_img_url }}" class="img-responsive" alt="{{ title }}" width="100" height="100">
+							<!-- Blockquote Footer -->
+							<div class="quote-footer">
+								<h5 class="name">{{ title }}</h5>
+								{% if job%}
+								<span>/ {{ job }}</span>
+								{% endif %}
+							</div><!-- Blockquote Footer -->
+						</div><!-- Blockquote Author -->
+					</div><!-- Blockquote Wrapper -->
+				</div><!-- Blockquote Column -->
+				
+			</div><!-- Row -->
+		</div><!-- Container -->
+	</div><!-- Page Default -->
+</div><!-- Page Main -->
+<!-- Footer -->
+{% set footer_style = node.field_footer_style.0.value %}
+{% if footer_style == '' %}
+  {% set footer_style = 'default' %}
+{% endif %}
+{% if footer_style == 'style2' %}
+	{% include theme_path ~ "/templates/footer/footer-2.html.twig" %}
+{% elseif footer_style == 'style3' %}
+	{% include theme_path ~ "/templates/footer/footer-3.html.twig" %}
+{% elseif footer_style == 'style4' %}
+	{% include theme_path ~ "/templates/footer/footer-4.html.twig" %}
+{% elseif footer_style == 'style5' %}
+	{% include theme_path ~ "/templates/footer/footer-5.html.twig" %}
+{% elseif footer_style == 'style6' %}
+	{% include theme_path ~ "/templates/footer/footer-6.html.twig" %}
+{% elseif footer_style == 'style7' %}
+	{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
+{% elseif footer_style == 'style8' %}
+	{% include theme_path ~ "/templates/footer/footer-8.html.twig" %}
+{% else %}
+	{% include theme_path ~ "/templates/footer/footer-1.html.twig" %}
+{% endif %}
+<!-- Footer -->

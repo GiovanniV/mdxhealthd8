@@ -1,0 +1,6 @@
+mdx_press_release.settings:
+  type: mapping
+  label: MDx Press Flastmod
+  mapping:
+    mdx_press_flastmod:
+      type: string

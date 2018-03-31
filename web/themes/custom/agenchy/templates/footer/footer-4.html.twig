@@ -1,0 +1,33 @@
+<!-- Footer -->
+<footer id="footer" class="footer-4">
+	<!-- Main Footer -->
+	<div class="main-footer widgets-dark typo-light text-center">
+		<div class="container">
+			<div class="row">
+				<!-- Widget Column -->
+				{{ page.footer_4_column_1 }}
+				{{ page.footer_4_column_2 }}
+				{{ page.footer_4_column_3 }}
+				{{ page.footer_4_column_4 }}
+				<!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->		
+	</div><!-- Main Footer -->
+	
+	<!-- Footer Copyright -->
+	<div class="footer-copyright typo-light">
+		<div class="container">
+			<div class="row">
+				<!-- Copy Right Content -->
+				{% if copyright_text %}
+					{{ copyright_text|t }}
+				{% endif %}<!-- Copy Right Content -->
+				<!-- Copy Right Content -->
+				<div class="col-md-6">
+					{{ page.menu_footer }}<!-- Nav -->
+				</div><!-- Copy Right Content -->
+			</div><!-- Footer Copyright -->
+		</div><!-- Footer Copyright container -->
+	</div><!-- Footer Copyright -->
+</footer>
+<!-- Footer -->
