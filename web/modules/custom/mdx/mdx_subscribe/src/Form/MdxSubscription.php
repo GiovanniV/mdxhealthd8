@@ -33,7 +33,7 @@ class MdxSubscription extends SubscriptionForm {
     $form['#method'] = 'POST';
     
     $form['#theme'] = 'subscribe-form';
-    $form['#attributes'] = array('name' => 'subscribe', 'class' => array('mdx_subscription_form'));
+    $form['#attributes'] = array('name' => 'subscribe', 'class' => array('mdx_subscription_form', 'col-sm-12'));
     
     $form['f_id'] = array(
       '#type' => 'hidden',
@@ -89,12 +89,48 @@ class MdxSubscription extends SubscriptionForm {
       '#type' => 'textfield',
       '#title' => t('First Name'),
       '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['l_name'] = array(
       '#type' => 'textfield',
       '#title' => t('Last Name'),
       '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
+    );
+    
+    $form['lang_pref'] = array(
+      '#type' => 'select',
+      '#title' => t('Language preference'),
+      '#options' => array(
+        'english' => t('English'), 
+        'french' => t('French'), 
+      ),
+      '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
+    );
+    
+    $form['email'] = array(
+      '#type' => 'textfield',
+      '#title' => t('E-mail'),
+      '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['function'] = array(
@@ -107,48 +143,32 @@ class MdxSubscription extends SubscriptionForm {
         'Other' => 'Other',
       ),
       '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
-    $form['lang_pref'] = array(
-      '#type' => 'select',
-      '#title' => t('Language preference'),
-      '#options' => array(
-        'english' => t('English'), 
-        'french' => t('French'), 
-      ),
-      '#required' => true,
-    );
-    
-    $form['add_mail'] = array(
-      '#type' => 'checboxes',
-      '#title' => t('Receive Additional Mails'),
-      '#options' => array(
-        'company' => t('Company'), 
-        'products' => t('Products'), 
-        'marketing/sales' => t('Marketing/Sales'), 
-      ),
-      '#required' => true,
-    );
-    
-    $form['email'] = array(
+    $form['work_name'] = array(
       '#type' => 'textfield',
-      '#title' => t('E-mail'),
+      '#title' => t('Company Name'),
       '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['country'] = array(
       '#type' => 'textfield',
       '#title' => t('Country'),
-    );
-    
-    $form['home_place'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Phone'),
-    );
-    
-    $form['work_name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Work Name'),
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['salutation'] = array(
@@ -159,16 +179,60 @@ class MdxSubscription extends SubscriptionForm {
         'mrs' => t('Mrs'), 
         'dr' => t('Dr'), 
       ),
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
+    );
+    
+    $form['add_mail'] = array(
+      '#type' => 'select',
+      '#title' => t('Receive Additional Mails'),
+      '#options' => array(
+        'company' => t('Company'), 
+        'products' => t('Products'), 
+        'marketing/sales' => t('Marketing/Sales'), 
+      ),
+      '#multiple' => true,
+      '#required' => true,
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['comments'] = array(
       '#type' => 'textarea',
       '#title' => t('Comments'),
+	  '#attributes' => [
+		'class' => ['form-control'],
+		'resize' => false,
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
+	  '#resize' => false,
+    );
+    
+    $form['home_place'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Phone'),
+	  '#attributes' => [
+		'class' => ['form-control'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6">',
+	  '#suffix' => '</div>',
     );
     
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => t('Subscribe'),
+	  '#attributes' => [
+		'class' => ['btn'],
+	  ],
+	  '#prefix' => '<div class="col-sm-6 pt-3">',
+	  '#suffix' => '</div>',
     );
 
     $form_state->setCached(FALSE);

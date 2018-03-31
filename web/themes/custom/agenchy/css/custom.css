@@ -101,3 +101,22 @@
 .sidebar .widget.box {
   padding: 0;
 }
+.js-form-type-checkbox {
+	display: inline-block;
+}
+.js-form-type-checkbox input {
+	
+}
+.js-form-type-checkbox label {
+}
+form {
+	padding-bottom: 20px;
+}
+.press-release-list img {
+	vertical-align: top;
+	width: 75px;
+	float: left;
+}
+.press-release-list .blog-details {
+	padding-left: 85px;
+}

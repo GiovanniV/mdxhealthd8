@@ -26,6 +26,8 @@ regions:
   content: 'Main content'
   left_content: 'Left Content'
   right_content: 'Right Content'
+  two_third_content: 'Two Third Content'
+  one_third_content: 'One Third Content'
   about_sidebar: 'About Sidebar'
   blog_sidebar: 'Blog Sidebar'
   shop_sidebar: 'Shop sidebar'
