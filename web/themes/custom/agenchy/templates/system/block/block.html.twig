@@ -113,20 +113,6 @@
 	      {{ content }}
 	    {% endif %}
 	</div><!-- Widget -->
-{% elseif region == 'left_content'%}
-	<section {{ attributes }}>
-	    {{ title_suffix }}
-	    {% if content %}
-	      {{ content }}
-	    {% endif %}
-	</section>
-{% elseif region == 'right_content'%}
-	<section {{ attributes }}>
-	    {{ title_suffix }}
-	    {% if content %}
-	      {{ content }}
-	    {% endif %}
-	</section>
 {% elseif region == 'section'%}
 	<section {{ attributes }}>
 	    {{ title_suffix }}
@@ -157,6 +143,16 @@
 	</div>
 {% else %}
   <div {{ attributes }}>
+  <!-- Title -->
+	<div class="title-container sm text-left">
+		<div class="title-wrap">
+			{% if label %}
+			<h3 class="title">{{ label }}</h3>
+			<span class="separator line-separator"></span>
+			{% endif %}
+		</div>
+	</div><!-- Title -->
+	{{ title_suffix }}
     {% if content %}
       {{ content }}
     {% endif %}
