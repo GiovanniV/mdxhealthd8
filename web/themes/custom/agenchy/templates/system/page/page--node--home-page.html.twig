@@ -96,13 +96,13 @@
         {% endif %}
       
       </section>
-	<section class="col-sm-12">
-	{{ page.content_full_bar }}
 	{% if page.section %}
+	<section class="col-sm-12">
 		{{ page.section }}
+		</section>
 	{% endif %}
-
-  
+{% if page.content %}
+  <section class="col-sm-12">
 	{{ page.content }}
 </section>
     </div>
