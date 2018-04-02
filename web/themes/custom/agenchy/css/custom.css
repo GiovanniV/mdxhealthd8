@@ -31,9 +31,7 @@
   float: right;
 }
 .main section {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding: 0px;
+  padding: 30px 0;
 }
 #header nav ul.nav-main li a {
   color: #362269;
@@ -129,4 +127,10 @@ form {
 }
 #block-twitterblock iframe {
 	width: 100% !important;
+}
+.main section.mdx_subscription_form {
+	padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 }

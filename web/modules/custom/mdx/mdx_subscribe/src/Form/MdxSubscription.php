@@ -33,7 +33,9 @@ class MdxSubscription extends SubscriptionForm {
     $form['#method'] = 'POST';
     
     $form['#theme'] = 'subscribe-form';
-    $form['#attributes'] = array('name' => 'subscribe', 'class' => array('mdx_subscription_form', 'col-sm-12'));
+    $form['#prefix'] = '<div class="container">';
+    $form['#suffix'] = '</div>';
+    $form['#attributes'] = array('name' => 'subscribe', 'class' => array('mdx_subscription_form'));
     
     $form['f_id'] = array(
       '#type' => 'hidden',
@@ -231,7 +233,7 @@ class MdxSubscription extends SubscriptionForm {
 	  '#attributes' => [
 		'class' => ['btn'],
 	  ],
-	  '#prefix' => '<div class="col-sm-6 pt-3">',
+	  '#prefix' => '<div class="col-sm-6 ptb-3">',
 	  '#suffix' => '</div>',
     );
 

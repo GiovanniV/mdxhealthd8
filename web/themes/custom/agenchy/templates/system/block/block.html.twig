@@ -135,19 +135,20 @@
 	    {% endif %}
 	</div>
 {% else %}
-  <div {{ attributes }}>
-  <!-- Title -->
+  <section {{ attributes }}>
+			{% if label %}
+			<!-- Title -->
 	<div class="title-container sm text-left">
 		<div class="title-wrap">
-			{% if label %}
 			<h3 class="title">{{ label }}</h3>
 			<span class="separator line-separator"></span>
-			{% endif %}
-		</div>
+					</div>
 	</div><!-- Title -->
+			{% endif %}
+
 	{{ title_suffix }}
     {% if content %}
       {{ content }}
     {% endif %}
-  </div>
+  </section>
 {% endif %}

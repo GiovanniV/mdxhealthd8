@@ -470,40 +470,42 @@ class __TwigTemplate_f4ce2d6a81405f4623344b1908ac3ffce1b3ab791a968b5fc9023fe7500
 ";
         } else {
             // line 138
-            echo "  <div ";
+            echo "  <section ";
             echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["attributes"] ?? null), "html", null, true));
             echo ">
-  <!-- Title -->
+\t\t\t";
+            // line 139
+            if (($context["label"] ?? null)) {
+                // line 140
+                echo "\t\t\t<!-- Title -->
 \t<div class=\"title-container sm text-left\">
 \t\t<div class=\"title-wrap\">
-\t\t\t";
-            // line 142
-            if (($context["label"] ?? null)) {
+\t\t\t<h3 class=\"title\">";
                 // line 143
-                echo "\t\t\t<h3 class=\"title\">";
                 echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["label"] ?? null), "html", null, true));
                 echo "</h3>
 \t\t\t<span class=\"separator line-separator\"></span>
+\t\t\t\t\t</div>
+\t</div><!-- Title -->
 \t\t\t";
             }
-            // line 146
-            echo "\t\t</div>
-\t</div><!-- Title -->
-\t";
             // line 148
+            echo "
+\t";
+            // line 149
             echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["title_suffix"] ?? null), "html", null, true));
             echo "
     ";
-            // line 149
+            // line 150
             if (($context["content"] ?? null)) {
-                // line 150
+                // line 151
                 echo "      ";
                 echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["content"] ?? null), "html", null, true));
                 echo "
     ";
             }
-            // line 152
-            echo "  </div>
+            // line 153
+            echo "  </section>
 ";
         }
     }
@@ -520,7 +522,7 @@ class __TwigTemplate_f4ce2d6a81405f4623344b1908ac3ffce1b3ab791a968b5fc9023fe7500
 
     public function getDebugInfo()
     {
-        return array (  506 => 152,  500 => 150,  498 => 149,  494 => 148,  490 => 146,  483 => 143,  481 => 142,  473 => 138,  469 => 136,  463 => 134,  461 => 133,  457 => 132,  452 => 131,  450 => 130,  447 => 129,  441 => 127,  439 => 126,  435 => 125,  430 => 124,  428 => 123,  425 => 122,  419 => 120,  417 => 119,  413 => 118,  408 => 117,  406 => 116,  403 => 115,  397 => 113,  395 => 112,  390 => 111,  384 => 109,  382 => 108,  378 => 107,  373 => 106,  371 => 105,  368 => 104,  362 => 102,  360 => 101,  356 => 100,  351 => 99,  348 => 98,  346 => 97,  343 => 96,  337 => 94,  335 => 93,  330 => 92,  324 => 90,  322 => 89,  318 => 88,  313 => 87,  311 => 86,  308 => 85,  302 => 83,  300 => 82,  296 => 81,  291 => 80,  289 => 79,  286 => 78,  280 => 76,  278 => 75,  274 => 74,  269 => 73,  267 => 72,  264 => 71,  258 => 69,  256 => 68,  252 => 67,  247 => 66,  245 => 65,  242 => 64,  236 => 62,  234 => 61,  230 => 60,  226 => 59,  221 => 58,  219 => 57,  216 => 56,  210 => 54,  208 => 53,  203 => 52,  197 => 50,  195 => 49,  191 => 48,  186 => 47,  184 => 46,  181 => 45,  175 => 43,  173 => 42,  168 => 41,  162 => 39,  160 => 38,  156 => 37,  151 => 36,  149 => 35,  146 => 34,  140 => 32,  138 => 31,  133 => 30,  127 => 28,  125 => 27,  121 => 26,  116 => 25,  114 => 24,  111 => 23,  105 => 21,  103 => 20,  99 => 19,  94 => 18,  92 => 17,  89 => 16,  83 => 14,  81 => 13,  77 => 12,  72 => 10,  67 => 9,  65 => 8,  62 => 7,  56 => 5,  54 => 4,  50 => 3,  45 => 2,  43 => 1,);
+        return array (  508 => 153,  502 => 151,  500 => 150,  496 => 149,  493 => 148,  485 => 143,  480 => 140,  478 => 139,  473 => 138,  469 => 136,  463 => 134,  461 => 133,  457 => 132,  452 => 131,  450 => 130,  447 => 129,  441 => 127,  439 => 126,  435 => 125,  430 => 124,  428 => 123,  425 => 122,  419 => 120,  417 => 119,  413 => 118,  408 => 117,  406 => 116,  403 => 115,  397 => 113,  395 => 112,  390 => 111,  384 => 109,  382 => 108,  378 => 107,  373 => 106,  371 => 105,  368 => 104,  362 => 102,  360 => 101,  356 => 100,  351 => 99,  348 => 98,  346 => 97,  343 => 96,  337 => 94,  335 => 93,  330 => 92,  324 => 90,  322 => 89,  318 => 88,  313 => 87,  311 => 86,  308 => 85,  302 => 83,  300 => 82,  296 => 81,  291 => 80,  289 => 79,  286 => 78,  280 => 76,  278 => 75,  274 => 74,  269 => 73,  267 => 72,  264 => 71,  258 => 69,  256 => 68,  252 => 67,  247 => 66,  245 => 65,  242 => 64,  236 => 62,  234 => 61,  230 => 60,  226 => 59,  221 => 58,  219 => 57,  216 => 56,  210 => 54,  208 => 53,  203 => 52,  197 => 50,  195 => 49,  191 => 48,  186 => 47,  184 => 46,  181 => 45,  175 => 43,  173 => 42,  168 => 41,  162 => 39,  160 => 38,  156 => 37,  151 => 36,  149 => 35,  146 => 34,  140 => 32,  138 => 31,  133 => 30,  127 => 28,  125 => 27,  121 => 26,  116 => 25,  114 => 24,  111 => 23,  105 => 21,  103 => 20,  99 => 19,  94 => 18,  92 => 17,  89 => 16,  83 => 14,  81 => 13,  77 => 12,  72 => 10,  67 => 9,  65 => 8,  62 => 7,  56 => 5,  54 => 4,  50 => 3,  45 => 2,  43 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -670,21 +672,22 @@ class __TwigTemplate_f4ce2d6a81405f4623344b1908ac3ffce1b3ab791a968b5fc9023fe7500
 \t    {% endif %}
 \t</div>
 {% else %}
-  <div {{ attributes }}>
-  <!-- Title -->
+  <section {{ attributes }}>
+\t\t\t{% if label %}
+\t\t\t<!-- Title -->
 \t<div class=\"title-container sm text-left\">
 \t\t<div class=\"title-wrap\">
-\t\t\t{% if label %}
 \t\t\t<h3 class=\"title\">{{ label }}</h3>
 \t\t\t<span class=\"separator line-separator\"></span>
-\t\t\t{% endif %}
-\t\t</div>
+\t\t\t\t\t</div>
 \t</div><!-- Title -->
+\t\t\t{% endif %}
+
 \t{{ title_suffix }}
     {% if content %}
       {{ content }}
     {% endif %}
-  </div>
+  </section>
 {% endif %}", "themes/custom/agenchy/templates/system/block/block.html.twig", "C:\\xamppnew\\htdocs\\mdxhealthd8\\web\\themes\\custom\\agenchy\\templates\\system\\block\\block.html.twig");
     }
 }
