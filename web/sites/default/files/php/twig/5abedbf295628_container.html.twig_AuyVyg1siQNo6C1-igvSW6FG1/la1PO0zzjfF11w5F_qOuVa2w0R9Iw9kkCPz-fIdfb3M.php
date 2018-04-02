@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/classy/templates/form/container.html.twig */
-class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842e372d extends Twig_Template
+/* themes/custom/agenchy/templates/container.html.twig */
+class __TwigTemplate_4f93d6d77da565fcb58dd2e33666cca16b15b55f360bd01296ed74d1b14a1782 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -15,13 +15,13 @@ class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $tags = array("set" => 23);
+        $tags = array("if" => 24);
         $filters = array();
         $functions = array();
 
         try {
             $this->env->getExtension('Twig_Extension_Sandbox')->checkSecurity(
-                array('set'),
+                array('if'),
                 array(),
                 array()
             );
@@ -39,22 +39,33 @@ class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842
             throw $e;
         }
 
-        // line 23
-        $context["classes"] = array(0 => ((        // line 24
-($context["has_parent"] ?? null)) ? ("js-form-wrapper") : ("")), 1 => ((        // line 25
-($context["has_parent"] ?? null)) ? ("form-wrapper") : ("")));
-        // line 28
-        echo "<div";
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->getAttribute(($context["attributes"] ?? null), "addClass", array(0 => ($context["classes"] ?? null)), "method"), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["children"] ?? null), "html", null, true));
-        echo "</div>
+        // line 24
+        if ((($context["container_type"] ?? null) != "view")) {
+            // line 25
+            echo "\t<div";
+            echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["attributes"] ?? null), "html", null, true));
+            echo ">
+\t";
+            // line 26
+            echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["children"] ?? null), "html", null, true));
+            echo "
+\t</div>
+";
+        } else {
+            // line 29
+            echo "\t";
+            echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["children"] ?? null), "html", null, true));
+            echo "
+";
+        }
+        // line 31
+        echo "
 ";
     }
 
     public function getTemplateName()
     {
-        return "core/themes/classy/templates/form/container.html.twig";
+        return "themes/custom/agenchy/templates/container.html.twig";
     }
 
     public function isTraitable()
@@ -64,7 +75,7 @@ class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842
 
     public function getDebugInfo()
     {
-        return array (  47 => 28,  45 => 25,  44 => 24,  43 => 23,);
+        return array (  62 => 31,  56 => 29,  50 => 26,  45 => 25,  43 => 24,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -80,7 +91,7 @@ class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842
         return new Twig_Source("{#
 /**
  * @file
- * Theme override of a container used to wrap child elements.
+ * Default theme implementation of a container used to wrap child elements.
  *
  * Used for grouped form items. Can also be used as a theme wrapper for any
  * renderable element, to surround it with a <div> and HTML attributes.
@@ -96,15 +107,18 @@ class __TwigTemplate_b52e4947cf27805ad18fcc68148702214216c8e867385097849b3e23842
      containers.
  *
  * @see template_preprocess_container()
+ *
+ * @ingroup themeable
  */
 #}
-{%
-  set classes = [
-    has_parent ? 'js-form-wrapper',
-    has_parent ? 'form-wrapper',
-  ]
-%}
-<div{{ attributes.addClass(classes) }}>{{ children }}</div>
-", "core/themes/classy/templates/form/container.html.twig", "C:\\xamppnew\\htdocs\\mdxhealthd8\\web\\core\\themes\\classy\\templates\\form\\container.html.twig");
+{% if container_type != 'view' %}
+\t<div{{ attributes}}>
+\t{{ children }}
+\t</div>
+{% else %}
+\t{{ children }}
+{% endif %}
+
+", "themes/custom/agenchy/templates/container.html.twig", "C:\\xamppnew\\htdocs\\mdxhealthd8\\web\\themes\\custom\\agenchy\\templates\\container.html.twig");
     }
 }
