@@ -644,6 +644,54 @@
 			{{ rows }}
 		</ul>
 	{% endif %}
+  
+  
+  {% elseif id == 'press_release' %}
+  {% if display_id == 'press_releases_slider' %}
+		<div class="container">
+			<!-- Row -->
+			<div class="row">
+				<!-- Column -->
+				<div class="col-sm-6">
+					<!-- Title -->
+					<div class="title-container text-left">
+						<div class="title-wrap">
+							{{ header }}
+						</div>
+					</div><!-- Title -->
+				</div><!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->
+
+		<!-- Container -->
+		<div class="container-fluid">	
+			<div class="row">
+				<!-- Column Begins -->
+				<div class="col-sm-12">
+					<div class="owl-carousel" 
+						data-animatein="" 
+						data-animateout="" 
+						data-items="1" 
+						data-loop="true" 
+						data-merge="true" 
+						data-nav="true" 
+						data-dots="false" 
+						data-stagepadding="" 
+						data-margin="15"
+						data-mobile="1" 
+						data-tablet="2" 
+						data-desktopsmall="3"  
+						data-desktop="4" 
+						data-autoplay="true" 
+						data-delay="3000" 
+						data-navigation="true">
+						
+						{{ rows }}
+					</div><!-- carousel -->
+				</div><!-- Column -->
+			</div><!-- Row -->
+		</div><!-- Container -->
+  
 {% elseif id == '_agenchy_section_content_2' %}
 	{% if display_id == 'block_section_content_consultants' %}
 		<ul class="thumbnail-widget">
