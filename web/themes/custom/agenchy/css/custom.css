@@ -134,3 +134,9 @@ form {
     margin-right: auto;
     margin-left: auto;
 }
+.page-default {
+	padding: 0px;
+}
+.page-header .breadcrumb {
+	top: auto;
+}
