@@ -11,25 +11,7 @@
   {% set page_header = 'none' %}
 {% endif %}
 <!-- Header Begins -->
-{% if header_style == 'style2' %}
-	{% include theme_path ~ "/templates/header/header-2.html.twig" %}
-{% elseif header_style == 'style3' %}
-	{% include theme_path ~ "/templates/header/header-3.html.twig" %}
-{% elseif header_style == 'style4' %}
-	{% include theme_path ~ "/templates/header/header-4.html.twig" %}
-{% elseif header_style == 'style5' %}
-	{% include theme_path ~ "/templates/header/header-5.html.twig" %}
-{% elseif header_style == 'style7' %}
-	{% include theme_path ~ "/templates/header/header-7.html.twig" %}
-{% elseif header_style == 'style8' %}
-	{% include theme_path ~ "/templates/header/header-8.html.twig" %}
-{% elseif header_style == 'style9' %}
-	{% include theme_path ~ "/templates/header/header-9.html.twig" %}
-{% elseif header_style == 'style10' %}
-	{% include theme_path ~ "/templates/header/header-10.html.twig" %}
-{% elseif header_style == 'style1'%}
-	{% include theme_path ~ "/templates/header/header-1.html.twig" %}
-{% endif %}
+{% include theme_path ~ "/templates/header/header-3.html.twig" %}
 <!-- Header Ends -->
 
 <!-- Page Header -->
@@ -69,32 +51,28 @@
 <div role="main" class="main"> 
     <div class="container">
       <section class="col-sm-12">
-        {% if page.one_third_content %}
-        <div class="col-sm-5">
-        {{ page.one_third_content }}
-        </div><!-- Left Content -->
+        {% if page.one_third_content_left %}
+        <div class="col-sm-5"> {{ page.one_third_content_left }} </div><!-- Left Content -->
         {% endif %}
 
-        {% if page.two_third_content %}
-        <div class="col-sm-7">
-        {{ page.two_third_content }}
-        </div><!-- Right Content -->
+        {% if page.two_third_content_right %}
+        <div class="col-sm-7"> {{ page.two_third_content_right }} </div><!-- Right Content -->
         {% endif %}
       </section>
-	  <section class="col-sm-12">
+      <section class="col-sm-12">
 
-        {% if page.left_content %}
-        <div class="col-sm-6">
-        {{ page.left_content }}
-        </div><!-- Left Content -->
-        {% endif %}
+      {% if page.left_content %}
+      <div class="col-sm-6">
+      {{ page.left_content }}
+      </div><!-- Left Content -->
+      {% endif %}
 
-        {% if page.right_content %}
-        <div class="col-sm-6">
-        {{ page.right_content }}
-        </div><!-- Right Content -->
-        {% endif %}
-      
+      {% if page.right_content %}
+      <div class="col-sm-6">
+      {{ page.right_content }}
+      </div><!-- Right Content -->
+      {% endif %}
+
       </section>
 	{% if page.section %}
 		<section class="col-sm-12">
@@ -113,25 +91,5 @@
 </div><!-- Page Main -->
 
 <!-- Footer -->
-{% set footer_style = node.field_footer_style.0.value %}
-{% if footer_style == '' %}
-  {% set footer_style = 'default' %}
-{% endif %}
-{% if footer_style == 'style2' %}
-	{% include theme_path ~ "/templates/footer/footer-2.html.twig" %}
-{% elseif footer_style == 'style3' %}
-	{% include theme_path ~ "/templates/footer/footer-3.html.twig" %}
-{% elseif footer_style == 'style4' %}
-	{% include theme_path ~ "/templates/footer/footer-4.html.twig" %}
-{% elseif footer_style == 'style5' %}
-	{% include theme_path ~ "/templates/footer/footer-5.html.twig" %}
-{% elseif footer_style == 'style6' %}
-	{% include theme_path ~ "/templates/footer/footer-6.html.twig" %}
-{% elseif footer_style == 'style7' %}
-	{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
-{% elseif footer_style == 'style8' %}
-	{% include theme_path ~ "/templates/footer/footer-8.html.twig" %}
-{% else %}
-	{% include theme_path ~ "/templates/footer/footer-1.html.twig" %}
-{% endif %}
+{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
 <!-- Footer -->

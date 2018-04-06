@@ -11,16 +11,12 @@
 {% endif %}
 <!-- Model Window -->
 
-<div class="col-sm-12">
-	<div class="col-sm-4">
-		{% if page.left_content %}
-			{{ page.left_content }}
-		{% endif %}
-	</div><!-- Left Content -->
+<section class="col-sm-12">
+  {% if page.one_third_content_left %}
+  <div class="col-sm-5"> {{ page.one_third_content_left }} </div><!-- Left Content -->
+  {% endif %}
 
-	<div class="col-sm-8">
-		{% if page.right_content %}
-			{{ page.right_content }}
-		{% endif %}
-	</div><!-- Right Content -->
-</div>
+  {% if page.two_third_content_right %}
+  <div class="col-sm-7"> {{ page.two_third_content_right }} </div><!-- Right Content -->
+  {% endif %}
+</section>

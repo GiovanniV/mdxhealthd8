@@ -31,7 +31,7 @@
   float: right;
 }
 .main section {
-  padding: 30px 0;
+  padding: 15px 0;
 }
 #header nav ul.nav-main li a {
   color: #362269;
@@ -139,4 +139,22 @@ form {
 }
 .page-header .breadcrumb {
 	top: auto;
+}
+
+.btn-group.btn-group-justified .btn {
+  white-space:normal !important;
+}
+.btn-group.special {
+  display: flex;
+}
+.special .btn {
+  white-space: normal !important;
+  margin: 0 10px;
+  border: none;
+  padding: 10px;
+  flex: 1;
+  border-radius: 4px !important;
+}
+.getquote-section {
+  padding: 50px 0;
 }

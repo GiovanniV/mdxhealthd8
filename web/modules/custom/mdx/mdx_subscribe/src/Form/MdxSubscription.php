@@ -233,7 +233,7 @@ class MdxSubscription extends SubscriptionForm {
 	  '#attributes' => [
 		'class' => ['btn'],
 	  ],
-	  '#prefix' => '<div class="col-sm-6 ptb-3">',
+	  '#prefix' => '<div class="col-sm-6 pt-3">',
 	  '#suffix' => '</div>',
     );
 

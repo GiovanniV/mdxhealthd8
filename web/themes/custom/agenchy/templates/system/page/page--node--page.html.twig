@@ -1,0 +1,60 @@
+<!-- Header Begins -->
+{% include theme_path ~ "/templates/header/header-3.html.twig" %}
+<!-- Header Ends -->
+
+{% if page.slider %}
+	{{ page.slider }}
+{% endif %}
+{% if page.slider_bottom %}
+	{{ page.slider_bottom }}
+{% endif %}
+<div role="main" class="main"> 
+  <div class="container">
+    
+    {% if page.top_section %}
+    <section class="col-sm-12"> {{ page.top_section }} </section>
+    {% endif %}
+
+    <section class="col-sm-12">
+    {% if page.two_third_content_left %}
+    <div class="col-sm-7"> {{ page.two_third_content_left }} </div><!-- Left Content -->
+    {% endif %}
+    {% if page.one_third_content_right %}
+    <div class="col-sm-5"> {{ page.one_third_content_right }} </div><!-- Right Content -->
+    {% endif %}
+    </section>
+    
+    <section class="col-sm-12">
+    {% if page.one_third_content_left %}
+    <div class="col-sm-5"> {{ page.one_third_content_left }} </div><!-- Right Content -->
+    {% endif %}
+    {% if page.two_third_content_right %}
+    <div class="col-sm-7"> {{ page.two_third_content_right }} </div><!-- Left Content -->
+    {% endif %}
+    </section>
+    
+    <section class="col-sm-12">
+    {% if page.left_content %}
+    <div class="col-sm-6"> {{ page.left_content }} </div><!-- Left Content -->
+    {% endif %}
+
+    {% if page.right_content %}
+    <div class="col-sm-6"> {{ page.right_content }} </div><!-- Right Content -->
+    {% endif %}
+    
+    </section>
+    
+    {% if page.section %}
+    <section class="col-sm-12"> {{ page.section }} </section>
+    {% endif %}
+    
+    {% if page.content %}
+    <section class="col-sm-12"> {{ page.content }} </section>
+    {% endif %}
+  </div>
+</div>
+
+
+<!-- Footer -->
+{% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
+<!-- Footer -->
