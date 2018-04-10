@@ -99,6 +99,15 @@
 .pl-0 {
   padding-left: 0px;
 }
+.m-0 {
+  margin: 0px;
+}
+.m-10 {
+  margin: 10px;
+}
+.m-20 {
+  margin: 20px;
+}
 .blog-meta li {
   color: #332a86;
 }
@@ -166,4 +175,17 @@ form {
 }
 .getquote-section {
   padding: 50px 0;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+  #header .nav-main-collapse {
+    background: #362269;
+  }
+  #header .nav-main ul li {
+    border-bottom: 1px solid #eb7e2a;
+  }
+  #header nav ul.nav-main li a {
+    color: #fff;
+  }
 }
