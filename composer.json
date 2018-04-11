@@ -38,6 +38,7 @@
         "drupal/field_group": "^1.0",
         "drupal/file_browser": "^1.1",
         "drupal/get_tweets": "^1.1",
+        "drupal/google_analytics": "^2.2",
         "drupal/image_raw_formatter": "1.x-dev",
         "drupal/image_url_formatter": "^1.0@beta",
         "drupal/menu_attributes": "1.x-dev",

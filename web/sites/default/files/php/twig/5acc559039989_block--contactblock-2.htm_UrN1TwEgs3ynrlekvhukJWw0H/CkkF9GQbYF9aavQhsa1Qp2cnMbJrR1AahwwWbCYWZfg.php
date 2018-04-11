@@ -1,7 +1,7 @@
 <?php
 
-/* themes/custom/agenchy/templates/block--contactblock-2.html.twig */
-class __TwigTemplate_853f34af5142933766e937df0ffda84086d348f82df28797501612b417160cf9 extends Twig_Template
+/* themes/custom/agenchy/templates/system/block/block--contactblock-2.html.twig */
+class __TwigTemplate_3a0e50347a4646ec8a60633a2889200a2965de4460b3459ccdb609fd27946c39 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -15,7 +15,7 @@ class __TwigTemplate_853f34af5142933766e937df0ffda84086d348f82df28797501612b4171
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $tags = array("if" => 2);
+        $tags = array("if" => 3);
         $filters = array();
         $functions = array();
 
@@ -41,46 +41,48 @@ class __TwigTemplate_853f34af5142933766e937df0ffda84086d348f82df28797501612b4171
 
         // line 1
         echo "<section ";
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, $this->getAttribute(($context["attributes"] ?? null), "addClass", array(0 => "m-20"), "method"), "html", null, true));
+        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["attributes"] ?? null), "html", null, true));
         echo ">
-  ";
-        // line 2
+  <div class=\"col-sm-12\">
+    ";
+        // line 3
         if (($context["label"] ?? null)) {
-            // line 3
-            echo "  <!-- Title -->
-  <div class=\"title-container sm text-left\">
-    <div class=\"title-wrap\">
-      <h3 class=\"title\">";
-            // line 6
+            // line 4
+            echo "    <!-- Title -->
+    <div class=\"title-container sm text-left\">
+      <div class=\"title-wrap\">
+        <h3 class=\"title\">";
+            // line 7
             echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["label"] ?? null), "html", null, true));
             echo "</h3>
-      <span class=\"separator line-separator\"></span>
-    </div>
-  </div><!-- Title -->
-  ";
+        <span class=\"separator line-separator\"></span>
+      </div>
+    </div><!-- Title -->
+    ";
         }
-        // line 11
-        echo "
-  ";
         // line 12
+        echo "
+    ";
+        // line 13
         echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["title_suffix"] ?? null), "html", null, true));
         echo "
-  ";
-        // line 13
+    ";
+        // line 14
         if (($context["content"] ?? null)) {
-            // line 14
-            echo "  ";
+            // line 15
+            echo "    ";
             echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["content"] ?? null), "html", null, true));
             echo "
-  ";
+    ";
         }
-        // line 16
-        echo "</section>";
+        // line 17
+        echo "  </div>
+</section>";
     }
 
     public function getTemplateName()
     {
-        return "themes/custom/agenchy/templates/block--contactblock-2.html.twig";
+        return "themes/custom/agenchy/templates/system/block/block--contactblock-2.html.twig";
     }
 
     public function isTraitable()
@@ -90,7 +92,7 @@ class __TwigTemplate_853f34af5142933766e937df0ffda84086d348f82df28797501612b4171
 
     public function getDebugInfo()
     {
-        return array (  78 => 16,  72 => 14,  70 => 13,  66 => 12,  63 => 11,  55 => 6,  50 => 3,  48 => 2,  43 => 1,);
+        return array (  79 => 17,  73 => 15,  71 => 14,  67 => 13,  64 => 12,  56 => 7,  51 => 4,  49 => 3,  43 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -103,21 +105,23 @@ class __TwigTemplate_853f34af5142933766e937df0ffda84086d348f82df28797501612b4171
 
     public function getSourceContext()
     {
-        return new Twig_Source("<section {{ attributes.addClass('m-20') }}>
-  {% if label %}
-  <!-- Title -->
-  <div class=\"title-container sm text-left\">
-    <div class=\"title-wrap\">
-      <h3 class=\"title\">{{ label }}</h3>
-      <span class=\"separator line-separator\"></span>
-    </div>
-  </div><!-- Title -->
-  {% endif %}
+        return new Twig_Source("<section {{ attributes }}>
+  <div class=\"col-sm-12\">
+    {% if label %}
+    <!-- Title -->
+    <div class=\"title-container sm text-left\">
+      <div class=\"title-wrap\">
+        <h3 class=\"title\">{{ label }}</h3>
+        <span class=\"separator line-separator\"></span>
+      </div>
+    </div><!-- Title -->
+    {% endif %}
 
-  {{ title_suffix }}
-  {% if content %}
-  {{ content }}
-  {% endif %}
-</section>", "themes/custom/agenchy/templates/block--contactblock-2.html.twig", "E:\\xampp\\htdocs\\mdxhealthd8\\web\\themes\\custom\\agenchy\\templates\\block--contactblock-2.html.twig");
+    {{ title_suffix }}
+    {% if content %}
+    {{ content }}
+    {% endif %}
+  </div>
+</section>", "themes/custom/agenchy/templates/system/block/block--contactblock-2.html.twig", "E:\\xampp\\htdocs\\mdxhealthd8\\web\\themes\\custom\\agenchy\\templates\\system\\block\\block--contactblock-2.html.twig");
     }
 }
