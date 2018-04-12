@@ -196,3 +196,14 @@ form {
   background: #332a86 none repeat scroll 0 0;
   color: #fff;
 }
+.language-dropdown {
+  float: right;
+  margin: 10px 0 0 15px;
+  position: relative;
+}
+.language-dropdown .language-icon {
+  display: none;
+}
+.language-dropdown select {
+  height: 35px;
+}
