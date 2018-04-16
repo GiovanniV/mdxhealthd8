@@ -27,6 +27,14 @@ function agenchy_theme_suggestions_page_alter(array &$suggestions, array $variab
 		$suggestions[] = 'page__node__' . $node->getType();
 	}
 }
+function agenchy_theme_suggestions_node_alter(array &$suggestions, array $variables, $hook) {
+ $node = $variables['elements']['#node'];
+ $type = $node->bundle();
+ $view_mode = $variables['elements']['#view_mode'];
+
+ $suggestions[] = 'node__'.$type;
+ $suggestions[] = 'node__'.$type.'__'.$view_mode;
+}
 function agenchy_preprocess_block(&$variables) {
 	$blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'contact_form', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]); 
 	$arr_block = array();
@@ -559,6 +567,7 @@ function agenchy_preprocess_page(&$variables) {
 	}else{
 		$variables['other_page_header_bg'] = '';
 	}		
+  $variables['#attached']['library'][] = 'core/drupal.dialog.ajax';
 }
 function agenchy_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 	if($form['#id']== 'views-exposed-form-press-release-page') {

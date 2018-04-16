@@ -44,3 +44,4 @@ agenchy-lib:
     js/update.js: {}
   dependencies:
     - core/jquery
+    - core/drupal.dialog.ajax
