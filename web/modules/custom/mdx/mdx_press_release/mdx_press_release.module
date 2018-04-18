@@ -102,6 +102,28 @@ function create_custom_vocab_term() {
  * Implements hook_cron().
  */
 function mdx_press_release_cron() {
+  
+  /* // Ppopulate node with press data
+  $node = Node::create(['type' => 'mdx_press_release']);
+  //Set Node Title
+  $node->set('title', 'Testing');
+  //Set Node Body
+  $node->set('body', ['value' => 'Body', 'format' => 'full_html']);
+  // Set Press Release ID 
+  $node->set('field_press_release_id', '12345');
+  // Set Press Release PDF LInk 
+  //$node->set('field_mdx_press_pdf', $data->files->file->location);
+  // Upload and Set PDF
+  //$press_release_pdf = fileUpload(['url' => $data->files->file->location, 'title' => $data->files->file->file_headline]);
+  //$node->set('field_field_press_release_pdf', $press_release_pdf);
+    
+  $node->set('field_press_release_date', '2010-04-18T02:19:18');
+  $node->set('uid', 1);
+  $node->status = 1;
+  $node->enforceIsNew();
+  $node->save(); */
+  
+  
   $path = 'http://cws.huginonline.com/M/137314/pr_feed_all.xml';
   $xmlData = simplexml_load_file($path);
   $flastmod = getFlastmodeTimestamp($xmlData->head->flastmod['date']);
@@ -153,8 +175,9 @@ function mdx_press_release_cron() {
 								else {
 									$node->set('field_mdx_language_category', 38);
 								}
-								
-                $node->set('field_press_release_date', [date('m/d/Y H:i:s', strtotime(parseDate($data->published['date'])))]);
+                
+								$node->set('field_press_release_date', formatDateFieldValue($data->published['date']));
+                //$node->set('field_press_release_date', '2010-04-18T02:19:18');
                 $node->set('uid', 1);
                 $node->status = 1;
                 $node->enforceIsNew();
@@ -175,6 +198,13 @@ function mdx_press_release_cron() {
     }
   }
 
+}
+
+function formatDateFieldValue($date) {
+  $dateTime = \DateTime::createFromFormat('Y-m-d', $date);
+  $newDateString = $dateTime->format('Y-m-d\TH:i:s');
+  
+  return $newDateString;
 }
 
 function getNodeIdByPressId($id) {

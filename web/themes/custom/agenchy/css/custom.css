@@ -207,3 +207,23 @@ form {
 .language-dropdown select {
   height: 35px;
 }
+.step-one,
+.step-two {
+  display: none;
+}
+.show-step-two .step-two {
+  display: block;
+}
+.show-step-one .step-one {
+  display: block;
+}
+.image-text-align {
+  display:flex;
+  align-items:center;
+}
+.image-text-align img {
+  padding-right: 20px;
+}
+.image-text-align .grid {
+  display:grid;
+}

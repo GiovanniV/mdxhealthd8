@@ -35,6 +35,7 @@ function agenchy_theme_suggestions_node_alter(array &$suggestions, array $variab
  $suggestions[] = 'node__'.$type;
  $suggestions[] = 'node__'.$type.'__'.$view_mode;
 }
+
 function agenchy_preprocess_block(&$variables) {
 	$blocks_name = \Drupal::entityManager()->getStorage('block')->loadByProperties(['region' => 'contact_form', 'theme' => \Drupal::theme()->getActiveTheme()->getName()]); 
 	$arr_block = array();

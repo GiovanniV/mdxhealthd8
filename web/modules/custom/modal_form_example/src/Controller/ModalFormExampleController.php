@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\mdx_press_release\Controller;
+namespace Drupal\modal_form_example\Controller;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Ajax\AjaxResponse;
@@ -9,9 +9,9 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Form\FormBuilder;
 
 /**
- * PressReleaseModalFormController class.
+ * ModalFormExampleController class.
  */
-class PressReleaseDisclaimerFormController extends ControllerBase {
+class ModalFormExampleController extends ControllerBase {
 
   /**
    * The form builder.
@@ -21,7 +21,7 @@ class PressReleaseDisclaimerFormController extends ControllerBase {
   protected $formBuilder;
 
   /**
-   * The PressReleaseModalFormController constructor.
+   * The ModalFormExampleController constructor.
    *
    * @param \Drupal\Core\Form\FormBuilder $formBuilder
    *   The form builder.
@@ -47,13 +47,14 @@ class PressReleaseDisclaimerFormController extends ControllerBase {
   /**
    * Callback for opening the modal form.
    */
-  public function openPressReleaseDisclaimerForm($pressId) {
+  public function openModalForm() {
     $response = new AjaxResponse();
+
     // Get the modal form using the form builder.
-    $modal_form = $this->formBuilder->getForm('Drupal\mdx_press_release\Form\PressReleaseDisclaimerForm', $pressId, 1);
+    $modal_form = $this->formBuilder->getForm('Drupal\modal_form_example\Form\ModalForm');
 
     // Add an AJAX command to open a modal dialog with the form as the content.
-    $response->addCommand(new OpenModalDialogCommand('Press Release - Disclaimer', $modal_form, ['width' => '800']));
+    $response->addCommand(new OpenModalDialogCommand('My Modal Form', $modal_form, ['width' => '800']));
 
     return $response;
   }

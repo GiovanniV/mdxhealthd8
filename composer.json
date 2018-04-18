@@ -57,6 +57,7 @@
         "drupal/get_tweets": "^1.1",
         "drupal/globalredirect": "1.x-dev",
         "drupal/google_analytics": "^2.2",
+        "drupal/google_analytics_reports": "^3.0@beta",
         "drupal/image_raw_formatter": "1.x-dev",
         "drupal/image_url_formatter": "^1.0@beta",
         "drupal/lang_dropdown": "^2.0@beta",
