@@ -106,21 +106,6 @@ class PressReleaseDisclaimerForm extends FormBase {
       '#required' => TRUE,
     ];
 
-    $form['step_one']['actions'] = array('#type' => 'actions');
-    $form['step_one']['actions']['next'] = [
-      '#type' => 'submit',
-      '#value' => $this->t('Next'),
-      '#attributes' => [
-        'class' => [
-          'use-ajax',
-        ],
-      ],
-      '#ajax' => [
-        'callback' => [$this, 'submitModalFormAjax'],
-        'event' => 'click',
-      ],
-    ];
-
     $content_03 = "<p>Please read this carefully as it applies to all persons who visit this website. The following pages contain information relating to an offering and admission to trading on a regulated market in relation to securities of MDxHealth SA (\"MDxHealth\"). This information may not be accessed by residents of certain countries based on applicable securities law regulations. Accordingly, if you wish to access this part of the website you must first inform yourself about and then observe the statutory and regulatory requirements applicable to you and to your jurisdiction. In order to establish whether or not you may view the information and documents please read the disclaimer below in full.</p><p><strong>THIS WEBSITE AND THE MATERIALS CONTAINED THEREIN ARE NOT FOR RELEASE, DISTRIBUTION OR PUBLICATION, IN WHOLE OR IN PART, DIRECTLY OR INDIRECTLY, IN THE UNITED STATES OF AMERICA, AUSTRALIA, CANADA, JAPAN OR ANY OTHER JURISDICTION WHERE TO DO SO WOULD BE PROHIBITED BY APPLICABLE LAW.</strong></p><p>This website and the information contained herein or to which it gives access are not intended for, and may not be accessed by, or distributed or disseminated to, persons resident or physically present in the United States of America (including its territories, the \"United States\"), Australia, Canada or Japan, and do not constitute, or form part of, an offer or invitation to sell or issue, or a solicitation of an offer or invitation to purchase or subscribe for, nor shall there be any sale or purchase of, any securities of MDxHealth in the United States, Australia, Canada, Japan or South Africa or in any other jurisdiction in which such offer, invitation, solicitation, sale, issue, purchase or subscription would be unlawful prior to registration, unless an exemption from registration or qualification under the securities laws of any such jurisdiction is applicable. The securities of MDxHealth referred to on this website have not been and will not be registered under the U.S. Securities Act of 1933, as amended (the \"U.S. Securities Act\"), and may not be offered or sold in the United States absent registration with the United States Securities and Exchange Commission or an exemption from registration under the U.S. Securities Act.</p><p>All persons residing outside of the United States, Australia, Canada and Japan who wish to access the documents contained on this website should first ensure that they are not subject to local laws or regulations that prohibit or restrict their right to access this website, or require registration or approval for any acquisition of securities by them. MDxHealth assumes no responsibility if there is a violation of applicable law and regulations by any person.</p><p>No action has been taken by MDxHealth that would permit an offer of MDxHealth's shares or the possession or distribution of the materials to which this website gives access or any other offering or publicity material relating to MDxHealth's shares in any jurisdiction where action for that purpose is required. MDxHealth has not authorised any public offering in any Member State of the European Economic Area. With respect to any Member State of the European Economic Area that has implemented Directive 2003/71/EC of the European Parliament and of the Council of 4 November 2003, as amended (together with any applicable implementing measures in such Member State, the \"Prospectus Directive\"), this website and the information contained herein, or to which it gives access, is only addressed to, and is only directed at, qualified investors in that Member State within the meaning of the Prospectus Directive.</p><p>In addition, in the United Kingdom, this website and the information contained herein, or to which it gives access, is addressed to, and directed only at:</p> <p>(a) persons who have professional experience in matters relating to investments falling within article 19(5) of the Financial Services and Markets Act 2000 (Financial Promotion) Order 2005, as amended (the \"Order\"), and (b) high net worth entities, and other persons to whom they may otherwise lawfully be communicated, falling within article 49(2) of the Order (all such persons together being referred to as \"Relevant Persons\"). In the United Kingdom, any investment or investment activity to which this website and the information contained herein, or to which it gives access, relates, is available only to Relevant Persons and will be engaged in only with Relevant Persons. Any person in the United Kingdom who is not a Relevant Person should not act or rely on this website and the information contained herein, or to which it gives access.</p><p>If you are not permitted to view materials on this website or are in any doubt as to whether you are permitted to view these materials, please exit this webpage.</p><p>Access to electronic versions of these materials is being made available on this webpage by MDxHealth in good faith and for information purposes only.By selecting \"Yes\" you confirm and certify that:</p><p>You are not a resident of or physically present in the United States, Australia, Canada or Japan or any other restricted jurisdiction, and that you are either:</p><p> </p><ol><li>(a) a resident of, and domiciled in, a Member State of the European Economic Area other than the United Kingdom and a qualified investor within the meaning of the Prospectus Directive</li><li>(b) a resident of, and domiciled in, the United Kingdom, a qualified investor within the meaning of the Prospectus Directive and a Relevant Person, or </li><li>(c)&nbsp;otherwise authorised to access this information pursuant to applicable laws or regulations.</li></ol>";
     
     $content_04 = "<p>By clicking \"confirm\" you confirm and certify that you have read and understood the foregoing, and hereby make the certifications above and agree to comply with all of the above restrictions</p>";
@@ -141,6 +126,21 @@ class PressReleaseDisclaimerForm extends FormBase {
     
     $form['step_two']['content_04'] = [
       '#markup' => $this->t($content_04),
+    ];
+
+    $form['actions'] = array('#type' => 'actions');
+    $form['actions']['next'] = [
+      '#type' => 'submit',
+      '#value' => $this->t('Next'),
+      '#attributes' => [
+        'class' => [
+          'use-ajax btn',
+        ],
+      ],
+      '#ajax' => [
+        'callback' => [$this, 'submitModalFormAjax'],
+        'event' => 'click',
+      ],
     ];
 
     return $form;
@@ -167,7 +167,7 @@ class PressReleaseDisclaimerForm extends FormBase {
       $form['#attributes'] = [
         'class' => ['show-step-two']
       ];
-      
+      $form['actions']['next']['#value'] = $this->t('Confirm');
       if($status == 'Yes') {
         $response->addCommand(new CloseModalDialogCommand());
         $response->addCommand(new RedirectCommand('/node/' . $pressId));
