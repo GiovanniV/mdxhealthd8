@@ -1,7 +1,7 @@
 <?php
 
-/* core/themes/stable/templates/form/textarea.html.twig */
-class __TwigTemplate_fdb11ca9722b21dfc618e586b11ae73551623cae2e6f891f81231f9fcff07156 extends Twig_Template
+/* modules/contrib/token/templates/token-tree-link.html.twig */
+class __TwigTemplate_91b5c5a2332cce638919611a45eaf69d73584a2698cc4bc83a9e52086adec419 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
     {
@@ -15,13 +15,13 @@ class __TwigTemplate_fdb11ca9722b21dfc618e586b11ae73551623cae2e6f891f81231f9fcff
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $tags = array();
+        $tags = array("if" => 17);
         $filters = array();
         $functions = array();
 
         try {
             $this->env->getExtension('Twig_Extension_Sandbox')->checkSecurity(
-                array(),
+                array('if'),
                 array(),
                 array()
             );
@@ -39,23 +39,16 @@ class __TwigTemplate_fdb11ca9722b21dfc618e586b11ae73551623cae2e6f891f81231f9fcff
             throw $e;
         }
 
-        // line 16
-        echo "<div";
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["wrapper_attributes"] ?? null), "html", null, true));
-        echo ">
-  <textarea";
         // line 17
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["attributes"] ?? null), "html", null, true));
-        echo ">";
-        echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["value"] ?? null), "html", null, true));
-        echo "</textarea>
-</div>
-";
+        if (($context["link"] ?? null)) {
+            // line 18
+            echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["link"] ?? null), "html", null, true));
+        }
     }
 
     public function getTemplateName()
     {
-        return "core/themes/stable/templates/form/textarea.html.twig";
+        return "modules/contrib/token/templates/token-tree-link.html.twig";
     }
 
     public function isTraitable()
@@ -65,7 +58,7 @@ class __TwigTemplate_fdb11ca9722b21dfc618e586b11ae73551623cae2e6f891f81231f9fcff
 
     public function getDebugInfo()
     {
-        return array (  48 => 17,  43 => 16,);
+        return array (  45 => 18,  43 => 17,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -81,21 +74,22 @@ class __TwigTemplate_fdb11ca9722b21dfc618e586b11ae73551623cae2e6f891f81231f9fcff
         return new Twig_Source("{#
 /**
  * @file
- * Theme override for a 'textarea' #type form element.
+ * Default theme implementation for the token tree link.
  *
- * Available variables
- * - wrapper_attributes: A list of HTML attributes for the wrapper element.
- * - attributes: A list of HTML attributes for the textarea element.
- * - resizable: An indicator for whether the textarea is resizable.
- * - required: An indicator for whether the textarea is required.
- * - value: The textarea content.
+ * Available variables:
+ * - url: The URL to the token tree page.
+ * - text: The text to be displayed in the link.
+ * - attributes: Attributes for the anchor tag.
+ * - link: The complete link.
  *
- * @see template_preprocess_textarea()
+ * @see template_preprocess_token_tree_link()
+ *
+ * @ingroup themeable
  */
 #}
-<div{{ wrapper_attributes }}>
-  <textarea{{ attributes }}>{{ value }}</textarea>
-</div>
-", "core/themes/stable/templates/form/textarea.html.twig", "C:\\xamppnew\\htdocs\\mdxhealthd8\\web\\core\\themes\\stable\\templates\\form\\textarea.html.twig");
+{% if link -%}
+  {{ link }}
+{%- endif %}
+", "modules/contrib/token/templates/token-tree-link.html.twig", "C:\\xamppnew\\htdocs\\mdxhealthd8\\web\\modules\\contrib\\token\\templates\\token-tree-link.html.twig");
     }
 }

@@ -57,7 +57,7 @@ class __TwigTemplate_97134676d700b4b90a799b952fee821fd8b77e28b2d903c9f6c02fd068f
 \t\t\t\t<h4><a href=\"";
         // line 12
         echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["url"] ?? null), "html", null, true));
-        echo "\">";
+        echo "\" class=\"use-ajax\" data-drupal-selector=\"edit-open-modal\" id=\"edit-open-modal\">";
         echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["label"] ?? null), "html", null, true));
         echo "</a></h4>
 \t\t\t\t<ul class=\"blog-meta\">
@@ -78,10 +78,10 @@ class __TwigTemplate_97134676d700b4b90a799b952fee821fd8b77e28b2d903c9f6c02fd068f
         // line 18
         echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, strip_tags($this->getAttribute(($context["content"] ?? null), "body", array())), "html", null, true));
         echo "</p>
-\t\t\t\t<a class=\"btn\" href=\"";
+\t\t\t\t<a class=\"use-ajax btn\" href=\"";
         // line 19
         echo $this->env->getExtension('Twig_Extension_Sandbox')->ensureToStringAllowed($this->env->getExtension('Drupal\Core\Template\TwigExtension')->escapeFilter($this->env, ($context["url"] ?? null), "html", null, true));
-        echo "\">Read More</a>
+        echo "\" data-drupal-selector=\"edit-open-modal\" id=\"edit-open-modal\">Read More</a>
 \t\t\t</div><!-- Blog Detail Wrapper -->
 \t\t</div><!-- Blog Detail Column -->
 \t</div><!-- Blog Wrapper -->
@@ -126,14 +126,14 @@ class __TwigTemplate_97134676d700b4b90a799b952fee821fd8b77e28b2d903c9f6c02fd068f
 \t\t<!-- Blog Detail Wrapper -->
 \t\t<div class=\"col-sm-12\">
 \t\t\t<div class=\"blog-details\">
-\t\t\t\t<h4><a href=\"{{ url }}\">{{ label }}</a></h4>
+\t\t\t\t<h4><a href=\"{{ url }}\" class=\"use-ajax\" data-drupal-selector=\"edit-open-modal\" id=\"edit-open-modal\">{{ label }}</a></h4>
 \t\t\t\t<ul class=\"blog-meta\">
 \t\t\t\t\t<li><i class=\"fa fa-calendar-o\"></i>{{ press_release_date|date('M d Y') }}</li>
 \t\t\t\t\t<li><i class=\"fa fa-comments\"></i> {{ comment_c }}</li>
 \t\t\t\t\t<li><i class=\"fa fa-eye\"></i> {{ getNodeViewCount(nid) }}</li>
 \t\t\t\t</ul><!-- Blog Meta -->
 \t\t\t\t<p>{{ content.body|striptags }}</p>
-\t\t\t\t<a class=\"btn\" href=\"{{ url }}\">Read More</a>
+\t\t\t\t<a class=\"use-ajax btn\" href=\"{{ url }}\" data-drupal-selector=\"edit-open-modal\" id=\"edit-open-modal\">Read More</a>
 \t\t\t</div><!-- Blog Detail Wrapper -->
 \t\t</div><!-- Blog Detail Column -->
 \t</div><!-- Blog Wrapper -->
