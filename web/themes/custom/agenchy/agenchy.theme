@@ -441,12 +441,14 @@ function agenchy_preprocess_node(&$variables) {
 	$view_mode = $variables['view_mode'];
 	$variables['nid'] = $nid;
 	if(($node_type == 'mdx_press_release') && ($view_mode == 'teaser')) {
+		$variables['url_class'] = '';
 		$variables['body'] = $node->body->getValue()[0]['value'];
 		$variables['body'] = $node->body->getValue()[0]['value'];
 		$press_release_date = $node->field_press_release_date->getValue()[0]['value'];
 		$variables['press_release_date'] = $press_release_date;
 		if(isset($node->field_popup->getValue()[0]['value']) && ($node->field_popup->getValue()[0]['value'] == 1)) {
 			$variables['url'] = '/press-release/'. $nid;
+			$variables['url_class'] = 'use-ajax';
 		}
 		
 	}
