@@ -201,7 +201,8 @@ function mdx_press_release_cron() {
 }
 
 function formatDateFieldValue($date) {
-  $dateTime = \DateTime::createFromFormat('Y-m-d', $date);
+	$date = date("Y-m-d", strtotime($date));
+	$dateTime = \DateTime::createFromFormat('Y-m-d', $date);
   $newDateString = $dateTime->format('Y-m-d\TH:i:s');
   
   return $newDateString;
