@@ -81,7 +81,17 @@
       </div><!-- Column -->
     </div><!-- Row -->
   </div><!-- Container -->
-	
+{% elseif id == 'team' and display_id == 'team' %}
+	<!-- Container -->
+		<div class="container">
+			<div class="row">
+				
+				<!-- Team Container -->
+				<div class="team-container">
+					{{ rows }}
+				</div><!-- Team Container -->
+			</div><!-- Row -->
+		</div>
   {% elseif id == '_agenchy_section_content' %}
 	{% if display_id == 'block_section_content_latest_post' %}
 			<ul class="thumbnail-widget">

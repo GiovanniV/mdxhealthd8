@@ -14,13 +14,6 @@
             {{ content }}
         {% endif %}
     </ol>
-{% elseif region == 'top_section'%}
-	<section {{ attributes }}>
-	  	{{ title_suffix }}
-	    {% if content %}
-	      {{ content }}
-	    {% endif %}
-	</section>
 {% elseif region == 'footer_1_column_2' or region == 'footer_1_column_3' or region == 'footer_1_column_4' or region == 'footer_6_column_1' or region == 'footer_6_column_2' or region == 'footer_6_column_3' or region == 'footer_6_column_4' or region == 'footer_8_column_1' or region == 'footer_8_column_2' or region == 'footer_8_column_3' or region == 'footer_8_column_4' or region == 'footer_3_column_1' or region == 'footer_5_column_1' or region == 'footer_3_column_2' or region == 'footer_5_column_2' or region == 'footer_3_column_3' or region == 'footer_5_column_3' %}
 		<div {{ attributes.addClass('widget') }}>
 	 		{{ title_prefix }}

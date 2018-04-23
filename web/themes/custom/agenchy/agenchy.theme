@@ -440,7 +440,7 @@ function agenchy_preprocess_node(&$variables) {
 	$nid = $variables['node']->id();
 	$view_mode = $variables['view_mode'];
 	$variables['nid'] = $nid;
-	if(($node_type == 'mdx_press_release') && ($view_mode == 'teaser')) {
+	if(($node_type == 'mdx_press_release') && ($view_mode == 'teaser' || $view_mode == 'list')) {
 		$variables['url_class'] = '';
 		$variables['body'] = $node->body->getValue()[0]['value'];
 		$variables['body'] = $node->body->getValue()[0]['value'];
