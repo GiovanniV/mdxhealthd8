@@ -171,9 +171,11 @@ function mdx_press_release_cron() {
                 
 								if ($data['language'] == 'fr') {
 									$node->set('field_mdx_language_category', 37);
+									$node->langcode = 'fr';
 								} 
 								else {
 									$node->set('field_mdx_language_category', 38);
+									$node->langcode = 'en';
 								}
                 
 								$node->set('field_press_release_date', formatDateFieldValue($data->published['date']));
