@@ -455,10 +455,13 @@ function agenchy_preprocess_node(&$variables) {
 	elseif( ($node_type == 'mdx_press_release') && ($view_mode == 'list') ) {
 		$variables['url_class'] = '';
 		
-		if(isset($node->field_popup->getValue()[0]['value']) && ($node->field_popup->getValue()[0]['value'] == 1)) {
+		if($node->field_popup != null) {
+			if(isset($node->field_popup->getValue()[0]['value']) && ($node->field_popup->getValue()[0]['value'] == 1)) {
 			$variables['url'] = '/press-release/'. $nid;
 			$variables['url_class'] = 'use-ajax';
 		}
+		}
+		
 		
 	}
 }
