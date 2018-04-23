@@ -12,11 +12,11 @@
   <div class="container">
     
     {% if page.top_section %}
-    <section class="col-sm-12"> {{ page.top_section }} </section>
+    <section class="col-sm-12 top-section"> {{ page.top_section }} </section>
     {% endif %}
 		
 		{% if page.two_third_content_left or page.one_third_content_right %}
-    <section class="col-sm-12">
+    <section class="col-sm-12 two_third_one_third">
     {% if page.two_third_content_left %}
     <div class="col-sm-7"> {{ page.two_third_content_left }} </div><!-- Left Content -->
     {% endif %}
@@ -27,7 +27,7 @@
     {% endif %}
 		
 		{% if page.one_third_content_left or page.two_third_content_right %}
-    <section class="col-sm-12">
+    <section class="col-sm-12 one_third_two_third">
     {% if page.one_third_content_left %}
     <div class="col-sm-5"> {{ page.one_third_content_left }} </div><!-- Right Content -->
     {% endif %}
@@ -39,11 +39,11 @@
 		
 		
     {% if page.middle_section %}
-    <section class="col-sm-12 middle"> {{ page.middle_section }} </section>
+    <section class="col-sm-12 middle_section"> {{ page.middle_section }} </section>
     {% endif %}
     
 		{% if page.left_content or page.right_content %}
-    <section class="col-sm-12">
+    <section class="col-sm-12 left_right_content">
     {% if page.left_content %}
     <div class="col-sm-6"> {{ page.left_content }} </div><!-- Left Content -->
     {% endif %}
@@ -56,11 +56,11 @@
     {% endif %}
 		
     {% if page.section %}
-    <section class="col-sm-12"> {{ page.section }} </section>
+    <section class="col-sm-12 section"> {{ page.section }} </section>
     {% endif %}
     
     {% if page.content %}
-    <section class="col-sm-12"> {{ page.content }} </section>
+    <section class="col-sm-12 main_content"> {{ page.content }} </section>
     {% endif %}
   </div>
 </div>
