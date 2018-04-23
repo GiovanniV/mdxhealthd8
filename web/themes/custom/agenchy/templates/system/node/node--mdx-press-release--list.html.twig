@@ -1,14 +1,11 @@
-<li class="col-xs-12 blog-list-wrap">
+<!-- Blog Column -->
+<div class="press-release-list blog-list-wrap margin-top-30">
 	<!-- Blog Wrapper -->
-	<div class="row blog-wrap">
-		<!-- Blog Detail Wrapper -->
-		<div class="col-sm-12">
-			<div class="blog-details">
-				<h4><a href="{{ url }}" class="{{ url_class }}">{{ label }}</a></h4>
-				<a class="{{ url_class}} btn" href="{{ url }}">Read More</a>
-			</div><!-- Blog Detail Wrapper -->
-		</div><!-- Blog Detail Column -->
-	</div><!-- Blog Wrapper -->
-	<!-- Divider -->
-	<hr class="md">
-</li><!-- Column -->
+	<div class="blog-wrap">
+		{{ content.field_pr_image }}
+		<div class="blog-details">
+			<h4><a href="{{ url }}" class="{{ url_class }}">{{ label }}</a></h4>
+			<a class="btn-link {{ url_class}} btn" href="{{ url }}">Read More</a>
+		</div><!-- Blog Detail Wrapper -->
+	</div><!-- Blog Detail Column -->
+</div><!-- Column -->
