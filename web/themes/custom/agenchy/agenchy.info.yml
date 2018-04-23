@@ -42,6 +42,7 @@ regions:
   sidebar_first: 'Sidebar first page'
   sidebar_second: 'Sidebar second page'
   top_section: 'Top Section content'
+  middle_section: 'Middle Section content'
   section: 'Section content'
   left_form_contact: 'Left Form Contact'
   from_contact: 'Form Contact'

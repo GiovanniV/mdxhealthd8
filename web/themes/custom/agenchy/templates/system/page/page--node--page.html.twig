@@ -26,6 +26,11 @@
     </section>
     {% endif %}
 		
+		
+    {% if page.middle_section %}
+    <section class="col-sm-12"> {{ page.middle_section }} </section>
+    {% endif %}
+    
 		{% if page.one_third_content_left or page.two_third_content_right %}
     <section class="col-sm-12">
     {% if page.one_third_content_left %}
@@ -36,6 +41,7 @@
     {% endif %}
     </section>
     {% endif %}
+		
 		
 		{% if page.left_content or page.right_content %}
     <section class="col-sm-12">
