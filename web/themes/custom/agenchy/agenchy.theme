@@ -340,6 +340,7 @@ function agenchy_preprocess(&$variables){
 		
 }
 function agenchy_preprocess_node(&$variables) {
+	dpm($variables['node']->id());
 	global $base_url;
 	$node = $variables['node'];
 	$variables['theme_path'] = drupal_get_path('theme', 'agenchy');
