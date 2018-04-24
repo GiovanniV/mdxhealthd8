@@ -340,7 +340,7 @@ function agenchy_preprocess(&$variables){
 		
 }
 function agenchy_preprocess_node(&$variables) {
-	dpm($variables['node']->id());
+	dpm($variables['node']->id() . '---test');
 	global $base_url;
 	$node = $variables['node'];
 	$variables['theme_path'] = drupal_get_path('theme', 'agenchy');
@@ -455,8 +455,7 @@ function agenchy_preprocess_node(&$variables) {
 	}
 	elseif( ($node_type == 'mdx_press_release') && ($view_mode == 'list') ) {
 		$variables['url_class'] = '';
-		dpm($node->id());
-		dpm($node->field_popup);
+		dpm($node->id() . '--tttt');
 		if($node->field_popup != null) {
 			if(isset($node->field_popup->getValue()[0]['value']) && ($node->field_popup->getValue()[0]['value'] == 1)) {
 				$variables['url'] = '/press-release/'. $nid;
