@@ -439,6 +439,7 @@ function agenchy_preprocess_node(&$variables) {
 	$node_type = $variables['node']->getType();
 	$node_type = $variables['node']->getType();
 	$nid = $variables['node']->id();
+	$node = $variables['node'];
 	$view_mode = $variables['view_mode'];
 	$variables['nid'] = $nid;
 	if( ($node_type == 'mdx_press_release') && ($view_mode == 'teaser') ) {
@@ -456,6 +457,7 @@ function agenchy_preprocess_node(&$variables) {
 	elseif( ($node_type == 'mdx_press_release') && ($view_mode == 'list') ) {
 		$variables['url_class'] = '';
 		dpm($node->id() . '--tttt');
+		dpm($node->field_popup);
 		if($node->field_popup != null) {
 			if(isset($node->field_popup->getValue()[0]['value']) && ($node->field_popup->getValue()[0]['value'] == 1)) {
 				$variables['url'] = '/press-release/'. $nid;
