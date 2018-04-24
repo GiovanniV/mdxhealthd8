@@ -4,6 +4,6 @@ mdx_press_release.open_press_release_disclaimer_form:
     _title: 'Press Release Disclaimer'
     _controller: '\Drupal\mdx_press_release\Controller\PressReleaseDisclaimerFormController::openPressReleaseDisclaimerForm'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'access content'
   options:
     _admin_route: TRUE
