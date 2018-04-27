@@ -89,18 +89,7 @@ class MdxSubscription extends SubscriptionForm {
     
     $form['f_name'] = array(
       '#type' => 'textfield',
-      '#title' => t('First Name'),
-      '#required' => true,
-	  '#attributes' => [
-		'class' => ['form-control'],
-	  ],
-	  '#prefix' => '<div class="col-sm-6">',
-	  '#suffix' => '</div>',
-    );
-    
-    $form['l_name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Last Name'),
+      '#title' => t('First & Last Name'),
       '#required' => true,
 	  '#attributes' => [
 		'class' => ['form-control'],
@@ -151,43 +140,7 @@ class MdxSubscription extends SubscriptionForm {
 	  '#prefix' => '<div class="col-sm-6">',
 	  '#suffix' => '</div>',
     );
-    
-    $form['work_name'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Company Name'),
-      '#required' => true,
-	  '#attributes' => [
-		'class' => ['form-control'],
-	  ],
-	  '#prefix' => '<div class="col-sm-6">',
-	  '#suffix' => '</div>',
-    );
-    
-    $form['country'] = array(
-      '#type' => 'textfield',
-      '#title' => t('Country'),
-	  '#attributes' => [
-		'class' => ['form-control'],
-	  ],
-	  '#prefix' => '<div class="col-sm-6">',
-	  '#suffix' => '</div>',
-    );
-    
-    $form['salutation'] = array(
-      '#type' => 'select',
-      '#title' => t('Salutation'),
-      '#options' => array(
-        'mr' => t('Mr'), 
-        'mrs' => t('Mrs'), 
-        'dr' => t('Dr'), 
-      ),
-	  '#attributes' => [
-		'class' => ['form-control'],
-	  ],
-	  '#prefix' => '<div class="col-sm-6">',
-	  '#suffix' => '</div>',
-    );
-    
+
     $form['add_mail'] = array(
       '#type' => 'select',
       '#title' => t('Receive Additional Mails'),
@@ -203,18 +156,6 @@ class MdxSubscription extends SubscriptionForm {
 	  ],
 	  '#prefix' => '<div class="col-sm-6">',
 	  '#suffix' => '</div>',
-    );
-    
-    $form['comments'] = array(
-      '#type' => 'textarea',
-      '#title' => t('Comments'),
-	  '#attributes' => [
-		'class' => ['form-control'],
-		'resize' => false,
-	  ],
-	  '#prefix' => '<div class="col-sm-6">',
-	  '#suffix' => '</div>',
-	  '#resize' => false,
     );
     
     $form['home_place'] = array(
