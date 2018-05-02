@@ -225,3 +225,6 @@ form {
   display:grid;
   margin-left: 30px;
 }
+.team-list .member-img-wrap img {
+	position: relative;
+}
