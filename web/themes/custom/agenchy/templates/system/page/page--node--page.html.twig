@@ -2,15 +2,19 @@
 {% include theme_path ~ "/templates/header/header-3.html.twig" %}
 <!-- Header Ends -->
 
-{% if page.slider %}
+<div role="main" class="main"> 
+  <div class="container">
+    {% if page.slider %}
 	{{ page.slider }}
 {% endif %}
 {% if page.slider_bottom %}
 	{{ page.slider_bottom }}
 {% endif %}
-<div role="main" class="main"> 
-  <div class="container">
-    
+
+    {% if page.content %}
+    <section class="col-sm-12 main_content"> {{ page.content }} </section>
+    {% endif %}
+		
     {% if page.top_section %}
     <section class="col-sm-12 top-section"> {{ page.top_section }} </section>
     {% endif %}
@@ -59,9 +63,6 @@
     <section class="col-sm-12 section"> {{ page.section }} </section>
     {% endif %}
     
-    {% if page.content %}
-    <section class="col-sm-12 main_content"> {{ page.content }} </section>
-    {% endif %}
   </div>
 </div>
 
