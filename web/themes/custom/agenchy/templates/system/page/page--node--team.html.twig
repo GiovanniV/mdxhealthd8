@@ -1,71 +1,93 @@
+<!-- Theme Panel Switcher -->
+{% if disable_switch =='on' %}
+    {% include theme_path ~ "/templates/switcher-style.html.twig" %}
+{% endif %}<!-- End Theme Panel Switcher -->
+{% set single_sidebar = node.field_team_sidebar.0.value %}
+{% if single_sidebar == '' %}
+  {% set single_sidebar = 'none' %}
+{% endif %}
+{% set header_style = node.field_header_style.0.value %}
+{% if header_style == '' %}
+  {% set header_style = 'style1' %}
+{% endif %}
+{% set page_header = node.field_page_header.0.value %}
+{% if page_header == '' %}
+  {% set page_header = 'none' %}
+{% endif %}
+
 <!-- Header Begins -->
 {% include theme_path ~ "/templates/header/header-3.html.twig" %}
 <!-- Header Ends -->
 
-{% if page.slider %}
-	{{ page.slider }}
+<!-- Page Header -->
+{% if page_header == 'default' %}
+	{% include theme_path ~ "/templates/page header/page-header-1.html.twig" %}
+{% elseif page_header == 'dark' %}
+	{% include theme_path ~ "/templates/page header/page-header-2.html.twig" %}
+{% elseif page_header == 'small' %}
+	{% include theme_path ~ "/templates/page header/page-header-3.html.twig" %}
+{% elseif page_header == 'center' %}
+	{% include theme_path ~ "/templates/page header/page-header-4.html.twig" %}
+{% elseif page_header == 'button' %}
+	{% include theme_path ~ "/templates/page header/page-header-5.html.twig" %}
+{% elseif page_header == 'contact' %}
+	{% include theme_path ~ "/templates/page header/page-header-6.html.twig" %}
+{% elseif page_header == 'video' %}
+	{% include theme_path ~ "/templates/page header/page-header-7.html.twig" %}
+{% elseif page_header == 'image' %}
+	{% include theme_path ~ "/templates/page header/page-header-8.html.twig" %}
+{% elseif page_header == 'color' %}
+	{% include theme_path ~ "/templates/page header/page-header-9.html.twig" %}
+{% else %}
 {% endif %}
-{% if page.slider_bottom %}
-	{{ page.slider_bottom }}
+<!-- Page Header -->
+
+<!-- Model Window -->
+{% if page.model_window %}
+	{{ page.model_window }}
 {% endif %}
-<div role="main" class="main"> 
-  <div class="container">
-    
-    {% if page.top_section %}
-    <section class="col-sm-12 top-section"> {{ page.top_section }} </section>
-    {% endif %}
-		
-		{% if page.two_third_content_left or page.one_third_content_right %}
-    <section class="col-sm-12 two_third_one_third">
-    {% if page.two_third_content_left %}
-    <div class="col-sm-7"> {{ page.two_third_content_left }} </div><!-- Left Content -->
-    {% endif %}
-    {% if page.one_third_content_right %}
-    <div class="col-sm-5"> {{ page.one_third_content_right }} </div><!-- Right Content -->
-    {% endif %}
-    </section>
-    {% endif %}
-		
-		{% if page.one_third_content_left or page.two_third_content_right %}
-    <section class="col-sm-12 one_third_two_third">
-    {% if page.one_third_content_left %}
-    <div class="col-sm-5"> {{ page.one_third_content_left }} </div><!-- Right Content -->
-    {% endif %}
-    {% if page.two_third_content_right %}
-    <div class="col-sm-7"> {{ page.two_third_content_right }} </div><!-- Left Content -->
-    {% endif %}
-    </section>
-    {% endif %}		
-		
-		
-    {% if page.middle_section %}
-    <section class="col-sm-12 middle_section"> {{ page.middle_section }} </section>
-    {% endif %}
-    
-		{% if page.left_content or page.right_content %}
-    <section class="col-sm-12 left_right_content">
-    {% if page.left_content %}
-    <div class="col-sm-6"> {{ page.left_content }} </div><!-- Left Content -->
-    {% endif %}
-
-    {% if page.right_content %}
-    <div class="col-sm-6"> {{ page.right_content }} </div><!-- Right Content -->
-    {% endif %}
-    
-    </section>
-    {% endif %}
-		
-    {% if page.section %}
-    <section class="col-sm-12 section"> {{ page.section }} </section>
-    {% endif %}
-    
-    {% if page.content %}
-    <section class="col-sm-12 main_content"> {{ page.content }} </section>
-    {% endif %}
-  </div>
-</div>
-
+<!-- Model Window -->		
+{% if header_style == 'style6' %}
+	{% include theme_path ~ "/templates/header/header-6.html.twig" %}	
+{% endif %}
+<!-- Page Main -->
+<div role="main" class="main">
+	<div class="page-default bg-grey team-single">
+		<!-- Container -->
+		<div class="container">
+			<div class="row">
+					<!-- Sidebar -->
+					<div class="col-md-3">
+						<!-- aside -->
+						{% if page.team_sidebar %}
+						<aside class="sidebar">
+							{{ page.team_sidebar }}
+						</aside><!-- aside -->
+						{% endif %}	
+					</div><!-- Column -->
+					
+					<!-- Page Content -->
+					<div class="col-md-9">
+						{{ page.content_full_bar }}
+						{{ page.content }}
+						{% if page.team_bottom_content %}
+						<div class="row team-list">
+							{{ page.team_bottom_content }}
+						</div>
+						{% endif %}
+					</div><!-- Column -->
+				</div><!-- Row -->
+		</div><!-- Container -->
+	</div><!-- Page Default -->
+	
+	{{ page.section }}
+	
+</div><!-- Page Main -->
 
 <!-- Footer -->
+{% set footer_style = node.field_footer_style.0.value %}
+{% if footer_style == '' %}
+  {% set footer_style = 'default' %}
+{% endif %}
 {% include theme_path ~ "/templates/footer/footer-7.html.twig" %}
 <!-- Footer -->
