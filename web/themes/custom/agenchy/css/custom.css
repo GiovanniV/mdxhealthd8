@@ -227,6 +227,9 @@ form {
   display:grid;
   margin-left: 30px;
 }
+.team-list .member-img-wrap img {
+	position: relative;
+}
 
 @media screen and  (max-width: 768px){
 #header > .container {
@@ -248,7 +251,9 @@ form {
    width: 100%;
    float: left;
 }
-
+.image-text-align img{
+	max-width:100%;
+}
 .image-text-align .grid {
    display: block !important;
    width: 100% !important;
