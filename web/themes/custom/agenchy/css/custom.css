@@ -288,3 +288,308 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
 .title-container+.container .col-sm-6{ padding:0px !important}
    
 }
+
+
+li.facebook:before {
+    content: "\f09a";
+    font-family: FontAwesome;
+    position: absolute;
+        left: 10px;
+    color: #fff;
+    line-height: 30px;
+}
+
+li.facebook {
+    position: relative;
+}
+ul.social-icons.color li.facebook:hover, ul.social-icons li.facebook {
+    background-position: 0 -1130px;
+}
+ul.social-icons.color li.facebook, ul.social-icons li.facebook:hover {
+    background-position: 0 -1170px;
+}
+li.facebook:hover:before {
+    color: #3b5999;
+}
+
+li.twitter:before {
+    content: "\f099";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 8px;
+    color: #fff;
+    line-height: 29px;
+}
+
+li.twitter{
+    position: relative;
+}
+ul.social-icons.color li.twitter:hover, ul.social-icons li.twitter {
+    background-position: 0 -1130px ;
+}
+ul.social-icons.color li.twitter, ul.social-icons li.twitter:hover {
+    background-position: 0 -1170px;
+}
+li.twitter:hover:before {
+    color: #55acee;
+}
+
+
+li.linkedin:before {
+    content: "\f0e1";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 7px;
+    color:#fff;
+    line-height: 28px;
+}
+
+li.linkedin {
+    position: relative;
+}
+ul.social-icons.color li.linkedin:hover, ul.social-icons li.linkedin {
+    background-position: 0 -1130px;
+}
+ul.social-icons.color li.linkedin, ul.social-icons li.linkedin:hover {
+    background-position: 0 -1170px;
+}
+li.linkedin:hover:before {
+    color: #0077B5;
+}
+
+
+li.mail:before {
+    content: "\f003";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 7px;
+    color:#fff;
+    line-height: 28px;
+}
+
+li.mail {
+    position: relative;
+}
+ul.social-icons.color li.mail:hover, ul.social-icons li.mail {
+    background-position: 0 -1130px;
+}
+ul.social-icons.color li.mail, ul.social-icons li.mail:hover {
+    background-position: 0 -1170px;
+}
+li.mail:hover:before {
+    color: #bd081c;
+}
+
+li.googleplus:before {
+    content: "\f0d5";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 7px;
+    color:#fff;
+    line-height: 28px;
+}
+
+li.googleplus {
+    position: relative;
+}
+ul.social-icons.color li.googleplus:hover, ul.social-icons li.googleplus {
+    background-position: 0 -1130px;
+}
+ul.social-icons.color li.googleplus, ul.social-icons li.googleplus:hover {
+    background-position: 0 -1170px;
+}
+li.googleplus:hover:before {
+    color: #bd081c;
+}
+
+
+.md-main-img img {
+    width: 100%;
+}
+section#block-mdxsubscribeformblock-4 {
+    background-color: #eb7e2a !important;
+    padding-top: 30px;
+    color: #000;
+}
+#block-twitterblock-2 h3 {
+    padding: 0;
+}
+
+section#block-mdxsubscribeformblock-4 {
+    padding-bottom: 50px;
+}
+#block-mdxsubscribeformblock-4 h3.title {
+    color: #fff;
+}
+section#block-mdxsubscribeformblock-4 .js-form-item {
+    margin-bottom: 30px;
+}
+section#block-mdxsubscribeformblock-4 span.separator.line-separator {
+    color: #fff;
+    background-color: #fff;
+    padding: 0px;
+    left: 26px;
+}
+.pt-3 {
+    padding-top: 0px;
+}
+.pt-3 .btn {
+    box-shadow: 0px 0px 10px #2b1563;
+}
+
+#block-physiciansliderbottom  .special .btn {
+    border-right: 1px solid #fff !important;
+    border: none;
+    border-radius: 0px !important;
+}
+#block-physiciansliderbottom .special .btn:nth-child(4) {
+    border: none !important;
+}
+#block-physiciancalltoaction {
+    padding: 30px 0px;
+    margin-bottom: 40px;
+}
+#block-physiciancalltoaction a.btn.btn-secondary.btn-lg.active {
+    margin-top: 12px;
+    color: #fff;
+}
+#block-physiciancalltoaction span.call-title-text {
+    color: #fff !important;
+    font-size: 16px !important;
+}
+
+section#block-physiciansliderbottom {
+    background-color: #332a86 !important;
+}
+
+#block-physiciancalltoaction a.btn.btn-secondary:hover {
+    background-color: #5246c1;
+    border: 1px solid #5246c1;
+}
+
+section#block-patientssliderbottom {
+    background-color: #332a86 !important;
+}
+#block-patientssliderbottom .btn-group a.btn.btn-default {
+    border-right: 1px solid #fff !important;
+    border-radius: 0 !important;
+}
+#block-patientssliderbottom .btn-group a.btn.btn-default:nth-child(4) {
+    border: none !important;
+}
+#block-patientscalltoaction {
+    padding: 24px 0px;
+}
+#block-patientscalltoaction span.call-title-text {
+    color: #fff;
+    font-size: 16px;
+}
+#block-patientscalltoaction a.btn.btn-secondary.btn-lg.active {
+    color: #fff;
+    margin-top: 10px;
+}
+#block-patientscalltoaction a.btn.btn-secondary.btn-lg:hover {
+    background-color: #4c41b9;
+    border: 1px solid #4c41b9;
+}
+
+
+section#block-selectmdxforprostatecancernavigation {
+    background-color: #332a86 !important;
+}
+section#block-selectmdxforprostatecancernavigation a.btn.btn-default {
+    border-right: 1px solid #fff;
+    border-radius: 0 !important;
+}
+#block-selectmdxforprostatecancernavigation a.btn.btn-default:nth-child(3) {
+    border: none;
+}
+section#block-selectinfo a.btn.btn-secondary.btn-lg.active {
+        margin-top: 14px;
+    color: #fff;
+}
+section#block-selectinfo {
+    padding: 30px 0px;
+}
+
+ 
+
+#block-contactussliderbottom {
+    background-color: #332a86 !important;
+}
+#block-contactussliderbottom a.btn.btn-default:hover {
+    background-color: #0000 !important;
+    color: #fff;
+}
+
+#block-contactussliderbottom a.btn.btn-default {
+    border-left: 1px solid #fff !important;
+    border-radius: 0px !important;
+}
+
+
+section#block-mdxsubscribeformblock {
+    padding: 15px 10px 50px;
+    color: #fff;
+    background-color: #362269 !important;
+}
+
+#block-mdxsubscribeformblock input#edit-submit {
+    background-color: #eb7e2a !important;
+}
+#block-mdxsubscribeformblock h3.title {
+    padding: 10px 27px 0px;
+    color :#fff !important
+}
+#block-mdxsubscribeformblock span.separator.line-separator {
+    left: 30px;
+}
+#block-mdxsubscribeformblock .js-form-item {
+    margin-bottom: 30px;
+}
+.pt-3 {
+    padding-top: 0 !important;
+}
+.member-wrap {
+    padding-bottom: 150px !important;
+}
+
+.team-container h4.member-name {
+    font-size: 17px;
+}
+
+.accordion .panel-title a, .accordion .panel-title a:focus, .accordion .panel-title a:hover {
+    background-color: #332a86;
+    color: #ffffff;
+}
+section#block-contactblock-2 {
+    background-color: #332a86 !important;
+    padding: 30px;
+}
+#block-contactblock-2 input#edit-submit {
+    background-color: #f68933;
+}
+section#block-contactblock-2 h3.title {
+    color: #fff;
+}
+section#block-confirmmdxforprostatecancernavigation {
+    background-color: #332a86 !important;
+}
+#block-confirmmdxforprostatecancernavigation a.btn.btn-default {
+    border-left: 1px solid #fff !important;
+    border-radius: 0px !important;
+}
+#tabPanel ul {
+    text-align: left !important;
+}
+#block-selectinfo span.call-title-text {
+    color: #fff !important;
+    font-size: 16px !important;
+}
+#periodSelectionPanel #_ulPeriod li {
+    padding-top: 14px !important;
+}
+section#block-agenchy-content p img {
+    float: left;
+    padding: 0px 20px;
+}
