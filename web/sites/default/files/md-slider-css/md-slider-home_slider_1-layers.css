@@ -1,98 +1,11 @@
-.md-layer-4-7-0 {
-z-index: 1000 !important; font-size: 5.1666666666667em;
- font-weight: 700;
- font-family: "Poppins";
+.md-layer-4-48-0 {
+z-index: 999 !important;}
+.md-layer-4-48-1 {
+z-index: 1000 !important; text-align: left;
+ font-size: 1em;
+ font-weight: 400;
+ font-family: "Georgia";
+ text-transform: none;
 }
-.md-layer-4-7-1 {
-z-index: 999 !important; font-size: 5.1666666666667em;
- font-weight: 700;
- font-family: "Poppins";
-}
-.md-layer-4-7-2{font-size: inherit; }
-.md-layer-4-7-2 a {
-background: #ffe11b;
- padding-top: 20px;
- padding-right: 20px;
- padding-bottom: 20px;
- padding-left: 20px;
- color: #2874f0 !important;
- text-align: center;
- font-size: 1.5em;
- font-weight: 600;
- font-family: "Poppins";
-}
-.md-layer-4-7-2 {z-index: 998!important;}
-.md-layer-4-7-2 a:hover{
-color: #ffe11b !important;
-background-color: #2874f0;
-border-color: #2874f0;
-}
-.md-layer-4-9-0 {
-z-index: 1000 !important; color: #ffffff !important;
- text-align: center;
- font-size: 5.1666666666667em;
- font-weight: 700;
- font-family: "Poppins";
-}
-.md-layer-4-9-1 {
-z-index: 999 !important; color: #ffffff !important;
- text-align: center;
- font-size: 1.6666666666667em;
- font-weight: 600;
- font-family: "Poppins";
-}
-.md-layer-4-9-2 {
-z-index: 998 !important; color: #ffffff !important;
- text-align: center;
- font-size: 1.6666666666667em;
- font-weight: 600;
- font-family: "Poppins";
-}
-.md-layer-4-9-3{font-size: inherit; }
-.md-layer-4-9-3 a {
-background: #ffe11b;
- padding-top: 15px;
- padding-right: 15px;
- padding-bottom: 15px;
- padding-left: 15px;
- color: #2874f0 !important;
- text-align: center;
- font-size: 1.1666666666667em;
- font-weight: 600;
- font-family: "Poppins";
-}
-.md-layer-4-9-3 {z-index: 997!important;}
-.md-layer-4-9-3 a:hover{
-color: #ffe11b !important;
-background-color: #2874f0;
-border-color: #2874f0;
-}
-.md-layer-4-10-0 {
-z-index: 1000 !important; font-size: 5.1666666666667em;
- font-weight: 700;
- font-family: "Poppins";
-}
-.md-layer-4-10-1 {
-z-index: 999 !important; font-size: 5.1666666666667em;
- font-weight: 700;
- font-family: "Poppins";
-}
-.md-layer-4-10-2{font-size: inherit; }
-.md-layer-4-10-2 a {
-background: #2874f0;
- padding-top: 15px;
- padding-right: 15px;
- padding-bottom: 15px;
- padding-left: 15px;
- color: #ffffff !important;
- text-align: center;
- font-size: 1.1666666666667em;
- font-weight: 600;
- font-family: "Poppins";
-}
-.md-layer-4-10-2 {z-index: 998!important;}
-.md-layer-4-10-2 a:hover{
-color: #2874f0 !important;
-background-color: #ffe11b;
-border-color: #ffe11b;
-}
+.md-layer-4-48-2 {
+z-index: 998 !important;}
