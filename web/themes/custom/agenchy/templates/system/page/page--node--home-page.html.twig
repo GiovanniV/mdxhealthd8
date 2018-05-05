@@ -50,6 +50,9 @@
 
 <div role="main" class="main"> 
     <div class="container">	
+			{% if page.slider %}
+				{{ page.slider }}
+			{% endif %}
 			<section class="col-sm-12">
 				{{ page.content }}
 			</section>
