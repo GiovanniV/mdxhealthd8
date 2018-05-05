@@ -36,7 +36,9 @@
 {% else %}
 {% endif %}
 <!-- Page Header -->
-
+{% if page.slider %}
+	{{ page.slider }}
+{% endif %}
 <!-- Model Window -->
 {% if page.model_window %}
 	{{ page.model_window }}
@@ -48,11 +50,6 @@
 
 <div role="main" class="main"> 
     <div class="container">
-			{% if page.slider %}
-				<section class="col-sm-12">
-				{{ page.slider }}
-				</section>
-			{% endif %}
 			<section class="col-sm-12">
 				{{ page.content }}
 			</section>
