@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function mdx_pay_my_bill_theme() {
+  
+  // Mission Listing Page
+  $theme['pay_my_bill'] = [
+    'variables' => [
+      'info' => '',
+      'form' => [],
+      'body' => '',
+    ],
+  ];
+  
+  return $theme;
+}
