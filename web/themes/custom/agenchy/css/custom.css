@@ -279,6 +279,7 @@ section#block-mdxsubscribeformblock-4 .col-sm-6 {
 .language-dropdown {
     margin: -35px auto;
     display: table;
+		float:none;
 }
 .btn-responsive-nav {
    top: 15px;
