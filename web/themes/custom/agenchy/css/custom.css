@@ -340,8 +340,10 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
     padding: 7px 5px 0px 9px;
 }
 }
-@media screen and (max-width:470px) {section#block-selectmdxforprostatecancernavigation a.btn.btn-default {
+@media screen and (max-width:470px) {
+	section#block-selectmdxforprostatecancernavigation a.btn.btn-default {
     border-bottom: 1px solid #fff; border-right: none !important;}
+}
 @media screen and (max-width:991px){
 	#header nav {
     margin: 0px !important;
