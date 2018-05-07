@@ -193,6 +193,7 @@ form {
   #header nav ul.nav-main li a {
     color: #fff;
   }
+
 }
 .btn:hover, .btn:focus, .btn.active {
   background: #332a86 none repeat scroll 0 0;
@@ -207,7 +208,14 @@ form {
   display: none;
 }
 .language-dropdown select {
-  height: 35px;
+    height: 35px;
+    padding-left: 30px;
+    position: relative;
+}
+.image-text-align img {
+    width: 400px;
+    height: 250px;
+    margin-bottom: 10px;
 }
 .step-one,
 .step-two {
@@ -237,7 +245,15 @@ form {
    max-width: 100%;
    display:block;
 }
-
+.image-text-align {
+    text-align: center !important;
+}
+.image-text-align .grid p {
+    text-align: left;
+}
+section#block-mdxsubscribeformblock-4 .col-sm-6 {
+    width: 100% !important;
+}
 .language-dropdown {
    float:left;
    margin: 10px 0px ;
@@ -281,7 +297,23 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
 
 }
 
-
+@media screen and (max-width:1024px){
+  #block-blockheadermiddlemenuandphone li a {
+    font-size: 12px;
+}
+#block-blockheadermiddlemenuandphone li.phone span {
+    font-size: 12px;
+}
+#header nav ul.nav-main li a {
+    margin: 0 !important;
+}
+#header nav {
+    margin: 0px 0px 0px 315px;
+}
+#block-blockheadermiddlemenuandphone li.phone i.fa {
+    padding: 7px 5px 0px 9px;
+}
+}
 @media screen and (max-width:991px){
 #footer .footer-search form{ float:left !important;}
 div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
@@ -320,7 +352,9 @@ li.twitter:before {
     color: #fff;
     line-height: 29px;
 }
-
+ul.social-icons li {
+    cursor: pointer;
+}
 li.twitter{
     position: relative;
 }
@@ -360,6 +394,7 @@ li.linkedin a {
 }
 #block-blockheadermiddlemenuandphone li.phone i.fa {
     padding-right: 8px;
+        color: #f68933;
 }
 #block-blockheadermiddlemenuandphone li a i.fa {
     padding-right: 6px;
@@ -405,14 +440,13 @@ li.mail:before {
 li.mail {
     position: relative;
 }
-ul.social-icons.color li.mail:hover, ul.social-icons li.mail {
-    background-position: 0 -1130px;
-}
-ul.social-icons.color li.mail, ul.social-icons li.mail:hover {
-    background-position: 0 -1170px;
-}
+
 li.mail:hover:before {
-    color: #bd081c;
+    color: #fff;
+}
+li.mail a {
+    background-color: #d14836;
+    border-radius: 50px;
 }
 
 li.googleplus:before {
@@ -427,17 +461,23 @@ li.googleplus:before {
 li.googleplus {
     position: relative;
 }
-ul.social-icons.color li.googleplus:hover, ul.social-icons li.googleplus {
-    background-position: 0 -1130px;
-}
-ul.social-icons.color li.googleplus, ul.social-icons li.googleplus:hover {
-    background-position: 0 -1170px;
+li.googleplus a {
+    border-radius: 50px;
+    background-color: #dd4b39;
 }
 li.googleplus:hover:before {
-    color: #bd081c;
+    color: #fff;
 }
 
 
+select#lang-dropdown-select-lang_dropdown_form5af04d094585f7:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: url(../sites/default/files/inline-images/icon_flag.png)no-repeat;
+    top: 0;
+}
 section#block-mdxsubscribeformblock-4 .js-form-item label {
     color: #000;
     font-weight: 400;
@@ -480,9 +520,7 @@ section#block-mdxsubscribeformblock-4 {
 section#block-mdxsubscribeformblock-4 {
     padding-bottom: 50px;
 }
-#block-mdxsubscribeformblock-4 h3.title {
-    color: #fff;
-}
+
 section#block-mdxsubscribeformblock-4 .js-form-item {
     margin-bottom: 30px;
 }
