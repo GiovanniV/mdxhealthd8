@@ -309,7 +309,7 @@ ul.social-icons.color li.facebook, ul.social-icons li.facebook:hover {
     background-position: 0 -1170px;
 }
 li.facebook:hover:before {
-    color: #3b5999;
+    color: #ffffff;
 }
 
 li.twitter:before {
@@ -331,10 +331,45 @@ ul.social-icons.color li.twitter, ul.social-icons li.twitter:hover {
     background-position: 0 -1170px;
 }
 li.twitter:hover:before {
-    color: #55acee;
+    color: #fff;
 }
-
-
+#block-blockheadermiddlemenuandphone li {
+    font-size: 14px !important;
+}
+li.twitter a {
+    background-color: #55acee;
+    border-radius: 50px;
+}
+li.linkedin a {
+    background-color: #0077B5;
+    border-radius: 50px;
+}
+#header nav {
+    float: left;
+    margin: 0px 0px 0px 330px;
+}
+#block-blockheadermiddlemenuandphone li a {
+    padding-right: 20px !important;
+    padding: 0px 0px 0px;
+    color: #332a86;
+    line-height: 26px;
+    font-weight: 600;
+}
+#block-blockheadermiddlemenuandphone li.phone {
+    color: #332a86;
+}
+#block-blockheadermiddlemenuandphone li.phone i.fa {
+    padding-right: 8px;
+}
+#block-blockheadermiddlemenuandphone li a i.fa {
+    padding-right: 6px;
+}
+#header nav ul.nav-main li a {
+    margin-right: 0 !important;
+}
+section#block-blockheadermiddlemenuandphone {
+    padding: 0 !important;
+}
 li.linkedin:before {
     content: "\f0e1";
     font-family: FontAwesome;
@@ -354,7 +389,7 @@ ul.social-icons.color li.linkedin, ul.social-icons li.linkedin:hover {
     background-position: 0 -1170px;
 }
 li.linkedin:hover:before {
-    color: #0077B5;
+    color: #fff;
 }
 
 
@@ -403,6 +438,29 @@ li.googleplus:hover:before {
 }
 
 
+section#block-mdxsubscribeformblock-4 .js-form-item label {
+    color: #000;
+    font-weight: 400;
+}
+
+#block-mdxsubscribeformblock-4 h3.title {
+    color: #362269;
+    padding: 0px 20px;
+    font-weight: 400;
+}
+section#block-twitterblock-2 {
+    padding: 40px 0px;
+}
+#block-twitterblock-2 h3.title {
+    font-weight: 600;
+}
+ul.social-icons li {
+    border-radius: 22px !important;
+}
+li.facebook[class] {
+    background: #3b5999;
+}
+
 .md-main-img img {
     width: 100%;
 }
@@ -410,7 +468,11 @@ section#block-mdxsubscribeformblock-4 {
     background-color: #eb7e2a !important;
     padding-top: 30px;
     color: #000;
+    border: 10px solid #de6f05;
+    margin-bottom: 40px;
+    box-shadow: 17px 16px 0px #362269;
 }
+
 #block-twitterblock-2 h3 {
     padding: 0;
 }
