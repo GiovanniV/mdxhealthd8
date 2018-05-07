@@ -1,0 +1,31 @@
+pay_bill.api_settings:
+  path: '/admin/config/pay-bill-api-settings'
+  defaults:
+    _form:  '\Drupal\mdx_pay_my_bill\Form\ApiSettings'
+    _title: 'Api Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+pay_bill.form:
+  path: '/paymybill'
+  defaults:
+    _controller:  '\Drupal\mdx_pay_my_bill\Controller\PayMyBill::PayMyBill'
+    _title: 'Pay My Bill Form'
+  requirements:
+    _permission: 'administer site configuration'    
+    
+pay_bill.response:
+  path: '/paymybill/response'
+  defaults:
+    _controller:  '\Drupal\mdx_pay_my_bill\Controller\PayMyBill::PayMyBillResponse'
+    _title: 'Pay My Bill Response'
+  requirements:
+    _permission: 'administer site configuration'
+    
+pay_bill.confirmation:
+  path: '/paymybill/confirmation'
+  defaults:
+    _controller:  '\Drupal\mdx_pay_my_bill\Controller\PayMyBill::PayMyBillConfirmation'
+    _title: 'Pay My Bill Confirmation'
+  requirements:
+    _permission: 'administer site configuration'
