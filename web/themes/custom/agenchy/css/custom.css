@@ -181,7 +181,20 @@ form {
 .getquote-section {
   padding: 50px 0;
 }
-
+#block-agenchy-content img[alt="ConfirmMDx "], img[alt="ConfirmMDx Field Effect"], img[alt="ConfirmMDx Sampling Error"] {
+    max-width: 100%;
+}
+#block-agenchy-content ol li {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#block-agenchy-content ol {
+    padding: 0px;
+}
+#block-agenchy-content img[alt="Like Hood"] {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
 /* Responsive */
 @media (max-width: 991px) {
   #header .nav-main-collapse {
@@ -216,6 +229,15 @@ form {
     width: 400px;
     height: 250px;
     margin-bottom: 10px;
+}
+.form-item-lang-dropdown-select:after {
+    content: "";
+    position: absolute;
+    background: url(/sites/default/files/inline-images/icon_flag.png) no-repeat;
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    left: 7px;
 }
 .step-one,
 .step-two {
@@ -255,9 +277,8 @@ section#block-mdxsubscribeformblock-4 .col-sm-6 {
     width: 100% !important;
 }
 .language-dropdown {
-   float:left;
-   margin: 10px 0px ;
-   position: static;
+    margin: -35px auto;
+    display: table;
 }
 .btn-responsive-nav {
    top: 15px;
@@ -296,7 +317,12 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
 .special .btn {width: 100%;box-sizing:  border-box; margin:10px !important;}
 
 }
+@media screen and (max-width:600px){
+  .language-dropdown {
+    margin: 14px auto 0px;
+}
 
+}
 @media screen and (max-width:1024px){
   #block-blockheadermiddlemenuandphone li a {
     font-size: 12px;
@@ -314,6 +340,8 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
     padding: 7px 5px 0px 9px;
 }
 }
+@media screen and (max-width:470px) {section#block-selectmdxforprostatecancernavigation a.btn.btn-default {
+    border-bottom: 1px solid #fff; border-right: none !important;}
 @media screen and (max-width:991px){
 #footer .footer-search form{ float:left !important;}
 div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
