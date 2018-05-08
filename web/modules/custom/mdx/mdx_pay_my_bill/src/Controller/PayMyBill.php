@@ -5,7 +5,7 @@ namespace Drupal\mdx_pay_my_bill\Controller;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 
-require_once '/anet_php_sdk/AuthorizeNet.php';
+require_once 'anet_php_sdk/AuthorizeNet.php';
 
 /**
  * Simple page controller for drupal.
