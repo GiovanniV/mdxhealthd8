@@ -29,7 +29,14 @@ class ApiSettings extends ConfigForm {
         'Production' => 'Production'),
       '#default_value' => $config->get('apiEnvironment'),
     );
-
+    
+    $form['prefill'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Prefill form'),
+      '#default_value' => $config->get('prefill'),
+      '#description' => 'If checked form will be pre filled with dummy credit card info.'
+    );
+    
     $form['dev'] = array(
       '#type' => 'fieldset',
       '#title' => $this->t('Development'),
@@ -137,6 +144,7 @@ class ApiSettings extends ConfigForm {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config = $this->configFactory->getEditable('api.settings');
     $config->set('apiEnvironment', $form_state->getValue('apiEnvironment'))->save();
+    $config->set('prefill', $form_state->getValue('prefill'))->save();
     $config->set('responseBody', $form_state->getValue('responseBody'))->save();
     
     // Development Settings Data

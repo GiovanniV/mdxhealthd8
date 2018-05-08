@@ -1,0 +1,10 @@
+mdx_pay_my_bill.settings:
+  type: mapping
+  label: Variable Settings of My Module
+  mapping:
+    pay_my_bill_name:
+      type: string
+    pay_my_bill_account:
+      type: string
+    pay_my_bill_amount:
+      type: string

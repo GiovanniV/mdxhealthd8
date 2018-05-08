@@ -23,6 +23,13 @@ abstract class Form extends FormBase {
   /**
    * The path object
    *
+   * @var Drupal\Core\Config\ConfigFactory
+   */
+  protected $configFactory;
+  
+  /**
+   * The path object
+   *
    * @var \Drupal\Core\Path\PathValidator
    */
   protected $pathValidate;
@@ -38,7 +45,7 @@ abstract class Form extends FormBase {
    *
    * @param PathValidator $pathValidate
    */
-  public function __construct(PathValidator $pathValidate, RequestStack $request) {
+  public function __construct(PathValidator $pathValidate, RequestStack $request, ConfigFactory $configFactory) {
     $this->pathValidate = $pathValidate;
     $this->request = $request;
   }
@@ -47,7 +54,8 @@ abstract class Form extends FormBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('path.validator'),
-      $container->get('request_stack')
+      $container->get('request_stack'),
+      $container->get('config.factory')
     );
   }
 

@@ -89,9 +89,10 @@ class PayMyBillForm extends Form {
 			$_SESSION['display_form'] = FALSE;
 		} else {
 			$_SESSION['display_form'] = TRUE;
-			// variable_set('pay_my_bill_name', $username);
-			// variable_set('pay_my_bill_account', $account);
-			// variable_set('pay_my_bill_amount', $amount);
+      $config = $this->configFactory->getEditable('api.settings');
+      $config->set('pay_my_bill_name', $form_state->getValue('payMyBillName'))->save();
+      $config->set('pay_my_bill_account', $form_state->getValue('payMyBillAccount'))->save();
+      $config->set('pay_my_bill_amount', $form_state->getValue('payMyBillAmount'))->save();
 		}
 		
   }
