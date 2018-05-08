@@ -5,9 +5,7 @@ namespace Drupal\mdx_pay_my_bill\Controller;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 
-require_once base_path() . '/anet_php_sdk/AuthorizeNet.php';
-
-print(base_path());
+require_once '/libraries/anet_php_sdk/AuthorizeNet.php';
 
 /**
  * Simple page controller for drupal.
@@ -61,7 +59,7 @@ class PayMyBill extends Page {
     else {
       $amount = $this->pay_my_bill_amount;
       $fp_sequence = $this->pay_my_bill_name . ' - ' . $this->pay_my_bill_account;
-      $forms = AuthorizeNetDPM::getCreditCardForm($amount, $fp_sequence, base_path() . '/paymybill/response', $this->loginID, $this->transactionKey, $this->testMode, $this->prefill);
+      $forms = AuthorizeNetDPM::getCreditCardForm($amount, $fp_sequence, '/paymybill/response', $this->loginID, $this->transactionKey, $this->testMode, $this->prefill);
       $_SESSION['display_form'] = FALSE;
     }
 		
