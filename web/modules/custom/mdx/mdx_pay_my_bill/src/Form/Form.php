@@ -49,6 +49,7 @@ abstract class Form extends FormBase {
   public function __construct(PathValidator $pathValidate, RequestStack $request, ConfigFactory $configFactory) {
     $this->pathValidate = $pathValidate;
     $this->request = $request;
+    $this->configFactory = $configFactory;
   }
 
   // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor

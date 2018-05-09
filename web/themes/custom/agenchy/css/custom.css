@@ -727,3 +727,6 @@ section#block-agenchy-content p img {
     float: left;
     padding: 0px 20px;
 }
+.white-color {
+  color: #fff !important;
+}

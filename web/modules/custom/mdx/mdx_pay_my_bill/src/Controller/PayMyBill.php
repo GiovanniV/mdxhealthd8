@@ -59,7 +59,7 @@ class PayMyBill extends Page {
     else {
       $amount = $this->pay_my_bill_amount;
       $fp_sequence = $this->pay_my_bill_name . ' - ' . $this->pay_my_bill_account;
-      $forms = AuthorizeNetDPM::getCreditCardForm($amount, $fp_sequence, '/paymybill/response', $this->loginID, $this->transactionKey, $this->testMode, $this->prefill);
+      $forms = \AuthorizeNetDPM::getCreditCardForm($amount, $fp_sequence, '/paymybill/response', $this->loginID, $this->transactionKey, $this->testMode, $this->prefill);
       $_SESSION['display_form'] = FALSE;
     }
 		

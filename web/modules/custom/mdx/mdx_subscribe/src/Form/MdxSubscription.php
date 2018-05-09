@@ -126,7 +126,7 @@ class MdxSubscription extends SubscriptionForm {
     
     $form['function'] = array(
       '#type' => 'select',
-      '#title' => t('Function'),
+      '#title' => t('TBD'),
       '#options' => array(
         'Investor' => 'Investor', 
         'Healthcare Professional' => 'Healthcare Professional', 
@@ -143,6 +143,7 @@ class MdxSubscription extends SubscriptionForm {
 
     $form['add_mail'] = array(
       '#type' => 'select',
+      '#access' => false,
       '#title' => t('Receive Additional Mails'),
       '#options' => array(
         'company' => t('Company'), 
@@ -174,7 +175,7 @@ class MdxSubscription extends SubscriptionForm {
 	  '#attributes' => [
 		'class' => ['btn'],
 	  ],
-	  '#prefix' => '<div class="col-sm-6 pt-3">',
+	  '#prefix' => '<div class="col-sm-6 ptb-3">',
 	  '#suffix' => '</div>',
     );
 
