@@ -65,12 +65,10 @@ class PayMyBill extends Page {
       $PayMyBillForm = \AuthorizeNetDPM::getCreditCardForm($amount, $fp_sequence, '/paymybill/response', $this->loginID, $this->transactionKey, $this->testMode, $this->prefill);
       $_SESSION['display_form'] = FALSE;
       
-      
       $render['form'] = [
-        '#type' => 'html',
-        '#value' => $PayMyBillForm,
+        '#markup' => $PayMyBillForm,
+        '#allowed_tags' => ['form', 'input', 'label', 'style']
       ];
-      
     }
 		
     
