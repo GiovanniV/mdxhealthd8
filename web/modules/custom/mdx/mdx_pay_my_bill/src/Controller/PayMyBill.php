@@ -66,8 +66,7 @@ class PayMyBill extends Page {
       $_SESSION['display_form'] = FALSE;
       
       $render['form'] = [
-        '#markup' => $PayMyBillForm,
-        '#allowed_tags' => ['form', 'input', 'label', 'style']
+        '#children' => $PayMyBillForm,
       ];
     }
 		
