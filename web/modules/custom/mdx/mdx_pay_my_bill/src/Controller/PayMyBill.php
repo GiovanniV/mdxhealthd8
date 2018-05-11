@@ -68,9 +68,7 @@ class PayMyBill extends Page {
       $render['form'] = [
         '#children' => $PayMyBillForm,
       ];
-    }
-		
-    
+    }  
     
 		$body = '<p>Please feel free to contact our Billing Department with any questions or concerns on <a href="tel:+1 866.259.5644">+1 866.259.5644</a> or email <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;tf=1&amp;to=patient.first@mdxhealth.com" target="_blank">patient.first@mdxhealth.com</a> Monday to Friday 8AM to 5PM Pacific Time.</p>';
 		
