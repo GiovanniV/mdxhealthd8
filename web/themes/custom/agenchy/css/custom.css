@@ -581,9 +581,9 @@ section#block-mdxsubscribeformblock-4 {
     background-color: #eb7e2a !important;
     padding-top: 30px;
     color: #000;
-    border: 10px solid #de6f05;
+    // border: 10px solid #de6f05;
     margin-bottom: 40px;
-    box-shadow: 17px 16px 0px #362269;
+    // box-shadow: 17px 16px 0px #362269;
 }
 
 #block-twitterblock-2 h3 {
