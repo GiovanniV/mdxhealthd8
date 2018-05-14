@@ -306,6 +306,15 @@ p iframe {
 }
 #footer .footer-search form{ float:left !important;}
 div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
+.tabs li {    margin-bottom: 10px;
+  }
+  .tabs {
+    text-align: left;
+  }
+  #tabPanel ul#_ulTab li a {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
 }
 @media screen and (min-width:320px) and  (max-width:480px){
 .btn-group.special {
@@ -335,15 +344,45 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
     margin: 0 !important;
 }
 #header nav {
-    margin: 0px 0px 0px 315px;
+    margin: 0px 0px 0px 270px !important;
 }
 #block-blockheadermiddlemenuandphone li.phone i.fa {
     padding: 7px 5px 0px 9px;
 }
+#tabPanel ul li a {
+    font-size: 12px !important;
+    margin: auto;
+}
+#tabPanel ul {
+    text-align: left !important;
+  }
+  .dbFooter {
+    float: left !important;
+    text-align: left !important;
+}
+.member-wrap {
+    padding-bottom: 160px !important;
+    }
+   .member-wrap ul.social-icons li a {
+    height: 22px;
+    width: 22px;
+  }
+  .member-wrap ul.social-icons li.facebook:before,.member-wrap ul.social-icons li.twitter:before,.member-wrap ul.social-icons li.linkedin:before,.member-wrap ul.social-icons li.mail:before,.member-wrap ul.social-icons li.googleplus:before {
+    left: 6px;
+    line-height: 24px;
+    font-size: 12px;
+  }
+  .member-wrap {
+    padding-bottom: 250px !important;
+    background: #f1f1f1;
+  }
 }
 @media screen and (max-width:470px) {
 	section#block-selectmdxforprostatecancernavigation a.btn.btn-default {
     border-bottom: 1px solid #fff; border-right: none !important;}
+    .member-wrap {
+    padding-bottom: 150px !important;
+  }
 }
 @media screen and (max-width:991px){
 	#header nav {
@@ -351,7 +390,7 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
 }
 #footer .footer-search form{ float:left !important;}
 div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
-.title-container+.container .col-sm-6{ padding:0px !important}
+
    
 }
 
@@ -838,6 +877,21 @@ section#block-agenchy-content p img {
     overflow: hidden;
     padding: 30px 0px;
 }
+.top-section #block-whatwedo {
+    width: 100%;
+}
+.top-section #block-whatwedo {
+    width: 100%;
+}
+ul#_ulTab li {
+    margin-bottom: 10px;
+}
+.investor-page-container .top-section:after{display: none;}
+}
+@media only screen and (max-width: 1024px) and (min-width: 768px){
+.team-page-container .views-field.views-field-nothing {
+    min-height: 880px;
+}
 }
 
 
@@ -871,28 +925,48 @@ section#block-agenchy-content p img {
     border: 3px solid #ab530f;
     margin-bottom: 20px;
 }
-/*#lowerpart .divtable input {
-    display: none !important;
+.divtable label {
+    margin-left: 5px !important;
 }
-#lowerpart input[type="checkbox"] + label:before {
-    border: 1px solid #bf621b !important;
-    content: "\00a0"!important;
-    display: inline-block!important;
-    font: 16px/1em sans-serif!important;
-    height: 16px!important;
-    background-color: #ffffff!important;
-    margin: 0 .25em 0 0!important;
-    padding: 0!important;
-    vertical-align: top!important;
-    width: 16px;
+ input[type="checkbox"] {
+    position: relative;
+    cursor: pointer;
 }
-#lowerpart input[type="checkbox"]:checked + label:before {
-    background: #d86f1e!important;
-    color: #ffffff!important;
-    content: "\2713"!important;
-    font-weight: 700!important;
-    text-align: center!important;
-}*/
+input[type="checkbox"]:before {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #e6e6e6;
+}
+
+ input[type="checkbox"]:checked:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: 0.5rem;
+    border-color: #eb7e2a;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+ input[type="checkbox"]:after {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    background: #fff;
+    cursor: pointer;
+}
 .member-wrap {
     padding-bottom: 150px !important;
     margin-bottom: 30px;
@@ -901,10 +975,8 @@ section#block-agenchy-content p img {
 #block-views-block-team-team .title-container {
     margin: 0px 20px;
 }
-.title {
-    color: #332a86 !important;
-}
-/*.investor-page-container input[type='radio']:after {
+
+ input[type='radio']:after {
     width: 12px;
     height: 12px;
     border-radius: 15px;
@@ -917,7 +989,7 @@ section#block-agenchy-content p img {
     visibility: visible;
     border: 1px solid #eb7e2a;
 }
-.investor-page-container input[type='radio']:checked:after {
+ input[type='radio']:checked:after {
     width: 12px;
     height: 12px;
     border-radius: 15px;
@@ -927,7 +999,7 @@ section#block-agenchy-content p img {
     background-color: #eb7e2a;
     content: '';
     border: 2px solid #d86b18;
-}*/
+}
 .tabs {
     text-align: left !important;
     float: none;
@@ -940,4 +1012,5 @@ section#block-agenchy-content p img {
 }
 #block-views-block-press-release-block .press-release-list:nth-child(1),#block-views-block-press-release-block .press-release-list:nth-child(3),#block-views-block-press-release-block .press-release-list:nth-child(5) {
     background-color: #f4f4f4;
+}
 }
