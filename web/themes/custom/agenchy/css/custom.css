@@ -664,16 +664,20 @@ section#block-selectinfo {
 
 section#block-mdxsubscribeformblock {
     padding: 15px 10px 50px;
-    color: #fff;
-    background-color: #362269 !important;
+    color: #000;
+    background-color: #eb7e2a !important;
+    border: 10px solid #de6f05;
+    margin-bottom: 40px;
+    box-shadow: 17px 16px 0px #362269;
 }
 
 #block-mdxsubscribeformblock input#edit-submit {
-    background-color: #eb7e2a !important;
+    background-color: #332a86 !important;
 }
 #block-mdxsubscribeformblock h3.title {
     padding: 10px 27px 0px;
-    color :#fff !important
+    color: #362269 !important;
+    font-weight: 400 !important;
 }
 #block-mdxsubscribeformblock span.separator.line-separator {
     left: 30px;
@@ -729,4 +733,211 @@ section#block-agenchy-content p img {
 }
 .white-color {
   color: #fff !important;
+}
+
+/*---- Team page Css----*/
+
+
+.team-page-container .main .col-md-3 {
+    width: 100% !important;
+}
+.team-page-container .main .col-md-9 {
+    width: 100% !important;
+}
+
+
+.team-page-container  .views-field.views-field-nothing {
+    width: 50%;
+    float: left;
+    min-height: 700px;
+    overflow: hidden;
+    padding: 30px 0px;
+}
+.team-page-container .member-img-wrap {
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 100%;
+    box-shadow: 5px 6px 20px #828282;
+}
+.team-page-container .team-list .col-md-4 {
+    width: 100% !important;
+    margin: auto;
+}
+.team-page-container .team-list .col-md-8 {
+    width: 100% !important;
+    margin: auto;
+}
+.team-page-container .member-detail-wrap {
+    margin: 40px 0px;
+    text-align: center;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(4) .member-img-wrap img ,#block-agenchy-content div .views-field.views-field-nothing:nth-child(8) .member-img-wrap img {
+    height: 200px;
+}
+
+.team-page-container .views-field.views-field-nothing:hover .member-img-wrap {
+    box-shadow: 0px 0px 10px;
+}
+.team-page-container .team-list .member-detail-wrap p {
+    color: #656565;
+}
+.team-page-containerul.js-pager__items li {
+    display: inline-block;
+    padding-right: 10px;
+}
+.team-page-container ul.js-pager__items li a span {
+    font-size: 22px;
+    font-weight: 700;
+}
+.team-page-container div#block-teammembertypes {
+    padding: 40px 0px;
+}
+.team-page-container ul.js-pager__items {
+    padding: 0px 60px;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(1){
+    background-color: #fff;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(4) {
+    background-color: #fff;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(5) {
+    background-color: #fff;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(8) {
+    background-color: #fff;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(9) {
+    background-color: #fff;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(2){
+    background-color: #e2e2e2;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(3){
+    background-color: #e2e2e2;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(6){
+    background-color: #e2e2e2;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(7){
+    background-color: #e2e2e2;
+}
+.team-page-container #block-agenchy-content div .views-field.views-field-nothing:nth-child(10){
+    background-color: #e2e2e2;
+}
+
+@media only screen and (max-width: 768px){
+    .team-page-container .views-field.views-field-nothing {
+    width: 100%;
+    float: none;
+    min-height: 10px;
+    margin-bottom: 30px;
+    border: 1px solid;
+    overflow: hidden;
+    padding: 30px 0px;
+}
+}
+
+
+/**----investor page**/
+.investor-page-container .top-section:after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    background: url(http://104.209.36.189/sites/default/files/inline-images/Screen%20Shot%202018-05-07%20at%201.48.10%20PM.png) no-repeat;
+    height: 230px;
+    box-shadow: 18px 16px 1px #d36104;
+    right: 40px;
+    top: 110px;
+}
+.top-section #block-whatwedo {
+    width: 60%;
+}
+.investor-page-container .top-section {
+    position: relative;
+}
+
+.investor-page-container .tabs-control ul.tabs {
+    text-align: left !important;
+}
+.investor-page-container #tabPanel ul#_ulTab {
+    text-align: left !important;
+}
+#block-financials p:nth-child(19) iframe {
+    width: 100%;
+    box-shadow: 12px 12px 0px #eb7e2a;
+    border: 3px solid #ab530f;
+    margin-bottom: 20px;
+}
+/*#lowerpart .divtable input {
+    display: none !important;
+}
+#lowerpart input[type="checkbox"] + label:before {
+    border: 1px solid #bf621b !important;
+    content: "\00a0"!important;
+    display: inline-block!important;
+    font: 16px/1em sans-serif!important;
+    height: 16px!important;
+    background-color: #ffffff!important;
+    margin: 0 .25em 0 0!important;
+    padding: 0!important;
+    vertical-align: top!important;
+    width: 16px;
+}
+#lowerpart input[type="checkbox"]:checked + label:before {
+    background: #d86f1e!important;
+    color: #ffffff!important;
+    content: "\2713"!important;
+    font-weight: 700!important;
+    text-align: center!important;
+}*/
+.member-wrap {
+    padding-bottom: 150px !important;
+    margin-bottom: 30px;
+    text-align: center;
+}
+#block-views-block-team-team .title-container {
+    margin: 0px 20px;
+}
+.title {
+    color: #332a86 !important;
+}
+/*.investor-page-container input[type='radio']:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    top: 0px;
+    left: -2px;
+    position: relative;
+    background-color: #ffffff;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 1px solid #eb7e2a;
+}
+.investor-page-container input[type='radio']:checked:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    top: -1px;
+    left: -3px;
+    position: relative;
+    background-color: #eb7e2a;
+    content: '';
+    border: 2px solid #d86b18;
+}*/
+.tabs {
+    text-align: left !important;
+    float: none;
+    }
+    #tabPanel ul {
+    text-align: left !important;
+    }
+    #block-views-block-press-release-block .press-release-list {
+    padding: 15px 15px 30px;
+}
+#block-views-block-press-release-block .press-release-list:nth-child(1),#block-views-block-press-release-block .press-release-list:nth-child(3),#block-views-block-press-release-block .press-release-list:nth-child(5) {
+    background-color: #f4f4f4;
 }
