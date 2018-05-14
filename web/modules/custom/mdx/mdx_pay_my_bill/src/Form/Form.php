@@ -12,6 +12,7 @@ use Drupal\Core\Path\PathValidator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Drupal\Core\Config\ConfigFactory;
 use Drupal\Core\Url;
 
 /**
@@ -48,6 +49,7 @@ abstract class Form extends FormBase {
   public function __construct(PathValidator $pathValidate, RequestStack $request, ConfigFactory $configFactory) {
     $this->pathValidate = $pathValidate;
     $this->request = $request;
+    $this->configFactory = $configFactory;
   }
 
   // Uses Symfony's ContainerInterface to declare dependency to be passed to constructor

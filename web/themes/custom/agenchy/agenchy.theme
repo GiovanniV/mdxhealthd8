@@ -498,7 +498,10 @@ function agenchy_preprocess_html(&$variables){
   	//kint($variables['#attached']);
 }
 function agenchy_preprocess_page(&$variables) {
-
+  $current_path = \Drupal::request()->getRequestUri();
+  $current_path = trim($current_path, '/');
+  $current_page_class = preg_replace('@[^a-z0-9-]+@','-', strtolower($current_path)) . '-page-container';
+  $variables['page_class'] = $current_page_class;
 	/*if (isset($variables['page']['content']['system_main']['default_message'])) {
   		unset($variables['page']['content']['system_main']['default_message']);
  	} */
