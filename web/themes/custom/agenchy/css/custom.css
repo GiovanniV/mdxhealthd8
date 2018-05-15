@@ -35,6 +35,11 @@
 }
 #header nav ul.nav-main li a {
   color: #362269;
+  font-weight: 500;
+}
+#header nav ul.nav-main li a:hover {
+  background-color: unset;
+  color: #f68933;
 }
 #header nav ul.nav-top li a, #header nav ul.nav-top li span {
   color: #362269;
@@ -458,9 +463,13 @@ li.linkedin a {
 #block-blockheadermiddlemenuandphone li a {
     padding-right: 20px !important;
     padding: 0px 0px 0px;
-    color: #332a86;
     line-height: 26px;
-    font-weight: 600;
+    color: #362269;
+    font-weight: 500;
+}
+#block-blockheadermiddlemenuandphone li a:hover {
+  background-image: unset;
+  color: #f68933;
 }
 #block-blockheadermiddlemenuandphone li.phone {
     color: #332a86;
