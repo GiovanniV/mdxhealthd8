@@ -259,7 +259,7 @@ form {
     height: 250px;
     margin-bottom: 10px;
 }
-.form-item-lang-dropdown-select:after {
+/*.form-item-lang-dropdown-select:after {
     content: "";
     position: absolute;
     background: url(/sites/default/files/inline-images/icon_flag.png) no-repeat;
@@ -267,7 +267,7 @@ form {
     height: 50px;
     top: 10px;
     left: 7px;
-}
+}*/
 .step-one,
 .step-two {
   display: none;
