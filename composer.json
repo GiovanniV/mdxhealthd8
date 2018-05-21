@@ -65,6 +65,7 @@
         "drupal/menu_attributes": "1.x-dev",
         "drupal/metatag": "^1.5",
         "drupal/pathauto": "^1.1",
+        "drupal/pdfpreview": "^1.0@RC",
         "drupal/php": "^1.0@beta",
         "drupal/redirect": "^1.1",
         "drupal/robotstxt": "^1.1",
