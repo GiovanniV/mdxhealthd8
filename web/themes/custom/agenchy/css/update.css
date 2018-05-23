@@ -565,6 +565,21 @@ div.comments .comment-block{
     border-color: #332a86;
     outline: 0;
 }
+
+.agenchy-form-get-quote form div input[type=text]{
+    width: 100%;
+}
+
+.agenchy-form-get-quote form div input[type=tel]{
+    width: 100%;
+}
+
+.agenchy-form-get-quote form div input[type=email]{
+    width: 100%;
+}
+
+
+
 .agenchy-page-review-form .order-review-table{
     width: 100%;
 }
@@ -740,6 +755,11 @@ div.comments .comment-block{
     margin-bottom: 25px;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
 }
+
+.agenchy-form-get-quote form div select{
+    width: 100%;
+}
+
 .agenchy-form-get-quote form div textarea:focus{
     border-color: #332a86;
     outline: 0;
