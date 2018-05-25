@@ -1,11 +1,26 @@
-.md-layer-4-48-0 {
-z-index: 999 !important;}
-.md-layer-4-48-1 {
-z-index: 1000 !important; text-align: left;
- font-size: 1em;
+.md-layer-4-54-0 {
+z-index: 999 !important; color: #390b9a !important;
+ font-size: 2.6666666666667em;
  font-weight: 400;
- font-family: "Georgia";
+ font-family: "Verdana";
  text-transform: none;
 }
-.md-layer-4-48-2 {
-z-index: 998 !important;}
+.md-layer-4-54-1 {
+z-index: 1000 !important;}
+.md-layer-4-55-0 {
+z-index: 999 !important;}
+.md-layer-4-55-1 {
+z-index: 1000 !important; color: #fcfcfc !important;
+ font-size: 1.8333333333333em;
+ font-weight: 700;
+ font-family: "Arial";
+}
+.md-layer-4-57-0 {
+z-index: 999 !important; color: #06146c !important;
+ font-size: 1.5em;
+ font-weight: 700;
+ font-family: "Arial";
+ text-transform: uppercase;
+}
+.md-layer-4-57-1 {
+z-index: 1000 !important;}

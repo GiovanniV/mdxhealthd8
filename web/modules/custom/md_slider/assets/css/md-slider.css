@@ -13,7 +13,7 @@
 .md-loading {background: #000 url("../images/loading.gif") no-repeat center center}
 
 /* slideshow */
-.md-slider-wrap {position: relative; height: 400px;}
+.md-slider-wrap {position: relative; height: 400px; margin:0 auto;}
 .md-slider-wrap img {max-width: inherit !important; min-width: inherit !important; max-height: inherit !important; min-height: inherit !important; width: auto;}
 .md-slide-wrap {position: relative;height: 100%; z-index: 2}
 .md-slide-items {position: relative; z-index: 1;height: 100%;width:100%;overflow: hidden;}

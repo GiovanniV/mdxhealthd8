@@ -308,7 +308,7 @@ section#block-mdxsubscribeformblock-4 .col-sm-6 {
 .language-dropdown {
     margin: -35px auto;
     display: table;
-    float:none;
+    #float:none;
 }
 .btn-responsive-nav {
    top: 15px;
@@ -358,7 +358,7 @@ div.search-block-form { width:  100%; float:  left; margin:10px 0px;}
 }
 @media screen and (max-width:600px){
   .language-dropdown {
-    margin: 14px auto 0px;
+    margin: 18px auto 0px;
 }
 
 }
@@ -732,6 +732,20 @@ section#block-selectinfo {
     border-left: 1px solid #fff !important;
     border-radius: 0px !important;
 }
+
+#block-careerssliderbottom {
+    background-color: #332a86 !important;
+}
+#block-careerssliderbottom a.btn.btn-default:hover {
+    background-color: #0000 !important;
+    color: #fff;
+}
+
+#block-careerssliderbottom a.btn.btn-default {
+    border-left: 1px solid #fff !important;
+    border-radius: 0px !important;
+}
+
 
 
 section#block-mdxsubscribeformblock {
